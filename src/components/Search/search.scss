@@ -8,7 +8,21 @@
   height: 30vh;
   padding: 1em;
   color: #fff;
-  //text-shadow: 2px 2px 1px black; 
+
+  &--content{
+    width: 100%;
+    
+    @media only screen and (min-width: $breakMini) {
+      /* tablets and desktop */
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    @media only screen and (min-width: $breackMedium) {
+      /* desktop */
+      width: 60%;
+    }
+  }
 
   &--title{
     font-size:2em;
@@ -25,11 +39,38 @@
 
     &--input{
       width: 80%;
-      margin-bottom: 1em;
+      margin-bottom: 0.5em;
       height: 2em;
       border: none;
       border-radius: 5px;
       padding: 1em;
+
+      @media only screen and (min-width: $breakMini) {
+        /* tablets and desktop */
+        width: 50%;
+        margin-bottom: 1em;
+        
+        &:nth-child(1){
+          border-radius: 5px 0 0 5px;
+          border-right: 1px solid #BC8B75;
+        }
+        &:nth-child(2){
+          border-radius: 0 5px 5px 0;
+        }
+      }
+
+      @media only screen and (min-width: $breackMedium) {
+        /* desktop */
+        width: 40%;
+
+        &:nth-child(1){
+          border-radius: 5px 0 0 5px;
+          border-right: 1px solid #BC8B75;
+        }
+        &:nth-child(2){
+          border-radius: 0;
+        }
+      }
     }
 
     &--button{
@@ -38,6 +79,17 @@
       border-radius: 5px;
       background-color: $colorAlt;
       height: 2em;
+
+      @media only screen and (min-width: $breakMini) {
+        /* tablets */
+        width: 100%;
+      }
+
+      @media only screen and (min-width: $breackMedium) {
+        /* desktop */
+        width: 20%;
+        border-radius: 0 5px 5px 0;
+      }
     }
   }
 }
