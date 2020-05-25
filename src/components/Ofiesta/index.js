@@ -3,16 +3,14 @@ import React from 'react';
 
 // == Import
 import NavBar from 'src/components/NavBar';
-import Search from 'src/components/Search';
+import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
 
 // == Composant
 const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
-    <Search />
-    <div>cards</div>
-    <div>themes</div>
+    <Page />
     <Footer />
   </div>
 );
