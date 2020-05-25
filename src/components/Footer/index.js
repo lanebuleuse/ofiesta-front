@@ -6,7 +6,7 @@ import './footer.scss';
 const Footer = () => (
   <footer className="footer">
     <section className="footer__contact">
-      <button type="button" className="footer__contact--form">Contactez-nous</button>
+      <button type="button" className="footer__contact--button">Contactez-nous</button>
       <div className="footer__contact__part">
         <i className="footer__contact__part__icon fa fa-home" aria-hidden="true" />
         <h4 className="footer__contact__part__title">Adresse</h4>

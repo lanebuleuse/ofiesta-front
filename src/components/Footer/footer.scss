@@ -3,22 +3,45 @@
 .footer{
   background-color: $colorMain;
 
+  @media only screen and (min-width: $breakMini) {
+    /* tablets */
+    display: flex;
+    padding: 0 3em;
+  }
+
   & section{
     width: 50%;
     margin: 0 auto;
     padding: 1em 0;
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid gray;
+
+    @media only screen and (min-width: $breakMini) {
+      /* tablets */
+      margin: 1em;
+      border-bottom: none;
+      border-right: 1px solid gray;
+      padding: 0 1em;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
   }
 
   &__contact{
 
-    &--form{
+    &--button{
       background-color: $colorAlt;
       padding: 0.5em;
       width: 100%;
       margin: 0 auto;
       border: none;
       border-radius: 5px;
+
+      &:hover{
+        background-color: $colorOther;
+        color: #fff;
+      }
     }
     
     &__part {
@@ -42,7 +65,6 @@
       }
 
       &__title {
-          font-size: 1.3em;
           font-weight: bold;
           letter-spacing: -1px;
           margin-bottom:  0.5em;
@@ -58,10 +80,18 @@
 
     & li {
       margin-top: 0.5em;
-    }    
+
+      & a{
+        &:hover{
+          background-color: $colorOther;
+          color: #fff;
+        }
+      }      
+    }
+        
   }
   &__socials{
-    
+    text-align: center;
   }
 }
 
