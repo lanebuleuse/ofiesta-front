@@ -2,25 +2,38 @@
 
 .search{
   background-image: url(../../assets/images/concert.jpg);
-  background-size: 100%;
+  /* background-size: cover; */
+  background-size: cover;
   background-position: 100%;
   width: 100%;
   height: 220px;
   padding: 1em;
   color: #fff;
 
+  @media only screen and (min-width: $breakMini) {
+    /* tablets and desktop */
+    height: 280px;
+  }
+
+  @media only screen and (min-width: $breackMedium) {
+    /* desktop */
+    height: 380px;
+  }
+
   &--content{
     width: 100%;
     
     @media only screen and (min-width: $breakMini) {
       /* tablets and desktop */
-      width: 80%;
-      margin: 0 auto;
+      width: 70%;
+      max-width: 600px;
+      margin: 3rem auto 0;
     }
 
     @media only screen and (min-width: $breackMedium) {
       /* desktop */
-      width: 60%;
+      width: 50%;
+      max-width: 800px;
     }
   }
 
