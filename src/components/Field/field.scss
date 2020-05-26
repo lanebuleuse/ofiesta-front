@@ -1,0 +1,42 @@
+@import 'src/styles/vars';
+
+.field {
+  position: relative;
+  width: 100%;
+  margin: 2rem auto;
+
+  @media screen and (min-width: $breakMini) {
+    width: 45%;
+    max-width: 280px;
+  }
+
+  .field-label {
+    display: none;
+    position: absolute;
+    top: -0.6rem;
+    left: 0rem;
+    font-weight: 700;
+    color: $colorMain;
+    font-size: .6em;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    animation: labelSlideUpAndShow .3s;
+  }
+
+  .field-input {
+    display: inline-block;
+    width: 100%;
+    height: 2.5rem;
+    border: 0;
+    border-bottom: 1px solid $colorMain;
+    padding: 0.5rem;
+  }
+
+  .field--hasContent .field-label {
+    display: block;
+  }
+
+  .field--hasContent .adminConnect-input {
+    padding: 1.4em .7em .2em;
+  }
+}

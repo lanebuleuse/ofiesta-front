@@ -13,7 +13,7 @@ const NavBar = () => (
       <input type="checkbox" id="chkToggle" />
       <ul className="main-nav" id="js-menu">
         <li>
-          <a href="#" className="nav-links">Home</a>
+          <a href="/" className="nav-links">Accueil</a>
         </li>
         <li>
           <a href="#" className="nav-links">Products</a>
@@ -25,7 +25,7 @@ const NavBar = () => (
           <a href="#" className="nav-links">Contact Us</a>
         </li>
         <li>
-          <a href="#" className="nav-links">Blog</a>
+          <a href="/se-connecter" className="nav-links">Se connecter</a>
         </li>
       </ul>
     </nav>
