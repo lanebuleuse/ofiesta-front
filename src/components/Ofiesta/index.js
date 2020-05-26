@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from 'src/components/NavBar';
 import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
-import ConnectMembers from 'src/components/ConnectMembers';
+import ConnectMembers from 'src/containers/ConnectMembers';
 
 // == Composant
 const Ofiesta = () => (
