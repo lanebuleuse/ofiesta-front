@@ -30,7 +30,7 @@
     }
 
     &--image {
-      height: 20%;
+      height: 30%;
       object-fit: cover;
     }
 
@@ -48,5 +48,9 @@
         line-height: 1.5em;
       }
     }
+
+    &__list{
+      height: 40%;
+    }   
   }
 }

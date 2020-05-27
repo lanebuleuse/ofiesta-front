@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 
 
 const CardElement = () => (
@@ -23,10 +23,9 @@ const CardElement = () => (
     <ListGroup className="cardElement__list list-group-flush">
       <ListGroupItem className="cardElement__list--item"><span>Note </span></ListGroupItem>
       <ListGroupItem className="cardElement__list--item"><span>Tarif à partir de </span>650€</ListGroupItem>
+      <Button className="cardElement--button">Go somewhere</Button>
     </ListGroup>
-    <Card.Body>
-      <Card.Link href="#">Voir plus</Card.Link>
-    </Card.Body>
+    
   </Card>
 );
 
