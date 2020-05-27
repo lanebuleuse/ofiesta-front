@@ -1,20 +1,22 @@
 @import 'src/styles/vars';
-
 .footer{
   background-color: $colorMain;
-
+  // height: 200px;
+  h3 {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline black;
+  }
   @media only screen and (min-width: $breakMini) {
     /* tablets */
     display: flex;
     padding: 0 3em;
   }
-
   & section{
     width: 50%;
     margin: 0 auto;
     padding: 1em 0;
     border-bottom: 2px solid gray;
-
     @media only screen and (min-width: $breakMini) {
       /* tablets */
       margin: 1em;
@@ -22,14 +24,11 @@
       border-right: 1px solid gray;
       padding: 0 1em;
     }
-
     &:last-child {
       border-right: none;
     }
   }
-
   &__contact{
-
     &--button{
       background-color: $colorAlt;
       padding: 0.5em;
@@ -37,50 +36,61 @@
       margin: 0 auto;
       border: none;
       border-radius: 5px;
-
       &:hover{
         background-color: $colorOther;
         color: #fff;
       }
     }
-    
     &__part {
       border-bottom: 1px solid black;
       position: relative;
       padding: 1em 0;
-
-
+      &__icon {
+        padding-left: 40px;
+      }
+      & h4 {
+        padding-left: 70px;
+      }
       &:last-child {
           border: none;
       }
-
       &__icon {
           color: black;
           position: absolute;
       }
-
       &__title,
       &__content {
           margin-left: 2rem;
+          padding-top: 0;
       }
-
       &__title {
           font-weight: bold;
+          margin-left: 100px;
           letter-spacing: -1px;
           margin-bottom:  0.5em;
+          font-size: 1em;
       }
-
       &__content {
           color: black;
           display: block;
+          font-size: 0.8em;
+          padding-left: 100px;
+          &__mail {
+            margin-left: 1.5rem;
+            font-size: 0.9em;
+            padding-left: 100px;
+            &:hover{
+              text-decoration: underline black;
+            }
+          }
       }
   }
   }
   &__links{
-
     & li {
       margin-top: 0.5em;
-
+      text-align: center;
+      line-height: 1.4em;
       & a{
         &:hover{
           background-color: $colorOther;
@@ -88,20 +98,18 @@
         }
       }      
     }
-        
   }
   &__socials{
     text-align: center;
   }
 }
-
 /* RESAUX SOCIAUX */
 .icon-button {
 	background-color: white;
 	border-radius: 3.6rem;
 	cursor: pointer;
 	display: inline-block;
-	font-size: 2.0rem;
+	font-size: 1.5rem;
 	height: 3.6rem;
 	line-height: 3.6rem;
 	margin: 0 5px;
@@ -113,7 +121,6 @@
 	        user-select: none;
 	width: 3.6rem;
 }
-
 /* Circle */
 .icon-button span {
 	border-radius: 0;
@@ -144,7 +151,6 @@
 .linkedin span {
 	background-color: #0e76a8;
 }
-
 /* Icons */
 .icon-button i {
 	background: none;
