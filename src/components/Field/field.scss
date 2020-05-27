@@ -28,7 +28,7 @@
     width: 100%;
     height: 2.5rem;
     border: 0;
-    border-bottom: 1px solid $colorMain;
+    border-bottom: 1px solid $colorOther;
     padding: 0.5rem;
   }
 
@@ -39,4 +39,17 @@
   .field--hasContent .adminConnect-input {
     padding: 1.4em .7em .2em;
   }
+
+  @keyframes labelSlideUpAndShow{
+    0% {
+      transform: translateY(1em);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0em);
+      opacity: 1;
+    }
+  }
+
 }
+
