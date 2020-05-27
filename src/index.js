@@ -19,7 +19,6 @@ const rootReactElement = (
       <Ofiesta />
     </Router>
   </Provider>
-  
 );
 // 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
 const target = document.getElementById('root');
