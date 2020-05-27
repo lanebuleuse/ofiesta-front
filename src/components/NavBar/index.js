@@ -7,7 +7,7 @@ const NavBar = () => (
   <header>
     <nav className="navbar">
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
-        <i className="fa fa-bars" />
+        &#9776;
       </label>
       <a href="/" className="logo">OFIESTA</a>
       <input type="checkbox" id="chkToggle" />
@@ -25,7 +25,7 @@ const NavBar = () => (
           <a href="#" className="nav-links">Contact Us</a>
         </li>
         <li>
-          <a href="/se-connecter" className="nav-links">Se connecter</a>
+          <a href="/se-connecter" className="nav-links">Se connecter</a> / <a href="/inscription">S'inscrire</a>
         </li>
       </ul>
     </nav>
