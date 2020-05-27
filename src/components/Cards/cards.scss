@@ -2,50 +2,88 @@
 
 .cards {
   padding: 0 1em;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
   @media only screen and (min-width: $breakMini) {
     /* tablets */
-    display: flex;
-    flex-wrap: wrap;
+
+    //width: 75%;
+    //margin: 0 auto;
   }
 
   @media only screen and (min-width: $breackMedium) {
     /* tablets */
-    width: 90%;
-    margin: 0 auto;
+    // width: 90%;
+    // margin: 0 auto;
   }
 
-  .cardElement {
-    width: 100%;
-    margin-bottom: 1em;
+  .card {
+    width: 280px;
+    margin: 1em;
+    height: 430px;
+    border-radius: 15px;
+    padding-bottom: 1em;
 
-    @media only screen and (min-width: $breakMini) {
-      /* tablets */
-      width: calc(50%-2em);
-      margin: 1em;
-    }
+    // @media only screen and (min-width: $breakMini) {
+    //   /* tablets */
+    //   width: calc(50%-2em);
+    //   margin: 1em;
+    // }
 
-    @media only screen and (min-width: $breackMedium) {
-      /* tablets */
-      width: calc(25%-2em);
-    }
+    // @media only screen and (min-width: $breackMedium) {
+    //   /* tablets */
+    //   width: calc(25%-2em);
+    // }
 
     &--image {
-      height: 20%;
-      object-fit: cover;
+      width: 100%;
+      height: auto;
+      //object-fit: cover;
+      background-position: center;
+      border-radius: 15px 15px 0 0;
     }
 
-    &__body{
-      height: 30%;
-
+    &__content {
+      height: 50%;
+      padding: 1em;
       &--title {
         font-weight: bold;
+        margin-bottom: 1em;
       }
 
       &--text {
         font-size: 0.7em;
-        letter-spacing: 1px;
         text-align: justify;
         line-height: 1.5em;
+        margin-bottom: 1em;
+      }
+
+      &__list {
+        &--item {
+          border: none;
+
+          & span {
+            font-size: 0.9em;
+            font-style: italic;
+          }
+        }
+      }
+    }
+
+    &__button {
+      background-color: $colorAlt;
+      padding: 0.5em;
+      width: 80%;
+      margin: 0 auto;
+      border: none;
+      border-radius: 5px;
+      &:hover {
+        background-color: $colorOther;
+        color: #fff;
       }
     }
   }

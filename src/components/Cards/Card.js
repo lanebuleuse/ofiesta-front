@@ -1,33 +1,31 @@
 import React from 'react';
-import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-
-const CardElement = () => (
-  <Card className="cardElement">
-    <Card.Img
-      variant="top"
+const Card = () => (
+  <div className="card">
+    <img
       src="https://source.unsplash.com/800x600/?dj"
-      className="cardElement--image"
+      className="card--image"
+      alt=""
     />
-    <Card.Body className="cardElement__body">
-      <Card.Title className="cardElement__body--title">Fiestamania</Card.Title>
-      <Card.Text className="cardElement__body--text">
+    <div className="card__content">
+      <h3 className="card__content--title">Fiestamania</h3>
+      <p className="card__content--text">
         Leader en Ile de France depuis déjà 13 ans,
         Fiestamania aura le désir de personnaliser votre mariage
         ayant conscience du caractère exceptionnel de votre demande.
-        Conseillé par de nombreux lieux de prestige, Fiestamania sera
-        votre partenaire idéal pour votre réception, l'équipe s'est vue
-        assurer plus...
-      </Card.Text>
-    </Card.Body>
-    <ListGroup className="cardElement__list list-group-flush">
-      <ListGroupItem className="cardElement__list--item"><span>Note </span></ListGroupItem>
-      <ListGroupItem className="cardElement__list--item"><span>Tarif à partir de </span>650€</ListGroupItem>
-    </ListGroup>
-    <Card.Body>
-      <Card.Link href="#">Voir plus</Card.Link>
-    </Card.Body>
-  </Card>
+      </p>
+      <ul className="card__content__list">
+        <li className="card__content__list--item">
+          <span>Note ☆☆☆☆☆</span>
+        </li>
+        <li className="card__content__list--item">
+          <span>Tarif à partir de </span>
+          500€
+        </li>
+      </ul>
+    </div>
+    <button className="card__button" type="button">Voir plus</button>
+  </div>
 );
 
-export default CardElement;
+export default Card;
