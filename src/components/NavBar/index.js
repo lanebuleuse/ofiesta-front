@@ -9,7 +9,7 @@ const NavBar = () => (
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
         &#9776;
       </label>
-      <a href="#" className="logo">OFIESTA</a>
+      <a href="/" className="logo">OFIESTA</a>
       <input type="checkbox" id="chkToggle" />
       <ul className="main-nav" id="js-menu">
         <li>

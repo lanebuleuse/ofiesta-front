@@ -1,41 +1,21 @@
 import React from 'react';
+import { CardDeck } from 'react-bootstrap';
 
-import Card from 'src/components/Cards/Card';
+import CardElement from 'src/components/Cards/Card';
 
 import './cards.scss';
 
 const Cards = () => (
   <div className="cards">
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
-    <Card />
+    <CardElement />
+    <CardElement />
+    <CardElement />
+    <CardElement />
+    <CardElement />
+    <CardElement />
+    <CardElement />
+    <CardElement />
+    <CardElement />
   </div>
 );
 

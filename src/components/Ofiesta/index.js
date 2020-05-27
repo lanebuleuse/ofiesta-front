@@ -24,7 +24,7 @@ const Ofiesta = () => (
         <Page />
       </Route>
     </Switch>
-{/*     <Footer /> */}
+    <Footer />
   </div>
 );
 
