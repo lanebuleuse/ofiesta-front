@@ -3,12 +3,14 @@ import { combineReducers } from 'redux';
 // We import the different Reducer
 /* import administrationReducer from './administration'; */
 import userReducer from './user';
+import newUserReducer from './newUser';
 
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
 
   /* administration: administrationReducer, */
   user: userReducer,
+  newUer: newUserReducer,
 });
 
 // pour accéder au state défini dans le reducer 'recipesReducer', il faudra que je

@@ -7,7 +7,7 @@ import NavBar from 'src/components/NavBar';
 import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
-import NewMembers from 'src/components/NewMembers';
+import NewMember from 'src/components/NewMember';
 
 // == Composant
 const Ofiesta = () => (
@@ -15,7 +15,7 @@ const Ofiesta = () => (
     <NavBar />
     <Switch>
       <Route path="/inscription">
-        <NewMembers />
+        <NewMember />
       </Route>
       <Route path="/se-connecter">
         <ConnectMembers />

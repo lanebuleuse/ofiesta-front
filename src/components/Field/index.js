@@ -24,7 +24,7 @@ const Field = ({
         name={name}
         type={type}
         placeholder={placeholder}
-        className={styles}
+        className="field-input"
         value={value}
         onChange={handleChange}
       />

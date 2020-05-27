@@ -1,29 +1,46 @@
 @import 'src/styles/vars';
 
-.connectMembers{
+.newMembers {
   margin: 2rem auto;
   padding:1rem;
+  max-width: 400px;
 
-  .connectMembers-form {
+  @media screen and (min-width: $breakMini) {
+    width:90%;
+    max-width: 800px;
+  }
+
+  .newMembers-title {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $colorAlt;
+  }
+
+  .newMembers-form {
     margin: 0.5rem auto 2rem;
     padding: 0 1rem 3rem;
-    max-width: 400px;
 
     @media screen and (min-width: $breakMini) {
-      width:60%;
-      max-width: 400px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
 
-    .connectMembers-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: $colorAlt;
+    .field {
+      width: 100%;
+
+      @media screen and (min-width: $breakMini) {
+        width: 40%;
+      }
     }
+
+    
 
     .adminConnect-submit {
       display: inline-block;
       width: 100%;
-      margin: 0.5 auto;
+      margin: 1rem auto;
       margin-bottom: 0.5rem;
       padding: 0.5rem 0;
       border-radius: 0.3rem;
@@ -31,21 +48,6 @@
       background-color: $colorOther;
       font-size: 1.1rem;
       color: white;
-    }
-  
-    .adminConnect-forgot {
-      margin-top: 0.4rem;
-      text-align: right;
-      display: block;
-      font-size: 0.8rem;
-      text-decoration: underline;
-
-      @media screen and (min-width: $breakMini) {
-        display: block;
-        margin: 0 auto;
-        width:100%;
-        max-width: 400px;
-      }
     }
 
     .connectMembers-linkAccount {
@@ -57,15 +59,4 @@
       color: $colorOther;
     }
   }
-
-  .close {
-    display: none;
-  }
-
-  .arrowClose {
-    transform: rotate(-90deg);
-  }
-
-
 }
-
