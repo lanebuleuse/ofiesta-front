@@ -28,7 +28,7 @@ const ConnectMembers = ({ changeField, email, password }) => {
           value={password}
         />
         <button type="submit" className="adminConnect-submit">Se connecter</button>
-        <p className="connectMembers-linkAccount"><a>Vous n'avez pas encore de compte</a></p>
+        <p className="connectMembers-linkAccount"><a href="/inscription">Vous n'avez pas encore de compte</a></p>
       </form>
 
     </div>

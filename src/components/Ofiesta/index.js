@@ -7,12 +7,16 @@ import NavBar from 'src/components/NavBar';
 import Page from 'src/components/Page';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
+import NewMembers from 'src/components/NewMembers';
 
 // == Composant
 const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
+      <Route path="/inscription">
+        <NewMembers />
+      </Route>
       <Route path="/se-connecter">
         <ConnectMembers />
       </Route>

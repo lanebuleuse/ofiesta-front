@@ -1,0 +1,23 @@
+@import 'src/styles/vars';
+
+.newMembers {
+  margin: 2rem auto;
+  padding:1rem;
+
+  .newMembers-form {
+    margin: 0.5rem auto 2rem;
+    padding: 0 1rem 3rem;
+    max-width: 400px;
+
+    @media screen and (min-width: $breakMini) {
+      width:60%;
+      max-width: 400px;
+    }
+
+    .newMembers-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: $colorMain;
+    }
+  }
+}
