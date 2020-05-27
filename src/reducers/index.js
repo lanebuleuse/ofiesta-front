@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
 
   /* administration: administrationReducer, */
   user: userReducer,
-  newUer: newUserReducer,
+  newUser: newUserReducer,
 });
 
 // pour accéder au state défini dans le reducer 'recipesReducer', il faudra que je

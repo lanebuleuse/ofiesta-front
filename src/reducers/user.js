@@ -1,4 +1,4 @@
-import { CHANGE_IMPUNT_VALUE } from 'src/actions/user';
+import { CHANGE_IMPUNT_VALUE, CONNECT_USER } from 'src/actions/user';
 
 
 const initialState = {
@@ -14,6 +14,11 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    case CONNECT_USER:
+      console.log('passage 3');
+      return {
+        ...state,
       };
 
     default: return state;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { CardDeck } from 'react-bootstrap';
 
 import CardElement from 'src/components/Cards/Card';
 

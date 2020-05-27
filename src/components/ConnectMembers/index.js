@@ -4,9 +4,15 @@ import Field from 'src/components/Field';
 
 import './connectMembers.scss';
 
-const ConnectMembers = ({ changeField, email, password }) => {
+const ConnectMembers = ({
+  changeField,
+  email,
+  password,
+  handleLogin,
+}) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleLogin();
   };
   return (
     <div className="connectMembers">
@@ -39,6 +45,7 @@ ConnectMembers.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default ConnectMembers;
