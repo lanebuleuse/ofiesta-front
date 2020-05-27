@@ -4,18 +4,23 @@
   margin: 2rem auto;
   padding:1rem;
 
-  .connectMembers-title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: $colorMain;
-    cursor: pointer;
-  }
-
-  .connectMembers-signin {
+  .connectMembers-form {
     margin: 0.5rem auto 2rem;
     padding: 0 1rem 3rem;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 400px;
+
+    @media screen and (min-width: $breakMini) {
+      width:60%;
+      max-width: 400px;
+    }
+
+
+    .connectMembers-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: $colorMain;
+      cursor: pointer;
+    }
 
     .adminConnect-submit {
       display: inline-block;
@@ -29,12 +34,6 @@
       font-size: 1.1rem;
       font-weight: 700;
       color: white;
-
-      @media screen and (min-width: $breakMini) {
-        margin: 0 auto;
-        width:60%;
-        max-width: 400px;
-      }
     }
   
     .adminConnect-forgot {
@@ -50,6 +49,14 @@
         width:100%;
         max-width: 400px;
       }
+    }
+
+    .connectMembers-linkAccount {
+      cursor: pointer;
+      margin-top: 2rem;
+      text-align: center;
+      text-decoration: underline;
+      color: $colorOther;
     }
   }
 

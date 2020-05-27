@@ -17,8 +17,8 @@ const Field = ({
   };
 
   return (
-    <div className={value.length > 0 ? 'field field--hasContent' : 'field'}>
-      <label className="field-label" htmlFor="ident">{placeholder}</label>
+    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+      <label className="field-label" htmlFor={name}>{placeholder}</label>
       <input
         id={name}
         name={name}

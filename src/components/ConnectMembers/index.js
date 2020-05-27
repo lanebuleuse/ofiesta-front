@@ -10,7 +10,7 @@ const ConnectMembers = ({ changeField, email, password }) => {
   };
   return (
     <div className="connectMembers">
-      <form className="connectMembers-signin" onSubmit={handleSubmit}>
+      <form className="connectMembers-form" onSubmit={handleSubmit}>
         <h1 className="connectMembers-title">Se connecter à votre espace</h1>
         <Field
           name="email"
@@ -28,7 +28,9 @@ const ConnectMembers = ({ changeField, email, password }) => {
           value={password}
         />
         <button type="submit" className="adminConnect-submit">Se connecter</button>
+        <p className="connectMembers-linkAccount"><a>Vous n'avez pas encore de compte</a></p>
       </form>
+
     </div>
   );
 };

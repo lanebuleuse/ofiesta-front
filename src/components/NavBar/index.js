@@ -7,7 +7,7 @@ const NavBar = () => (
   <header>
     <nav className="navbar">
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
-        <i className="fa fa-bars" />
+        &#9776;
       </label>
       <a href="#" className="logo">OFIESTA</a>
       <input type="checkbox" id="chkToggle" />
