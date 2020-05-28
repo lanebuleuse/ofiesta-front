@@ -2,7 +2,12 @@
 
 .memberArea {
   margin: 1rem auto;
-  width: 90%; 
+  width: 90%;
+
+  @media only screen and (min-width: $breakMedium) {
+    /* tablets */
+    max-width: 700px;
+  }
 
   .memberArea-subTitle {
     font-size: 1.1rem;
@@ -14,8 +19,13 @@
     position: relative;
     margin: 2rem 0;
     border: 1px solid $colorOther;
+    box-shadow: 0 0 5px  rgba(165, 165, 165, 0.5);
     border-radius: 0.2rem;
     padding: 0.5rem;
+
+    & p, a {
+      font-size: 0.9rem;
+    }
   }
 
   .memberArea-title {
@@ -34,5 +44,22 @@
     background-color: $colorAlt;
     padding: 0.4rem 1rem;
     font-size: 0.7rem;
+
+    &:hover {
+      border-color: $colorOther;
+      background-color: $colorOther;
+      color: white;
+    }
+  }
+
+  .memberArea-detail {
+    padding-bottom: 0.5rem;
+  }
+
+  .fa {
+    text-align: center;
+    font-size: 1.4rem;
+    width: 40px;
+    padding: 0rem;
   }
 }

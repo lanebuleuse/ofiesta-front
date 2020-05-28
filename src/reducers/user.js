@@ -4,8 +4,13 @@ import { CHANGE_IMPUNT_VALUE, CONNECT_USER } from 'src/actions/user';
 const initialState = {
   // ici l'état initial
   isLogged: false,
-  email: '',
-  password: '',
+  firstname: 'Jacques',
+  lastname: 'Daniel',
+  phone: '0672543094',
+  adress: '15 rue du blanc poney',
+  cp: '74000',
+  city: 'annecy',
+  email: 'Jacquesdaniel@jeboistrop.com',
   favori: [],
 };
 

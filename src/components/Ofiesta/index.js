@@ -6,7 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from 'src/containers/NavBar';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
-import MemberArea from 'src/components/MemberArea';
+import MemberArea from 'src/containers/MemberArea';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
 import Home from 'src/components/Home';
