@@ -24,6 +24,7 @@ const Ofiesta = () => (
         <NewMember />
       </Route>
       <Route path="/toto">
+        <Search />
         <Prestataire />
       </Route>
       <Route path="/">

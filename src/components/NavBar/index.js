@@ -22,7 +22,10 @@ const NavBar = () => (
           <a href="#" className="nav-links">Contact Us</a>
         </li>
         <li>
-          <a href="/se-connecter" className="nav-links">Se connecter</a> / <a href="/inscription">S'inscrire</a>
+          <a href="/se-connecter" className="nav-links">Se connecter</a>
+        </li>
+        <li>
+          <a href="/inscription" className="nav-links">S'inscrire</a>
         </li>
       </ul>
     </nav>
