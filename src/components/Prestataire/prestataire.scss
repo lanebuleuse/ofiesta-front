@@ -6,6 +6,10 @@
   &__top {
     margin-bottom: 1em;
 
+    @media only screen and (min-width: $breakMini) {
+      display: flex;
+    }
+
     &--title {
       font-size: 2em;
       font-weight: bold;
@@ -21,6 +25,69 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+
+      &--contact {
+        width: 40%;
+        border: none;
+        border-radius: 5px;
+        background-color: $colorAlt;
+        height: 2em;
+        font-size: 0.8em;
+
+        &:hover {
+          background-color: $colorOther;
+          color: #fff;
+        }       
+      }
+
+      &--fav {
+        border: none;
+        background-color: #fff;
+        font-size: 2em;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  &__intro {
+
+    @media only screen and (min-width: $breakMini) {
+      display: flex;
+    }
+
+    &--carousel {
+      width: 80%;
+      margin: 0 auto 1em;
+
+      @media only screen and (min-width: $breakMini) {
+        width: 40%;
+      }
+    }
+
+    &__infos {
+
+      &--title {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      &--label {
+        margin: 1em 0 0.5em;
+        font-weight: bold;
+        font-style: italic;
+      }
+    }    
+  }
+  &__details {
+    margin-top: 1em;
+
+    &--description {
+      margin-top: 0.5em;
+      text-align: justify;
     }
   }
 }
+
