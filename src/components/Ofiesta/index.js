@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from 'src/components/NavBar';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
+import MemberArea from 'src/components/MemberArea';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
 import Cards from 'src/components/Cards';
@@ -17,6 +18,10 @@ const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
+      <Route path="/membre">
+        <Search />
+        <MemberArea />
+      </Route>
       <Route path="/se-connecter">
         <ConnectMembers />
       </Route>

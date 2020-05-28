@@ -49,7 +49,7 @@ const NewMember = ({
         <Field
           name="phone"
           styles="field-input"
-          type="tel"
+          type="phone"
           placeholder="Téléphone"
           onChange={changeField}
           value={phone}
@@ -81,7 +81,7 @@ NewMember.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  phone: PropTypes.number.isRequired,
+  phone: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   passwordbis: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
