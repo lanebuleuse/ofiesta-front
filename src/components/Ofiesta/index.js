@@ -3,7 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import
-import NavBar from 'src/components/NavBar';
+import NavBar from 'src/containers/NavBar';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
 import MemberArea from 'src/components/MemberArea';

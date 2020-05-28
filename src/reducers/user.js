@@ -6,6 +6,7 @@ const initialState = {
   isLogged: false,
   email: '',
   password: '',
+  favori: [],
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -19,6 +20,7 @@ const userReducer = (state = initialState, action = {}) => {
       console.log('passage 3');
       return {
         ...state,
+        isLogged: true,
       };
 
     default: return state;

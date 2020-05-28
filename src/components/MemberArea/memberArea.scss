@@ -1,0 +1,17 @@
+@import 'src/styles/vars';
+
+.memberArea {
+  margin: 1rem auto;
+  width: 90%;
+
+  .memberArea-favori {
+    margin: 1rem 0;
+  }
+
+  .memberArea-title {
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $colorAlt;
+  }
+}
