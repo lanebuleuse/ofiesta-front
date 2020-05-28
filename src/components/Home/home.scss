@@ -2,9 +2,17 @@
 
 .home {
   padding: 0 1em;
-  max-width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  @media only screen and (min-width: $breakMini) {
+    max-width: 1000px;
+  }
+
+  @media only screen and (min-width: $breakMedium) {
+    max-width: 1300px;
+  }
 }

@@ -15,7 +15,7 @@
     height: 300px;
   }
 
-  @media only screen and (min-width: $breackMedium) {
+  @media only screen and (min-width: $breakMedium) {
     /* desktop */
     height: 380px;
   }
@@ -30,7 +30,7 @@
       margin: 3rem auto 0;
     }
 
-    @media only screen and (min-width: $breackMedium) {
+    @media only screen and (min-width: $breakMedium) {
       /* desktop */
       width: 50%;
       max-width: 700px;
@@ -73,7 +73,7 @@
         }
       }
 
-      @media only screen and (min-width: $breackMedium) {
+      @media only screen and (min-width: $breakMedium) {
         /* desktop */
         width: 40%;
 
@@ -99,7 +99,7 @@
         width: 100%;
       }
 
-      @media only screen and (min-width: $breackMedium) {
+      @media only screen and (min-width: $breakMedium) {
         /* desktop */
         width: 20%;
         border-radius: 0 5px 5px 0;
