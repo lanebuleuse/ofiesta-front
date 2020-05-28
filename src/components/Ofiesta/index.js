@@ -9,7 +9,7 @@ import ConnectMembers from 'src/containers/ConnectMembers';
 import MemberArea from 'src/components/MemberArea';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
-import Cards from 'src/components/Cards';
+import Home from 'src/components/Home';
 import Prestataire from 'src/components/Prestataire';
 
 
@@ -34,7 +34,7 @@ const Ofiesta = () => (
       </Route>
       <Route path="/">
         <Search />
-        <Cards />
+        <Home />
       </Route>
     </Switch>
     <Footer />

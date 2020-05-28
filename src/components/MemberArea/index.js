@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Card from 'src/components/Cards/Card';
+import Card from 'src/components/Card';
 
 import './memberArea.scss';
 
