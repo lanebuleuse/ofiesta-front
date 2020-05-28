@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
 
@@ -9,6 +11,7 @@ const ConnectMembers = ({
   email,
   password,
   handleLogin,
+  isLogged,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -36,7 +39,7 @@ const ConnectMembers = ({
         <button type="submit" className="adminConnect-submit">Se connecter</button>
         <p className="connectMembers-linkAccount"><a href="/inscription">Vous n'avez pas encore de compte</a></p>
       </form>
-
+      {/* {isLogged && (<Redirect to="/" />)} */}
     </div>
   );
 };
@@ -46,6 +49,7 @@ ConnectMembers.propTypes = {
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  isLogged: PropTypes.string.isRequired,
 };
 
 export default ConnectMembers;

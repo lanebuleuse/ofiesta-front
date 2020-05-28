@@ -12,12 +12,12 @@
 
   @media only screen and (min-width: $breakMini) {
     /* tablets and desktop */
-    height: 300px;
+    height: 280px;
   }
 
   @media only screen and (min-width: $breakMedium) {
     /* desktop */
-    height: 380px;
+    height: 300px;
   }
 
   &--content{

@@ -3,12 +3,12 @@ import { CHANGE_IMPUNT_VALUE, CREATE_NEW_USER } from 'src/actions/newUser';
 
 const initialState = {
   // ici l'état initial
-  firstname: 'toto',
-  lastname: 'ju',
-  email: 'gre74@aol.com',
-  phone: '0670382221',
-  password: 'qsdqsd74',
-  passwordbis: 'qsdqsd74',
+  firstname: '',
+  lastname: '',
+  email: '',
+  phone: '',
+  password: '',
+  passwordbis: '',
 };
 
 const newUserReducer = (state = initialState, action = {}) => {
