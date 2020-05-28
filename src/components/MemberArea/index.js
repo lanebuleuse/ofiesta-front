@@ -6,21 +6,20 @@ import './memberArea.scss';
 
 const MemberArea = () => (
   <div className="memberArea">
-    <h1 className="memberArea-title">Mes prestataires favoris</h1>
     <div className="memberArea-favori">
-      <h2>Mes traiteurs</h2>
-      <div>
-        <Card />
-      </div>
+      <h2 className="memberArea-subTitle">Mes favoris</h2>
+      <ul>
+        <li><a>Mes locations de salles</a></li>
+        <li><a>Mes traiteurs</a></li>
+        <li><a>Mes traiteurs</a></li>
+        <li><a>Tous mes favoris</a></li>
+      </ul>
     </div>
-
-    <div className="memberArea-favori">
-      <h2>Mes salles</h2>
-      <div>
-        <Card />
-      </div>
+    <div className="memberArea-mesinfos">
+      <h2 className="memberArea-subTitle">Mes infos</h2>
+      <a className="memberArea-modifier">Modifier</a>
+      <p className="">Lemoine Grégory</p>
     </div>
-
   </div>
 );
 

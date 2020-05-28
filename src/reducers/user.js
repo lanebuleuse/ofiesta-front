@@ -12,10 +12,12 @@ const initialState = {
 const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_IMPUNT_VALUE:
+      console.log('je change la valeur');
       return {
         ...state,
         [action.name]: action.value,
       };
+
     case CONNECT_USER:
       console.log('passage 3');
       return {
