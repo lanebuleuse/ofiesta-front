@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Button, Modal } from 'react-bootstrap';
@@ -24,8 +26,8 @@ const ContactPrestat = ({ isLogged }) => {
             </Modal.Body>
 
             <Modal.Footer>
-              <button type="button" href="/inscription" className="button-contact">S'inscrire</button>
-              <button type="button" href="/se-connecter" className="button-contact">Se connecter</button>
+              <Link type="button" to="/inscription" className="button-contact">S'inscrire</Link>
+              <Link type="button" href="/se-connecter" className="button-contact">Se connecter</Link>
             </Modal.Footer>
           </>
         )}

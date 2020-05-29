@@ -2,13 +2,15 @@ import { connect } from 'react-redux';
 
 import Home from 'src/components/Home';
 
-import { } from 'src/actions/services';
+import { } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
-  services: state.services.listServices,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+
+
 
 });
 

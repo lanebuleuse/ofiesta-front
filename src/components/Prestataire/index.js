@@ -2,7 +2,7 @@
 import React from 'react';
 
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
-import ContactPresta from 'src/components/ContactPresta';
+import ContactPresta from 'src/containers/ContactPresta';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
