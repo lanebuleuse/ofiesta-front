@@ -17,12 +17,6 @@ const NavBar = ({ isLogged }) => (
         <li>
           <a href="/" className="nav-links">Accueil</a>
         </li>
-        <li>
-          <a href="#" className="nav-links">Products</a>
-        </li>
-        <li>
-          <a href="#" className="nav-links">Contact Us</a>
-        </li>
         {(!isLogged) && (
           <>
             <li>

@@ -12,7 +12,6 @@ import Search from 'src/components/Search';
 import Home from 'src/components/Home';
 import Prestataire from 'src/components/Prestataire';
 
-
 // == Composant
 const Ofiesta = () => (
   <div className="ofiesta">

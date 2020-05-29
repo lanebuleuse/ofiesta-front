@@ -1,0 +1,15 @@
+@import 'src/styles/vars';
+
+.button-contact {
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  background-color: $colorAlt;
+  height: 2em;
+  font-size: 0.8em;
+
+  &:hover {
+    background-color: $colorOther;
+    color: #fff;
+  } 
+}

@@ -1,19 +1,33 @@
 /* eslint-disable max-len */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
+import ContactPresta from 'src/components/ContactPresta';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './prestataire.scss';
 
-const Prestataire = () => (
+const Prestataire = ({ isLogged }) => (
   <section className="prestataire">
     <div className="prestataire__top">
       <h4 className="prestataire__top--title">Fiestamania</h4>
       <div className="prestataire__top--grades">☆☆☆☆☆</div>
       <div className="prestataire__top__buttons">
-        <button className="prestataire__top__buttons--contact" type="button">Nous Contactez</button>
-        <button className="prestataire__top__buttons--fav" type="button">♡</button>
+        {/* {(!isLogged) && (
+          <p>Merci de vous connecter pour pouvoir contacter ce prestataire</p>
+        )}
+        {(isLogged) && (
+          <>
+            <ContactPresta />
+            <button className="prestataire__top__buttons--fav" type="button">♡</button>
+          </>
+        )} */}
+        <>
+          <ContactPresta />
+          <button className="prestataire__top__buttons--fav" type="button">♡</button>
+        </>
       </div>
     </div>
     <div className="prestataire__intro">
@@ -51,5 +65,9 @@ const Prestataire = () => (
     </div>
   </section>
 );
+
+Prestataire.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+};
 
 export default Prestataire;
