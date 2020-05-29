@@ -1,6 +1,5 @@
 // == Import npm
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import
@@ -16,7 +15,7 @@ import Presentation from 'src/components/Presentation';
 import ConnectPresta from '../ConnectPresta';
 
 // == Composant
-const Ofiesta = ({ listServices }) => (
+const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
@@ -32,7 +31,7 @@ const Ofiesta = ({ listServices }) => (
       </Route>
       <Route path="/:id">
         <Search />
-        <Prestataire service={listServices} />
+        <Prestataire />
       </Route>
       <Route path="/presentation">
         <Search />
@@ -49,10 +48,6 @@ const Ofiesta = ({ listServices }) => (
     <Footer />
   </div>
 );
-
-Ofiesta.propTypes = {
-  listServices: PropTypes.array.isRequired,
-};
 
 // == Export
 export default Ofiesta;
