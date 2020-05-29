@@ -2,20 +2,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { useParams } from 'react-router-dom';
+
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
-import ContactPresta from 'src/containers/ContactPresta';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './prestataire.scss';
 
-const Prestataire = ({ }) => {
 
+const Prestataire = ({ services }) => {
+  const { id } = useParams();
+  const service = services.find((currentService) => currentService.id == id);
+  console.log(services);
+  console.log(service);
   return (
     <section className="prestataire">
-      {/* <div className="prestataire__top">
-        <h4 className="prestataire__top--title">Fiestamania</h4>
-        <div className="prestataire__top--grades">☆☆☆☆☆</div>
+      <div className="prestataire__top">
+        <h4 className="prestataire__top--title">{service.title}</h4>
+        <div className="prestataire__top--grades">☆☆☆☆☆ {service.note}</div>
         <div className="prestataire__top__buttons">
           {/* <ContactPresta /> */}
           <button className="prestataire__top__buttons--fav" type="button">♡</button>
@@ -26,17 +31,17 @@ const Prestataire = ({ }) => {
         <div className="prestataire__intro__infos">
           <h5 className="prestataire__intro__infos--title">Infos</h5>
           <p className="prestataire__intro__infos--label">Adresse :</p>
-          <p className="prestataire__intro__infos--content">Centre ville 75000 Paris (Paris)</p>
+          <p className="prestataire__intro__infos--content">{service.address} {service.postalCode} {service.city}</p>
           <p className="prestataire__intro__infos--label">Prix :</p>
-          <p className="prestataire__intro__infos--content">Tarif à partir de 650€</p>
+          <p className="prestataire__intro__infos--content">Tarif à partir de {service.price}€</p>
           <p className="prestataire__intro__infos--label">Minimun invités :</p>
-          <p className="prestataire__intro__infos--content">10</p>
+          <p className="prestataire__intro__infos--content">{service.minGuest}</p>
           <p className="prestataire__intro__infos--label">Maimun invités :</p>
-          <p className="prestataire__intro__infos--content">5000</p>
+          <p className="prestataire__intro__infos--content">{service.maxGuest}</p>
         </div>
       </div>
       <div className="prestataire__details">
-        <h5 className="prestataire__intro__infos--title">Description Fiestamania</h5>
+        <h5 className="prestataire__intro__infos--title">Description {service.title}</h5>
         <p className="prestataire__details--description">
           Leader en Ile de France depuis déjà 13 ans, Fiestamania aura le désir de personnaliser votre mariage ayant conscience du caractère exceptionnel de votre demande. Conseillé par de nombreux lieux de prestige, Fiestamania sera votre partenaire idéal pour votre réception, l'équipe s'est vue assurer plus de 1500 mariages et les avis des mariés sont unanimes.
           Services proposés
@@ -53,9 +58,14 @@ const Prestataire = ({ }) => {
           C'est à Paris que Fiestamania a décidé d'installer ses locaux pour être au plus près de vos besoins et de vos attentes. Cependant l'entreprise sera en mesure de se déplacer dans toute l'Ile de France et ses départements limitrophes.
           La société de déplace aussi dans un périmètre de 200 kilomètres dans la région Bourgogne- Lyonnaise- Annecy.
         </p>
-      </div> */}
+      </div>
     </section>
   );
+  ;
+};
+
+Prestataire.propTypes = {
+  services: PropTypes.arrayOf().isRequired,
 };
 
 export default Prestataire;

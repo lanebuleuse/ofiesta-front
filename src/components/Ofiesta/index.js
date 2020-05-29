@@ -10,7 +10,7 @@ import MemberArea from 'src/containers/MemberArea';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
 import Home from 'src/containers/Home';
-import Prestataire from 'src/components/Prestataire';
+import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from '../ConnectPresta';
 

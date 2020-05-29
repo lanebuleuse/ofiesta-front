@@ -1,5 +1,5 @@
-@import 'src/styles/vars';
-.footer{
+@import "src/styles/vars";
+.footer {
   bottom: 0;
   background-color: $colorMain;
   margin: 0 auto;
@@ -10,48 +10,47 @@
     display: flex;
     padding: 0 3em;
   }
-  & section{
+  & section {
     //width: 100%;
-    margin: 1rem auto;
+    //margin: 1rem auto;
     /* padding: 1em 0; */
-    
+
     @media only screen and (min-width: $breakMini) {
       /* tablets */
       margin: 1em;
       border-bottom: none;
       padding: 0 1em;
       text-align: center;
-
     }
   }
-  &__links{
-	@media only screen and (min-width: $breakMini) {
-        /* tablets */
-        width: 70%;
-      }
+  &__links {
+    @media only screen and (min-width: $breakMini) {
+      /* tablets */
+      width: 70%;
+    }
 
     & li {
-	  // margin-top: 0.5em;
-	  font-size: 0.9rem;
+      // margin-top: 0.5em;
+      font-size: 0.9rem;
       text-align: center;
       line-height: 1.4em;
-	  display: block;
-	  padding: 0 0.5rem;
+      display: block;
+      padding: 0 0.5rem;
 
       @media only screen and (min-width: $breakMini) {
         /* tablets */
         display: inline;
       }
 
-      & a{
-        &:hover{
+      & a {
+        &:hover {
           background-color: $colorOther;
           color: #fff;
         }
       }
     }
   }
-  &__socials{
+  &__socials {
     text-align: center;
 
     @media only screen and (min-width: $breakMini) {
@@ -60,88 +59,86 @@
     }
     .footer__contact__part__follow {
       margin-bottom: 0.6rem;
-
-
     }
   }
 }
 /* RESAUX SOCIAUX */
 .icon-button {
-	background-color: white;
-	border-radius: 2rem;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 1rem;
-	height: 2rem;
-	line-height: 2rem;
-	margin: 0 5px;
-	position: relative;
-	text-align: center;
-	-webkit-user-select: none;
-	   -moz-user-select: none;
-	    -ms-user-select: none;
-	        user-select: none;
-	width: 2rem;
+  background-color: white;
+  border-radius: 2rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin: 0 5px;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 2rem;
 }
 /* Circle */
 .icon-button span {
   margin-top: 15px;
-	border-radius: 0;
-	display: block;
-	height: 0;
-	left: 50%;
-	margin: 0;
-	position: absolute;
-	top: 50%;
-	-webkit-transition: all 0.3s;
-	   -moz-transition: all 0.3s;
-	     -o-transition: all 0.3s;
-	        transition: all 0.3s;
-	width: 0;
+  border-radius: 0;
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 0;
 }
 .icon-button:hover span {
-	width: 2rem;
-	height: 2rem;
-	border-radius: 2rem;
-  margin: -1rem
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  margin: -1rem;
 }
 
 .twitter span {
-	background-color: #4099ff;
+  background-color: #4099ff;
 }
 .facebook span {
-	background-color: #3B5998;
+  background-color: #3b5998;
 }
 .linkedin span {
-	background-color: #0e76a8;
+  background-color: #0e76a8;
 }
 /* Icons */
 .icon-button i {
-	background: none;
-	color: white;
-	height: 2rem;
-	left: 0;
-	line-height: 2rem;
-	position: absolute;
-	top: 0;
-	-webkit-transition: all 0.3s;
-	   -moz-transition: all 0.3s;
-	     -o-transition: all 0.3s;
-	        transition: all 0.3s;
-	width: 2rem;
-	z-index: 10;
+  background: none;
+  color: white;
+  height: 2rem;
+  left: 0;
+  line-height: 2rem;
+  position: absolute;
+  top: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 2rem;
+  z-index: 10;
 }
 .icon-button .fa-twitter {
-	color: #4099ff;
+  color: #4099ff;
 }
 .icon-button .fa-facebook {
-	color: #3B5998;
+  color: #3b5998;
 }
 .icon-button .fa-linkedin {
-	color: #0e76a8;
+  color: #0e76a8;
 }
 .icon-button:hover .fa-twitter,
 .icon-button:hover .fa-facebook,
 .icon-button:hover .fa-linkedin {
-	color: white;
+  color: white;
 }
