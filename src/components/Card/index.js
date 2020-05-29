@@ -34,7 +34,7 @@ const Card = ({
       </ul>
     </div>
     <Link
-      to={`/${id}`}
+      to={`/prestataire/${id}`}
       className="card__button"
     >
       Voir plus

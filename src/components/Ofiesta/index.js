@@ -20,10 +20,7 @@ const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
-      <Route path="/" exact>
-        <Search />
-        <Home />
-      </Route>
+      
       <Route path="/connecter-presta">
         <ConnectPresta />
       </Route>
@@ -37,13 +34,17 @@ const Ofiesta = () => (
       <Route path="/inscription">
         <NewMember />
       </Route>
-      <Route path="/:id">
+      <Route path="/prestataire/:id">
         <Search />
         <Prestataire />
       </Route>
       <Route path="/presentation">
         <Search />
         <Presentation />
+      </Route>
+      <Route path="/">
+        <Search />
+        <Home />
       </Route>
     </Switch>
     <Footer />
