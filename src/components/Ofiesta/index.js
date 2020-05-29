@@ -12,6 +12,8 @@ import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
 import Home from 'src/containers/Home';
 import Prestataire from 'src/components/Prestataire';
+import Presentation from 'src/components/Presentation';
+import ConnectPresta from '../ConnectPresta';
 
 // == Composant
 const Ofiesta = ({ listServices }) => (
@@ -31,6 +33,13 @@ const Ofiesta = ({ listServices }) => (
       <Route path="/:id">
         <Search />
         <Prestataire service={listServices} />
+      </Route>
+      <Route path="/presentation">
+        <Search />
+        <Presentation />
+      </Route>
+      <Route path="/connecter-presta">
+        <ConnectPresta />
       </Route>
       <Route path="/">
         <Search />
