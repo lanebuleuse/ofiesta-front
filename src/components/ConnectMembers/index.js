@@ -1,12 +1,21 @@
 import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
 
 import './connectMembers.scss';
 
-const ConnectMembers = ({ changeField, email, password }) => {
+const ConnectMembers = ({
+  changeField,
+  email,
+  password,
+  handleLogin,
+  isLogged,
+}) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    handleLogin();
   };
   return (
     <div className="connectMembers">
@@ -30,7 +39,7 @@ const ConnectMembers = ({ changeField, email, password }) => {
         <button type="submit" className="adminConnect-submit">Se connecter</button>
         <p className="connectMembers-linkAccount"><a href="/inscription">Vous n'avez pas encore de compte</a></p>
       </form>
-
+      {/* {isLogged && (<Redirect to="/" />)} */}
     </div>
   );
 };
@@ -39,6 +48,8 @@ ConnectMembers.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  isLogged: PropTypes.string.isRequired,
 };
 
 export default ConnectMembers;

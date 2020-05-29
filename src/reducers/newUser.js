@@ -1,4 +1,4 @@
-import { CHANGE_IMPUNT_VALUE } from 'src/actions/newUser';
+import { CHANGE_IMPUNT_VALUE, CREATE_NEW_USER } from 'src/actions/newUser';
 
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
   email: '',
   phone: '',
   password: '',
-  checkpassword: '',
+  passwordbis: '',
 };
 
 const newUserReducer = (state = initialState, action = {}) => {
@@ -17,6 +17,12 @@ const newUserReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+
+    case CREATE_NEW_USER:
+      console.log('Passage 3');
+      return {
+        ...state,
       };
 
     default: return state;

@@ -1,0 +1,106 @@
+@import "src/styles/vars";
+
+.prestataire {
+  padding: 1em;
+  @media only screen and (min-width: $breakMedium) {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  &__top {
+    margin-bottom: 1em;
+
+    @media only screen and (min-width: $breakMini) {
+      display: flex;
+    }
+
+    &--title {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    &--grades {
+      color: $colorAlt;
+      margin-bottom: 0.3em;
+    }
+
+    &__buttons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      @media only screen and (min-width: $breakMini) {
+        justify-content: space-around;
+      }
+
+      &--contact {
+        width: 40%;
+        border: none;
+        border-radius: 5px;
+        background-color: $colorAlt;
+        height: 2em;
+        font-size: 0.8em;
+
+        &:hover {
+          background-color: $colorOther;
+          color: #fff;
+        }       
+      }
+
+      &--fav {
+        border: none;
+        background-color: #fff;
+        font-size: 2em;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  &__intro {
+
+    @media only screen and (min-width: $breakMini) {
+      display: flex;
+      padding: 0 4em;
+    }
+
+    &--carousel {
+      width: 80%;
+      margin: 0 auto 1em;
+
+      @media only screen and (min-width: $breakMini) {
+        width: 60%;
+        margin: 0 5em 1em 0;
+      }
+    }
+
+    &__infos {
+      @media only screen and (min-width: $breakMini) {
+        width: 60%;
+      }
+
+      &--title {
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      &--label {
+        margin: 1em 0 0.5em;
+        font-weight: bold;
+        font-style: italic;
+      }
+    }    
+  }
+  &__details {
+    margin-top: 1em;
+
+    &--description {
+      margin-top: 0.5em;
+      text-align: justify;
+    }
+  }
+}
+
