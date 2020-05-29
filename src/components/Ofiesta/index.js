@@ -9,7 +9,7 @@ import ConnectMembers from 'src/containers/ConnectMembers';
 import MemberArea from 'src/containers/MemberArea';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
-import Home from 'src/components/Home';
+import Home from 'src/containers/Home';
 import Prestataire from 'src/components/Prestataire';
 
 // == Composant
