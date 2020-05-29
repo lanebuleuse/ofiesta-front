@@ -9,15 +9,15 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './prestataire.scss';
 
-const Prestataire = ({ listServices }) => {
-  console.log(listServices);
+const Prestataire = ({ }) => {
+
   return (
     <section className="prestataire">
       <div className="prestataire__top">
         <h4 className="prestataire__top--title">Fiestamania</h4>
         <div className="prestataire__top--grades">☆☆☆☆☆</div>
         <div className="prestataire__top__buttons">
-          <ContactPresta />
+          {/* <ContactPresta /> */}
           <button className="prestataire__top__buttons--fav" type="button">♡</button>
         </div>
       </div>
@@ -56,10 +56,6 @@ const Prestataire = ({ listServices }) => {
       </div>
     </section>
   );
-};
-
-Prestataire.propTypes = {
-  listServices: PropTypes.arrayOf().isRequired,
 };
 
 export default Prestataire;

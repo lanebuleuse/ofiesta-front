@@ -19,7 +19,6 @@ const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
-      
       <Route path="/connecter-presta">
         <ConnectPresta />
       </Route>
@@ -41,7 +40,7 @@ const Ofiesta = () => (
         <Search />
         <Presentation />
       </Route>
-      <Route path="/">
+      <Route path="/" exact>
         <Search />
         <Home />
       </Route>
