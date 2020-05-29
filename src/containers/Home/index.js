@@ -5,7 +5,7 @@ import Home from 'src/components/Home';
 import { } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
-
+  services: state.services.listServices,
 });
 
 const mapDispatchToProps = (dispatch) => ({
