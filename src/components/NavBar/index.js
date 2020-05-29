@@ -12,29 +12,29 @@ const NavBar = ({ isLogged }) => (
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
         &#9776;
       </label>
-      <a href="/" className="logo">OFIESTA</a>
+      <Link to="/" className="logo">OFIESTA</Link>
       <input type="checkbox" id="chkToggle" />
       <ul className="main-nav" id="js-menu">
         <li>
-          <Link href="/" className="nav-links">Accueil</Link>
+          <Link to="/" className="nav-links">Accueil</Link>
         </li>
         {(!isLogged) && (
           <>
             <li>
-              <Link href="/se-connecter" className="nav-links">Se connecter</Link>
+              <Link to="/se-connecter" className="nav-links">Se connecter</Link>
             </li>
             <li>
-              <Link href="/inscription" className="nav-links">S'inscrire</Link>
+              <Link to="/inscription" className="nav-links">S'inscrire</Link>
             </li>
           </>
         )}
         {(isLogged) && (
           <>
             <li>
-              <Link href="/mon-compte" className="nav-links">Mon compte</Link>
+              <Link to="/mon-compte" className="nav-links">Mon compte</Link>
             </li>
             <li>
-              <Link href="#" className="nav-links">Se déconnecter</Link>
+              <Link to="#" className="nav-links">Se déconnecter</Link>
             </li>
           </>
         )}
