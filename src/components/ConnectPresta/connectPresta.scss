@@ -1,0 +1,69 @@
+@import 'src/styles/vars';
+
+.connectPresta{
+  margin: 2rem auto;
+  padding:1rem;
+
+  .connectPresta-form {
+    margin: 0.5rem auto 2rem;
+    padding: 0 1rem 3rem;
+    max-width: 400px;
+
+    @media screen and (min-width: $breakMini) {
+      width:60%;
+      max-width: 400px;
+    }
+
+    .connectPresta-messages {
+      font-size: 0.8rem;
+      font-weight: 700;
+      // color: $colorAlt;
+      display: flex;
+    }
+
+    .connectPresta-texte {
+      display: inline-block;
+      border: solid;
+      width: 30%;
+
+    }
+
+    .adminConnect-submit {
+      display: inline-block;
+      width: 30%;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 0;
+      border-radius: 0.3rem;
+      border: 0;
+      background-color: $colorOther;
+      font-size: 0.9rem;
+      color: white;
+      margin-left: 230px;
+    }
+  
+    .adminConnect-forgot {
+      margin-top: 0.4rem;
+      text-align: right;
+      display: block;
+      font-size: 0.8rem;
+      text-decoration: underline;
+
+      @media screen and (min-width: $breakMini) {
+        display: block;
+        margin: 0 auto;
+        width:100%;
+        max-width: 400px;
+      }
+    }
+
+    .connectPresta-linkAccount {
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-top: 2rem;
+      text-align: center;
+      text-decoration: underline;
+      color: $colorOther;
+    }
+  }
+}
+

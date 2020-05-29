@@ -9,6 +9,8 @@ import ConnectMembers from 'src/containers/ConnectMembers';
 import NewMember from 'src/components/NewMember';
 import Search from 'src/components/Search';
 import Cards from 'src/components/Cards';
+import Presentation from 'src/components/Presentation';
+import ConnectPresta from '../ConnectPresta';
 
 
 // == Composant
@@ -21,6 +23,13 @@ const Ofiesta = () => (
       </Route>
       <Route path="/inscription">
         <NewMember />
+      </Route>
+      <Route path="/presentation">
+        <Search />
+        <Presentation />
+      </Route>
+      <Route path="/connecter-presta">
+        <ConnectPresta />
       </Route>
       <Route path="/">
         <Search />
