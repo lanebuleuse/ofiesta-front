@@ -17,7 +17,7 @@ const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
-      <Route path="/membre">
+      <Route path="/mon-compte">
         <Search />
         <MemberArea />
       </Route>

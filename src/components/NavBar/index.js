@@ -30,10 +30,10 @@ const NavBar = ({ isLogged }) => (
         {(isLogged) && (
           <>
             <li>
-              <a className="nav-links">Mon compte</a>
+              <a href="/mon-compte" className="nav-links">Mon compte</a>
             </li>
             <li>
-              <a className="nav-links">Se déconnecter</a>
+              <a href="#" className="nav-links">Se déconnecter</a>
             </li>
           </>
         )}
