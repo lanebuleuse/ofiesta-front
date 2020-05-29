@@ -19,7 +19,6 @@ const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
-      
       <Route path="/connecter-presta">
         <ConnectPresta />
       </Route>

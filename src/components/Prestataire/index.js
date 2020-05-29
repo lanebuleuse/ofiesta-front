@@ -13,7 +13,7 @@ const Prestataire = ({ listServices }) => {
   console.log(listServices);
   return (
     <section className="prestataire">
-      <div className="prestataire__top">
+      {/* <div className="prestataire__top">
         <h4 className="prestataire__top--title">Fiestamania</h4>
         <div className="prestataire__top--grades">☆☆☆☆☆</div>
         <div className="prestataire__top__buttons">
@@ -53,7 +53,7 @@ const Prestataire = ({ listServices }) => {
           C'est à Paris que Fiestamania a décidé d'installer ses locaux pour être au plus près de vos besoins et de vos attentes. Cependant l'entreprise sera en mesure de se déplacer dans toute l'Ile de France et ses départements limitrophes.
           La société de déplace aussi dans un périmètre de 200 kilomètres dans la région Bourgogne- Lyonnaise- Annecy.
         </p>
-      </div>
+      </div> */}
     </section>
   );
 };
