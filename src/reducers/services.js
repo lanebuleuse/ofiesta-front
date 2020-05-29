@@ -1,15 +1,15 @@
-import { } from 'src/actions/service';
+import { } from 'src/actions/services';
 
 
 const initialState = {
   // Initial State
-  listSrvice: [
+  listServices: [
     {
       'id': 1,
       'title': "DJ Fire",
       'address': "50 rue de la rue",
       'postalCode': 75000,
-      'city": "Paris',
+      'city': "Paris",
       'department': "75",
       'price': 450,
       'note': "4",
@@ -75,10 +75,10 @@ const initialState = {
   ],
 };
 
-const serviceReducer = (state = initialState, action = {}) => {
+const servicesReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     default: return state;
   }
 };
 
-export default serviceReducer;
+export default servicesReducer;
