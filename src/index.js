@@ -8,7 +8,7 @@ import store from 'src/store';
 
 // == Import : local
 // Composants
-import Ofiesta from 'src/containers/Ofiesta';
+import Ofiesta from 'src/components/Ofiesta';
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
