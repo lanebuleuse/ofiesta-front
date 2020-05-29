@@ -16,10 +16,17 @@ import Presentation from 'src/components/Presentation';
 import ConnectPresta from '../ConnectPresta';
 
 // == Composant
-const Ofiesta = ({ listServices }) => (
+const Ofiesta = () => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
+      <Route path="/" exact>
+        <Search />
+        <Home />
+      </Route>
+      <Route path="/connecter-presta">
+        <ConnectPresta />
+      </Route>
       <Route path="/mon-compte">
         <Search />
         <MemberArea />
@@ -32,27 +39,16 @@ const Ofiesta = ({ listServices }) => (
       </Route>
       <Route path="/:id">
         <Search />
-        <Prestataire service={listServices} />
+        <Prestataire />
       </Route>
       <Route path="/presentation">
         <Search />
         <Presentation />
       </Route>
-      <Route path="/connecter-presta">
-        <ConnectPresta />
-      </Route>
-      <Route path="/">
-        <Search />
-        <Home />
-      </Route>
     </Switch>
     <Footer />
   </div>
 );
-
-Ofiesta.propTypes = {
-  listServices: PropTypes.array.isRequired,
-};
 
 // == Export
 export default Ofiesta;
