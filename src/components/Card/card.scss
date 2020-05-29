@@ -36,10 +36,23 @@
 
         & span {
           font-size: 0.9em;
-          font-style: italic;
+          margin: 0 0.5rem;
         }
       }
     }
+  }
+
+  .fa-star {
+    color: $colorOther;
+  }
+  
+  .fa-star-o {
+    border-color: $colorOther;
+    color: $colorOther;
+  }
+
+  .stars {
+    padding: 0 0.2rem 0 0;
   }
 
   &__button {

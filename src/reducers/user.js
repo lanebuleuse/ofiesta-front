@@ -1,4 +1,4 @@
-import { CHANGE_IMPUNT_VALUE, CONNECT_USER } from 'src/actions/user';
+import { CHANGE_IMPUNT_VALUE, CONNECT_USER, DISCONNECT_USER } from 'src/actions/user';
 
 
 const initialState = {
@@ -28,6 +28,12 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: true,
+      };
+
+    case DISCONNECT_USER:
+      return {
+        ...state,
+        isLogged: false,
       };
 
     default: return state;

@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable max-len */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -12,18 +13,30 @@ import './prestataire.scss';
 
 
 const Prestataire = ({ services }) => {
+  const handleClick = () => {
+    console.log('click');
+  };
+  const stars = [];
   const { id } = useParams();
   const service = services.find((currentService) => currentService.id == id);
-  console.log(services);
-  console.log(service);
+  for (let i = 0; i < 5; i += 1) {
+    if (i < service.note) {
+      stars.push(<i className="stars fa fa-star" aria-hidden="true" />);
+    }
+    else {
+      stars.push(<i className="stars fa fa-star-o" aria-hidden="true" />);
+    }
+  }
   return (
     <section className="prestataire">
       <div className="prestataire__top">
         <h4 className="prestataire__top--title">{service.title}</h4>
-        <div className="prestataire__top--grades">☆☆☆☆☆ {service.note}</div>
+        <div className="prestataire__top--grades">
+          {stars}
+        </div>
         <div className="prestataire__top__buttons">
           {/* <ContactPresta /> */}
-          <button className="prestataire__top__buttons--fav" type="button">♡</button>
+          <i className="fa fa-heart-o" aria-hidden="true" onClick={handleClick} />
         </div>
       </div>
       <div className="prestataire__intro">
@@ -61,11 +74,10 @@ const Prestataire = ({ services }) => {
       </div>
     </section>
   );
-  ;
 };
 
 Prestataire.propTypes = {
-  services: PropTypes.arrayOf().isRequired,
+  services: PropTypes.array.isRequired,
 };
 
 export default Prestataire;
