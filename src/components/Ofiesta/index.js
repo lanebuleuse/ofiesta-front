@@ -40,7 +40,7 @@ const Ofiesta = () => (
         <Search />
         <Presentation />
       </Route>
-      <Route path="/">
+      <Route path="/" exact>
         <Search />
         <Home />
       </Route>
