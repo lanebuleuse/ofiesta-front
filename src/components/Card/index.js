@@ -1,8 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import './card.scss';
 
-const Card = () => (
+const Card = ({
+  title,
+  price,
+  note,
+  id,
+}) => (
   <div className="card">
     <img
       src="https://source.unsplash.com/800x600/?dj"
@@ -10,7 +17,7 @@ const Card = () => (
       alt=""
     />
     <div className="card__content">
-      <h3 className="card__content--title">Fiestamania</h3>
+      <h3 className="card__content--title">{title}</h3>
       <p className="card__content--text">
         Leader en Ile de France depuis déjà 13 ans,
         Fiestamania aura le désir de personnaliser votre mariage
@@ -18,16 +25,28 @@ const Card = () => (
       </p>
       <ul className="card__content__list">
         <li className="card__content__list--item">
-          <span>Note ☆☆☆☆☆</span>
+          <span>Note ☆☆☆☆☆{note}</span>
         </li>
         <li className="card__content__list--item">
           <span>Tarif à partir de </span>
-          500€
+          {price}€
         </li>
       </ul>
     </div>
-    <button className="card__button" type="button">Voir plus</button>
+    <Link
+      to={`/${id}`}
+      className="card__button"
+    >
+      Voir plus
+    </Link>
   </div>
 );
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  note: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default Card;

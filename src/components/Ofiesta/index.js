@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import
@@ -15,7 +16,7 @@ import Presentation from 'src/components/Presentation';
 import ConnectPresta from '../ConnectPresta';
 
 // == Composant
-const Ofiesta = () => (
+const Ofiesta = ({ listServices }) => (
   <div className="ofiesta">
     <NavBar />
     <Switch>
@@ -29,9 +30,9 @@ const Ofiesta = () => (
       <Route path="/inscription">
         <NewMember />
       </Route>
-      <Route path="/toto">
+      <Route path="/:id">
         <Search />
-        <Prestataire />
+        <Prestataire service={listServices} />
       </Route>
       <Route path="/presentation">
         <Search />

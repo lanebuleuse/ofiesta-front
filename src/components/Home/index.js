@@ -10,7 +10,9 @@ const Home = ({ services }) => {
   console.log(services);
   return (
     <div className="home">
-      <Card />
+      {services.map((service) => (
+        <Card key={service.id} {...service} />
+      ))}
     </div>
   );
 };
