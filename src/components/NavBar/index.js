@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -15,25 +16,25 @@ const NavBar = ({ isLogged }) => (
       <input type="checkbox" id="chkToggle" />
       <ul className="main-nav" id="js-menu">
         <li>
-          <a href="/" className="nav-links">Accueil</a>
+          <Link href="/" className="nav-links">Accueil</Link>
         </li>
         {(!isLogged) && (
           <>
             <li>
-              <a href="/se-connecter" className="nav-links">Se connecter</a>
+              <Link href="/se-connecter" className="nav-links">Se connecter</Link>
             </li>
             <li>
-              <a href="/inscription" className="nav-links">S'inscrire</a>
+              <Link href="/inscription" className="nav-links">S'inscrire</Link>
             </li>
           </>
         )}
         {(isLogged) && (
           <>
             <li>
-              <a href="/mon-compte" className="nav-links">Mon compte</a>
+              <Link href="/mon-compte" className="nav-links">Mon compte</Link>
             </li>
             <li>
-              <a href="#" className="nav-links">Se déconnecter</a>
+              <Link href="#" className="nav-links">Se déconnecter</Link>
             </li>
           </>
         )}
