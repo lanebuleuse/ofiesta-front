@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import './memberArea.scss';
 
 const MemberArea = ({
-  genre,
   firstname,
   lastname,
   phone,
@@ -13,7 +12,6 @@ const MemberArea = ({
   cp,
   city,
   email,
-  isLogged,
 }) => (
   <div className="memberArea">
     <div className="memberArea-favori">
