@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Home from 'src/components/Home';
 
-import { } from 'src/actions/user';
+import { } from 'src/actions/services';
 
 const mapStateToProps = (state) => ({
   services: state.services.listServices,

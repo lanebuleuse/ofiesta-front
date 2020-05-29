@@ -50,5 +50,9 @@ const Ofiesta = ({ listServices }) => (
   </div>
 );
 
+Ofiesta.propTypes = {
+  listServices: PropTypes.array.isRequired,
+};
+
 // == Export
 export default Ofiesta;
