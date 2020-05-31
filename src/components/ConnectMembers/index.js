@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
@@ -11,7 +10,6 @@ const ConnectMembers = ({
   email,
   password,
   handleLogin,
-  isLogged,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -46,10 +44,13 @@ const ConnectMembers = ({
 
 ConnectMembers.propTypes = {
   email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
+  password: PropTypes.string,
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
-  isLogged: PropTypes.string.isRequired,
+};
+
+ConnectMembers.defaultProps = {
+  password: '',
 };
 
 export default ConnectMembers;

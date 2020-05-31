@@ -21,10 +21,10 @@ const Prestataire = ({ services }) => {
   const service = services.find((currentService) => currentService.id == id);
   for (let i = 0; i < 5; i += 1) {
     if (i < service.note) {
-      stars.push(<i className="stars fa fa-star" aria-hidden="true" />);
+      stars.push(<i key={i} className="stars fa fa-star" aria-hidden="true" />);
     }
     else {
-      stars.push(<i className="stars fa fa-star-o" aria-hidden="true" />);
+      stars.push(<i key={i} className="stars fa fa-star-o" aria-hidden="true" />);
     }
   }
   return (

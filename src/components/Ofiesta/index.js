@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // == Import
+import PrivateRoute from 'src/containers/PrivateRoute';
 import NavBar from 'src/containers/NavBar';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
@@ -22,10 +23,10 @@ const Ofiesta = () => (
       <Route path="/connecter-presta">
         <ConnectPresta />
       </Route>
-      <Route path="/mon-compte">
+      <PrivateRoute path="/mon-compte" component={ MemberArea}>
         <Search />
         <MemberArea />
-      </Route>
+      </PrivateRoute>
       <Route path="/se-connecter">
         <ConnectMembers />
       </Route>
