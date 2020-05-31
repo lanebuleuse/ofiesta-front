@@ -6,6 +6,7 @@ import newUserMiddleware from 'src/middlewares/newUserMiddleware';
 
 import reducer from 'src/reducers/';
 
+
 // on combine devTools avec les middlewares
 const enhancers = composeWithDevTools(
   applyMiddleware(
@@ -20,6 +21,7 @@ const store = createStore(
   reducer,
   // enhancer
   enhancers,
+
 );
 
 export default store;

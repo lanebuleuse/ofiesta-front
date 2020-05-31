@@ -10,6 +10,8 @@ import store from 'src/store';
 // Composants
 import Ofiesta from 'src/components/Ofiesta';
 
+/* const history = syncHistoryWithStore(browserHistory, store); */
+
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)

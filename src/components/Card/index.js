@@ -13,10 +13,10 @@ const Card = ({
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < note) {
-      stars.push(<i className="stars fa fa-star" aria-hidden="true" />);
+      stars.push(<i key={i} className="stars fa fa-star" aria-hidden="true" />);
     }
     else {
-      stars.push(<i className="stars fa fa-star-o" aria-hidden="true" />);
+      stars.push(<i key={i} className="stars fa fa-star-o" aria-hidden="true" />);
     }
   }
 

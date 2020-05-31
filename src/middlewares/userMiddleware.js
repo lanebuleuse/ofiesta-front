@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { CONNECT_USER } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -9,6 +10,7 @@ const userMiddleware = (store) => (next) => (action) => {
       console.log('passage 2');
       console.log(email);
       console.log(password);
+      console.log(store);
 /*       axios({
         headers: {
           'Content-type': 'application/json',
