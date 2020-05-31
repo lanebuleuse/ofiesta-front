@@ -10,10 +10,7 @@ const PrivateRoute = ({
   userRole,
   isLogged,
   ...rest
-}) => {
-  console.log(userRole);
-  console.log(role);
-  return (
+}) => (
   /*     <Route
       {...rest}
       render={(props) => (
@@ -23,20 +20,18 @@ const PrivateRoute = ({
           <Redirect to="/se-connecter" />
         ))}
     /> */
-
-    <Route
-      {...rest}
-      render={(props) => (
-        (isLogged && userRole === role) ? (
-          <Component {...props} />
-        ) : (
-          (userRole !== role)
-            ? <Redirect to="/401" />
-            : <Redirect to="/se-connecter" />
-        ))}
-    />
-  );
-};
+  <Route
+    {...rest}
+    render={(props) => (
+      (isLogged && userRole === role) ? (
+        <Component {...props} />
+      ) : (
+        (userRole !== role)
+          ? <Redirect to="/401" />
+          : <Redirect to="/se-connecter" />
+      ))}
+  />
+);
 
 PrivateRoute.propTypes = {
   userRole: PropTypes.string.isRequired,
