@@ -1,26 +1,48 @@
-import React, { Component } from 'react';
+/* eslint-disable no-nested-ternary */
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-const PrivateRoute = ({ isLogged, ...rest}) => {
-  console.log(isLogged);
+const PrivateRoute = ({
+  component: Component,
+  role,
+  userRole,
+  isLogged,
+  ...rest
+}) => {
+  console.log(userRole);
+  console.log(role);
   return (
-    <Route
+  /*     <Route
       {...rest}
-      render={(props) =>
-        (isLogged ? (
+      render={(props) => (
+        (isLogged && userRole === role) ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/" />
+          <Redirect to="/se-connecter" />
         ))}
+    /> */
 
+    <Route
+      {...rest}
+      render={(props) => (
+        (isLogged && userRole === role) ? (
+          <Component {...props} />
+        ) : (
+          (userRole !== role)
+            ? <Redirect to="/401" />
+            : <Redirect to="/se-connecter" />
+        ))}
     />
   );
 };
 
 PrivateRoute.propTypes = {
+  userRole: PropTypes.string.isRequired,
+  component: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  role: PropTypes.string.isRequired,
 };
 
 export default PrivateRoute;

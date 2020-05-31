@@ -11,9 +11,11 @@ import MemberArea from 'src/containers/MemberArea';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/components/Search';
 import Home from 'src/containers/Home';
+import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
-import ConnectPresta from '../ConnectPresta';
+import ConnectPresta from 'src/components/ConnectPresta';
+
 
 // == Composant
 const Ofiesta = () => (
@@ -23,10 +25,7 @@ const Ofiesta = () => (
       <Route path="/connecter-presta">
         <ConnectPresta />
       </Route>
-      <PrivateRoute path="/mon-compte" component={ MemberArea}>
-        <Search />
-        <MemberArea />
-      </PrivateRoute>
+      <PrivateRoute path="/mon-compte" component={MemberArea} userRole="admin" />
       <Route path="/se-connecter">
         <ConnectMembers />
       </Route>
@@ -40,6 +39,9 @@ const Ofiesta = () => (
       <Route path="/presentation">
         <Search />
         <Presentation />
+      </Route>
+      <Route path="/401">
+        <Page401 />
       </Route>
       <Route path="/" exact>
         <Search />

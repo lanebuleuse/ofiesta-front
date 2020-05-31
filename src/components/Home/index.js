@@ -7,7 +7,6 @@ import Card from 'src/components/Card';
 import './home.scss';
 
 const Home = ({ services }) => {
-  console.log(services);
   return (
     <div className="home">
       {services.map((service) => (

@@ -12,6 +12,7 @@ const initialState = {
   city: 'annecy',
   email: 'Jacquesdaniel@jeboistrop.com',
   favori: [],
+  role: 'admin',
 };
 
 const userReducer = (state = initialState, action = {}) => {
