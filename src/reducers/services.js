@@ -1,10 +1,10 @@
-import { } from 'src/actions/services';
+import { SAVE_SERVICES } from 'src/actions/services';
 
 
 const initialState = {
   // Initial State
   listServices: [
-    {
+    /* {
       id: 1,
       title: 'DJ Fire',
       address: '50 rue de la rue',
@@ -71,12 +71,17 @@ const initialState = {
       company: [],
       media: null,
       serviceList: [],
-    },
+    }, */
   ],
 };
 
 const servicesReducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_SERVICES:
+      return {
+        ...state,
+        listServices: action.services,
+      };
     default: return state;
   }
 };

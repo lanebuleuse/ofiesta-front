@@ -8,7 +8,7 @@ import store from 'src/store';
 
 // == Import : local
 // Composants
-import Ofiesta from 'src/components/Ofiesta';
+import Ofiesta from 'src/containers/Ofiesta';
 
 /* const history = syncHistoryWithStore(browserHistory, store); */
 

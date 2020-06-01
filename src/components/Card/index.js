@@ -9,6 +9,7 @@ const Card = ({
   price,
   note,
   id,
+  description,
 }) => {
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
@@ -19,6 +20,8 @@ const Card = ({
       stars.push(<i key={i} className="stars fa fa-star-o" aria-hidden="true" />);
     }
   }
+  const liteDescription = description.slice(0, 180);
+  console.log(liteDescription);
 
   return (
     <div className="card">
@@ -30,9 +33,7 @@ const Card = ({
       <div className="card__content">
         <h3 className="card__content--title">{title}</h3>
         <p className="card__content--text">
-          Leader en Ile de France depuis déjà 13 ans,
-          Fiestamania aura le désir de personnaliser votre mariage
-          ayant conscience du caractère exceptionnel de votre demande.
+          {liteDescription}
         </p>
         <ul className="card__content__list">
           <li className="card__content__list--item">
@@ -61,6 +62,7 @@ Card.propTypes = {
   price: PropTypes.number.isRequired,
   note: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default Card;

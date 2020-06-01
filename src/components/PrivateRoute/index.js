@@ -33,6 +33,7 @@ const PrivateRoute = ({
   />
 );
 
+
 PrivateRoute.propTypes = {
   userRole: PropTypes.string.isRequired,
   component: PropTypes.object.isRequired,

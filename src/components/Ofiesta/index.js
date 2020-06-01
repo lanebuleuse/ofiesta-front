@@ -1,6 +1,8 @@
 // == Import npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
 
 // == Import
 import PrivateRoute from 'src/containers/PrivateRoute';
@@ -18,39 +20,49 @@ import ConnectPresta from 'src/components/ConnectPresta';
 
 
 // == Composant
-const Ofiesta = () => (
-  <div className="ofiesta">
-    <NavBar />
-    <Switch>
-      <Route path="/connecter-presta">
-        <ConnectPresta />
-      </Route>
-      <PrivateRoute path="/mon-compte" component={MemberArea} userRole="admin" />
-      <Route path="/se-connecter">
-        <ConnectMembers />
-      </Route>
-      <Route path="/inscription">
-        <NewMember />
-      </Route>
-      <Route path="/prestataire/:id">
-        <Search />
-        <Prestataire />
-      </Route>
-      <Route path="/presentation">
-        <Search />
-        <Presentation />
-      </Route>
-      <Route path="/401">
-        <Page401 />
-      </Route>
-      <Route path="/" exact>
-        <Search />
-        <Home />
-      </Route>
-    </Switch>
-    <Footer />
-  </div>
-);
+const Ofiesta = ({ fetchServices }) => {
+  // This effect is start one time at the launch of the application with [] at the end
+  useEffect(() => {
+    fetchServices();
+  }, []);
+  return (
+    <div className="ofiesta">
+      <NavBar />
+      <Switch>
+        <Route path="/connecter-presta">
+          <ConnectPresta />
+        </Route>
+        <PrivateRoute path="/mon-compte" component={MemberArea} userRole="admin" />
+        <Route path="/se-connecter">
+          <ConnectMembers />
+        </Route>
+        <Route path="/inscription">
+          <NewMember />
+        </Route>
+        <Route path="/prestataire/:id">
+          <Search />
+          <Prestataire />
+        </Route>
+        <Route path="/presentation">
+          <Search />
+          <Presentation />
+        </Route>
+        <Route path="/401">
+          <Page401 />
+        </Route>
+        <Route path="/" exact>
+          <Search />
+          <Home />
+        </Route>
+      </Switch>
+      <Footer />
+    </div>
+  );
+};
+
+Ofiesta.propTypes = {
+  fetchServices: PropTypes.func.isRequired,
+};
 
 // == Export
 export default Ofiesta;
