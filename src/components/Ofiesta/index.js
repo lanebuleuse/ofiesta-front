@@ -18,6 +18,7 @@ import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/components/ConnectPresta';
 import Page404 from 'src/components/Page404';
+import GoogleMaps from 'src/components/GoogleMaps';
 
 
 // == Composant
@@ -43,6 +44,7 @@ const Ofiesta = ({ fetchServices }) => {
         <Route exact path="/prestataire/:id">
           <Search />
           <Prestataire />
+          <GoogleMaps />
         </Route>
         <Route path="/presentation">
           <Search />
