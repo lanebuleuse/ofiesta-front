@@ -7,6 +7,43 @@
   background-color: $colorAlt;
   height: 2em;
   font-size: 0.8em;
+  width: 9em;
+  margin-right: 1em;
+
+  &:hover {
+    background-color: $colorOther;
+    color: #fff;
+  } 
+}
+
+.buttonInForm{
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  background-color: $colorAlt;
+  height: 2em;
+  font-size: 0.8em;
+  width: 7em;
+  padding: 0.5em;
+  text-align: center;
+  // margin-right: 1em;
+
+  &:hover {
+    background-color: $colorOther;
+    color: #fff;
+  } 
+}
+.buttonInFormValid{
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  background-color: $colorAlt;
+  height: 2em;
+  font-size: 0.8em;
+  //width: 7em;
+  // padding: 0.5em;
+  // text-align: center;
+  // margin-right: 1em;
 
   &:hover {
     background-color: $colorOther;

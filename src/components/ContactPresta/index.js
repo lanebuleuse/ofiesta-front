@@ -18,36 +18,35 @@ const ContactPrestat = ({ isLogged }) => {
         Contactez nous
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
-        {(!isLogged) && (
-          <>
-            <Modal.Body>
-              <p>Merci de vous connecter pour nous contacter</p>
-            </Modal.Body>
+      {(!isLogged) && (
+        <Modal show={show} onHide={handleClose}>
 
-            <Modal.Footer>
-              <Link type="button" to="/inscription" className="button-contact">S'inscrire</Link>
-              <Link type="button" href="/se-connecter" className="button-contact">Se connecter</Link>
-            </Modal.Footer>
-          </>
-        )}
-        {(isLogged) && (
-          <>
-            <Modal.Header closeButton>
-              <Modal.Title>Contactez nous</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <ContactForm />
-            </Modal.Body>
-            <Modal.Footer>
-              <Button className="button-contact" onClick={handleClose}>
-                Envoyer votre demande
-              </Button>
-            </Modal.Footer>
-          </>
-        )}
 
-      </Modal>
+          <Modal.Body>
+            <p>Merci de vous connecter pour nous contacter</p>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Link type="button" to="/inscription" className="buttonInForm">S'inscrire</Link>
+            <Link type="button" to="/se-connecter" className="buttonInForm">Se connecter</Link>
+          </Modal.Footer>
+        </Modal>
+      )}
+      {(isLogged) && (
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Contactez nous</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ContactForm />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button className="buttonInFormValid" onClick={handleClose}>
+              Envoyer votre demande
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      )}
     </>
   );
 };

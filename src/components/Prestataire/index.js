@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
+import ContactPresta from 'src/components/ContactPresta';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -35,7 +36,7 @@ const Prestataire = ({ services }) => {
           {stars}
         </div>
         <div className="prestataire__top__buttons">
-          {/* <ContactPresta /> */}
+          <ContactPresta />
           <i className="fa fa-heart-o" aria-hidden="true" onClick={handleClick} />
         </div>
       </div>
