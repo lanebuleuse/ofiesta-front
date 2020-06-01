@@ -6,7 +6,7 @@ const initialState = {
   isLogged: false,
   firstname: 'Jacques',
   lastname: 'Daniel',
-  phone: '0672543094',
+  phone: '0621232729',
   adress: '15 rue du blanc poney',
   cp: '74000',
   city: 'annecy',
