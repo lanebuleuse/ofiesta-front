@@ -1,0 +1,45 @@
+@import 'src/styles/vars';
+
+.page404 {
+  width: 90%;
+  margin: 2rem auto;
+
+  .page404-imageContainer {
+    text-align: center;
+  }
+
+  .page404-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .page404-message {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .page404-link {
+    padding: 0.5rem 1rem;
+    background-color: $colorAlt;
+    border-radius: 0.2rem;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+      background-color: $colorOther;
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: $breakMini) {
+  .page404-image {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 50%;
+  }
+}

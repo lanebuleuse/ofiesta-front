@@ -17,6 +17,7 @@ import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/components/ConnectPresta';
+import Page404 from 'src/components/Page404';
 
 
 // == Composant
@@ -39,7 +40,7 @@ const Ofiesta = ({ fetchServices }) => {
         <Route path="/inscription">
           <NewMember />
         </Route>
-        <Route path="/prestataire/:id">
+        <Route exact path="/prestataire/:id">
           <Search />
           <Prestataire />
         </Route>
@@ -53,6 +54,10 @@ const Ofiesta = ({ fetchServices }) => {
         <Route path="/" exact>
           <Search />
           <Home />
+        </Route>
+        <Route>
+          <Search />
+          <Page404 />
         </Route>
       </Switch>
       <Footer />
