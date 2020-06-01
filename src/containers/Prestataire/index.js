@@ -6,6 +6,7 @@ import { } from 'src/actions/services';
 
 const mapStateToProps = (state) => ({
   services: state.services.listServices,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

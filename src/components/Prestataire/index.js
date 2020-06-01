@@ -6,21 +6,21 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
-import ContactPresta from 'src/components/ContactPresta';
+import ContactPresta from 'src/containers/ContactPresta';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './prestataire.scss';
 
 
-const Prestataire = ({ services }) => {
+const Prestataire = ({ services, isLogged }) => {
   const handleClick = () => {
     console.log('click');
   };
   const stars = [];
   const { id } = useParams();
   const service = services.find((currentService) => currentService.id == id);
-  console.log(service);
+  console.log(isLogged);
   for (let i = 0; i < 5; i += 1) {
     if (i < service.note) {
       stars.push(<i key={i} className="stars fa fa-star" aria-hidden="true" />);

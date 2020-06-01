@@ -7,11 +7,10 @@ import { Button, Modal } from 'react-bootstrap';
 import ContactForm from './ContactForm';
 import './contactPresta.scss';
 
-const ContactPrestat = ({ isLogged }) => {
+const ContactPresta = ({ isLogged }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   return (
     <>
       <Button variant="primary" onClick={handleShow} className="button-contact">
@@ -51,8 +50,8 @@ const ContactPrestat = ({ isLogged }) => {
   );
 };
 
-ContactPrestat.propTypes = {
+ContactPresta.propTypes = {
   isLogged: PropTypes.bool.isRequired,
 };
 
-export default ContactPrestat;
+export default ContactPresta;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Home from 'src/components/Home';
+import ContactPresta from 'src/components/ContactPresta';
 
 import { } from 'src/actions/user';
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home);
+)(ContactPresta);

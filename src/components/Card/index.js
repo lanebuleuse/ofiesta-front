@@ -21,7 +21,6 @@ const Card = ({
     }
   }
   const liteDescription = description.slice(0, 180);
-  console.log(liteDescription);
 
   return (
     <div className="card">
