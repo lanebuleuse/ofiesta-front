@@ -17,56 +17,65 @@ import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/components/ConnectPresta';
+import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
 
 
 // == Composant
-const Ofiesta = ({ fetchServices }) => {
+const Ofiesta = ({ fetchServices, loading }) => {
   // This effect is start one time at the launch of the application with [] at the end
   useEffect(() => {
     fetchServices();
   }, []);
+  console.log(loading);
   return (
+
     <div className="ofiesta">
-      <NavBar />
-      <Switch>
-        <Route path="/connecter-presta">
-          <ConnectPresta />
-        </Route>
-        <PrivateRoute path="/mon-compte" component={MemberArea} userRole="admin" />
-        <Route path="/se-connecter">
-          <ConnectMembers />
-        </Route>
-        <Route path="/inscription">
-          <NewMember />
-        </Route>
-        <Route exact path="/prestataire/:id">
-          <Search />
-          <Prestataire />
-        </Route>
-        <Route path="/presentation">
-          <Search />
-          <Presentation />
-        </Route>
-        <Route path="/401">
-          <Page401 />
-        </Route>
-        <Route path="/" exact>
-          <Search />
-          <Home />
-        </Route>
-        <Route>
-          <Search />
-          <Page404 />
-        </Route>
-      </Switch>
-      <Footer />
+      {loading && <Loader />}
+      {!loading && (
+        <>
+          <NavBar />
+          <Switch>
+            <Route path="/connecter-presta">
+              <ConnectPresta />
+            </Route>
+            <PrivateRoute path="/mon-compte" component={MemberArea} userRole="admin" />
+            <Route path="/se-connecter">
+              <ConnectMembers />
+            </Route>
+            <Route path="/inscription">
+              <NewMember />
+            </Route>
+            <Route exact path="/prestataire/:id">
+              <Search />
+              <Prestataire />
+            </Route>
+            <Route path="/presentation">
+              <Search />
+              <Presentation />
+            </Route>
+            <Route path="/401">
+              <Page401 />
+            </Route>
+            <Route path="/" exact>
+              <Search />
+              <Home />
+            </Route>
+            <Route>
+              <Search />
+              <Page404 />
+            </Route>
+          </Switch>
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
 
 Ofiesta.propTypes = {
   fetchServices: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 // == Export
