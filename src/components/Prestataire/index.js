@@ -15,12 +15,10 @@ import './prestataire.scss';
 
 const Prestataire = ({ services, isLogged }) => {
   const handleClick = () => {
-    console.log('click');
   };
   const stars = [];
   const { id } = useParams();
   const service = services.find((currentService) => currentService.id == id);
-  console.log(isLogged);
   for (let i = 0; i < 5; i += 1) {
     if (i < service.note) {
       stars.push(<i key={i} className="stars fa fa-star" aria-hidden="true" />);
