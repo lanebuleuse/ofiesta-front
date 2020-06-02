@@ -7,18 +7,14 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CONNECT_USER: {
       const { email, password } = store.getState().user;
-      console.log('passage 2');
-      console.log(email);
-      console.log(password);
-      console.log(store);
-/*       axios({
+      axios({
         headers: {
           'Content-type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
         method: 'post',
         responseType: 'json',
-        url: 'http://ec2-34-229-70-228.compute-1.amazonaws.com/api/login_check',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/login_check',
         data: {
           username: email, // IMPORTANT
           password,
@@ -30,8 +26,8 @@ const userMiddleware = (store) => (next) => (action) => {
 
           if (response.data.token) {
             console.log('token récupéré');
-            localStorage.setItem("JWT_token",(response.data.token));
-            store.dispatch(fetchUsers());
+            /* localStorage.setItem("JWT_token",(response.data.token));
+            store.dispatch(fetchUsers()); */
           }
           return response.data;
         })
@@ -39,7 +35,7 @@ const userMiddleware = (store) => (next) => (action) => {
           console.log(error);
           // console.log(error.response.status);
           // on pourrait différencier le message d'erreur selon le code d'erreur
-        }); */
+        });
       next(action);
       break;
     }

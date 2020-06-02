@@ -27,7 +27,6 @@ const Ofiesta = ({ fetchServices, loading }) => {
   useEffect(() => {
     fetchServices();
   }, []);
-  console.log(loading);
   return (
 
     <div className="ofiesta">
