@@ -1,4 +1,4 @@
-import { SAVE_CONNECTION_INFO } from 'src/actions/user';
+import { SAVE_CONNECTION_INFO, SAVE_MEMBER } from 'src/actions/user';
 
 
 const initialState = {
@@ -7,13 +7,14 @@ const initialState = {
   firstname: '',
   lastname: '',
   phone: '',
-  adress: '',
+  address: '',
   cp: '',
   city: '',
   email: '',
   favori: [],
   role: [],
   password: '',
+  isLogged: false,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -23,6 +24,21 @@ const userReducer = (state = initialState, action = {}) => {
         ...state,
         role: action.role,
         userid: action.userid,
+        isLogged: true,
+      };
+
+    case SAVE_MEMBER:
+      console.log(action.data);
+      console.log(action.data.firstname);
+      return {
+        ...state,
+        firstname: action.data.firstName,
+        lastname: action.data.name,
+        phone: action.data.phone,
+        email: action.data.email,
+        address: action.data.address,
+        postalCode: action.data.postalCode,
+        city: action.data.city,
       };
     default: return state;
   }

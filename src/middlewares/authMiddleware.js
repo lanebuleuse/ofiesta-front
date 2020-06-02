@@ -1,13 +1,12 @@
 import axios from 'axios';
 
-import { CONNECT_USER, SAVE_USER, saveUser } from 'src/actions/auth';
+import { CONNECT_USER } from 'src/actions/auth';
 import { saveConnectionInfo } from 'src/actions/user';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case CONNECT_USER: {
-      console.log('je passe ici');
       const { email, password } = store.getState().auth;
       axios({
         headers: {
@@ -24,27 +23,17 @@ const authMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-
-
           if (response.data.token) {
-/*             console.log('token récupéré'); */
             localStorage.setItem('JWT_token', (response.data.token));
             localStorage.setItem('USER_ID', (response.data.data.userid));
             store.dispatch(saveConnectionInfo(response.data.data.roles, response.data.data.userid));
           }
-          return response.data;
         })
         .catch((error) => {
           console.log(error);
           // console.log(error.response.status);
           // on pourrait différencier le message d'erreur selon le code d'erreur
         });
-      next(action);
-      break;
-    }
-
-    case SAVE_USER: {
-      console.log('Passage ici');
       next(action);
       break;
     }

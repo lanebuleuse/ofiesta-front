@@ -6,7 +6,7 @@ import { disconnectUser } from 'src/actions/auth';
 
 const mapStateToProps = (state) => ({
   // Retrieve in the state if user is logged
-  isLogged: state.auth.isLogged,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

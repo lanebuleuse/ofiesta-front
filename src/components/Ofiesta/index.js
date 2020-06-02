@@ -38,7 +38,7 @@ const Ofiesta = ({ fetchServices, loading }) => {
             <Route path="/connecter-presta">
               <ConnectPresta />
             </Route>
-            <PrivateRoute path="/mon-compte" component={MemberArea} userRole="admin" />
+            <PrivateRoute path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
             <Route path="/se-connecter">
               <ConnectMembers />
             </Route>
