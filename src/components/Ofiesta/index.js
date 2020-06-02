@@ -44,7 +44,6 @@ const Ofiesta = ({ fetchServices }) => {
         <Route exact path="/prestataire/:id">
           <Search />
           <Prestataire />
-          
         </Route>
         <Route path="/presentation">
           <Search />

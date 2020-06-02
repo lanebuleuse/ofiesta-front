@@ -5,8 +5,8 @@ import GoogleMap from 'src/components/GoogleMap';
 import { retrieveLocation } from 'src/actions/googlemap';
 
 const mapStateToProps = (state) => ({
-  center: state.google.center,
-  zoom: state.google.zoom,
+  center: state.services.center,
+  zoom: state.services.zoom,
 });
 
 const mapDispatchToProps = (dispatch) => ({

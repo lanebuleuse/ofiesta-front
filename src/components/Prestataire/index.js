@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable max-len */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useParams } from 'react-router-dom';
@@ -14,19 +14,20 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './prestataire.scss';
 
 
-const Prestataire = ({ services, isLogged }) => {
-/*   const address = `${service.address} ${service.postalCode} ${service.city}`;
-  useEffect(() => {
-    retrieveLocation(address);
-  }, []); */
+const Prestataire = ({ services, isLogged, retrieveLocation }) => {
 
+  const { id } = useParams();
   const handleClick = () => {
     console.log('click');
   };
   const stars = [];
-  const { id } = useParams();
   const service = services.find((currentService) => currentService.id == id);
-  console.log(isLogged);
+  console.log('Passage');
+  const address = `${service.address} ${service.postalCode} ${service.city}`;
+/*   useEffect(() => {
+    retrieveLocation(address);
+  }, []); */
+
   for (let i = 0; i < 5; i += 1) {
     if (i < service.note) {
       stars.push(<i key={i} className="stars fa fa-star" aria-hidden="true" />);
@@ -69,13 +70,15 @@ const Prestataire = ({ services, isLogged }) => {
           </p>
         </div>
       </section>
-      <GoogleMap service={service} />
+      <GoogleMap service={service} address={address} />
     </>
   );
 };
 
 Prestataire.propTypes = {
   services: PropTypes.array.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+  retrieveLocation: PropTypes.func.isRequired,
 };
 
 export default Prestataire;
