@@ -5,6 +5,7 @@ import { combineReducers } from 'redux';
 import userReducer from './user';
 import newUserReducer from './newUser';
 import servicesReducer from './services';
+import searchReducer from './search';
 
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   newUser: newUserReducer,
   services: servicesReducer,
+  search: searchReducer,
 });
 
 // pour accéder au state défini dans le reducer 'recipesReducer', il faudra que je

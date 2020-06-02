@@ -11,7 +11,7 @@ import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
 import MemberArea from 'src/containers/MemberArea';
 import NewMember from 'src/containers/NewMember';
-import Search from 'src/components/Search';
+import Search from 'src/containers/Search';
 import Home from 'src/containers/Home';
 import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
