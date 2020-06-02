@@ -13,14 +13,10 @@ const initialState = {
 
 const newUserReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_IMPUNT_VALUE:
-      return {
-        ...state,
-        [action.name]: action.value,
-      };
+
 
     case CREATE_NEW_USER:
-      console.log('Passage 3');
+
       return {
         ...state,
       };

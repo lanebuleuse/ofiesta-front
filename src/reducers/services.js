@@ -4,7 +4,7 @@ import { SAVE_SERVICES } from 'src/actions/services';
 const initialState = {
   // Initial State
   listServices: [],
-  loading: true,
+  loading: false,
 };
 
 const servicesReducer = (state = initialState, action = {}) => {

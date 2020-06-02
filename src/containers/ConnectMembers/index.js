@@ -2,13 +2,13 @@ import { connect } from 'react-redux';
 
 import ConnectMembers from 'src/components/ConnectMembers';
 
-import { changeField, connectUser } from 'src/actions/user';
+import { changeField, connectUser } from 'src/actions/auth';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
-  email: state.user.email,
-  password: state.user.password,
-  isLogged: state.user.isLogged,
+  email: state.auth.email,
+  password: state.auth.password,
+  isLogged: state.auth.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   handleLogin: () => {
-    console.log('Passage 1');
     dispatch(connectUser());
   },
 
