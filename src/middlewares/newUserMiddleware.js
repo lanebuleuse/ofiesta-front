@@ -14,8 +14,6 @@ const newUserMiddleware = (store) => (next) => (action) => {
         password,
         passwordbis,
       } = store.getState().newUser;
-      console.log('Passage 2');
-      console.log(firstname);
 /*       axios({
         method: 'post',
         url: 'http://localhost:3001/login',

@@ -28,8 +28,6 @@ const userReducer = (state = initialState, action = {}) => {
       };
 
     case SAVE_MEMBER:
-      console.log(action.data);
-      console.log(action.data.firstname);
       return {
         ...state,
         firstname: action.data.firstName,

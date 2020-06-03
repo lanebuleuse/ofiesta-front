@@ -1,5 +1,13 @@
+/* eslint-disable no-case-declarations */
 import axios from 'axios';
-import { FETCH_SERVICES, RETRIEVE_LOCATION, saveServices, saveLocation } from 'src/actions/services';
+import {
+  FETCH_SERVICES,
+  RETRIEVE_LOCATION,
+  FETCH_SERVICE_INFO,
+  retrieveLocation,
+  saveServiceInformation,
+  saveServices,
+} from 'src/actions/services';
 
 import Geocode from 'react-geocode';
 
@@ -20,8 +28,7 @@ const servicesMiddleware = (store) => (next) => (action) => {
       break;
 
     case RETRIEVE_LOCATION:
-      const { address } = action;
-      console.log(address);
+      const address = `${action.data.address} ${action.data.postalCode} ${action.data.city}`;
       Geocode.setApiKey('AIzaSyCuLVroL1_U2RRxad_rB99nnnUg3IRx7qw');
       Geocode.setLanguage('fr');
       Geocode.setRegion('fr');
@@ -30,12 +37,25 @@ const servicesMiddleware = (store) => (next) => (action) => {
         (response) => {
           /* const { lat, lng } = response.results[0].geometry.location; */
           const { lat, lng } = response.results[0].geometry.location;
-          store.dispatch(saveLocation(lat, lng));
+          store.dispatch(saveServiceInformation(action.data, lat, lng));
         },
         (error) => {
           console.error(error);
         },
       );
+      next(action);
+      break;
+
+    case FETCH_SERVICE_INFO:
+      axios.get(`http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/services/${action.id}`)
+        .then((response) => {
+          // je voudrais enregistrer response.data dans le state=> nouvelle action
+          store.dispatch(retrieveLocation(response.data));
+        })
+        .catch((error) => {
+/*           console.warn(error); */
+        });
+
       next(action);
       break;
 

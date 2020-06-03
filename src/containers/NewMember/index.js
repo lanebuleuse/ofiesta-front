@@ -20,7 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeField(value, name));
   },
   createUser: () => {
-    console.log('Passage 1');
     dispatch(createUser());
   },
 });

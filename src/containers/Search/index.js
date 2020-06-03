@@ -11,8 +11,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
-    console.log(`Changement de valeur pour ${name} : ${value}`);
-    console.log(`Changement de valeur pour ${name} : ${value}`);
     dispatch(changeField(value, name));
   },
   handleSearch: () => {

@@ -5,7 +5,6 @@ import { combineReducers } from 'redux';
 import userReducer from './user';
 import newUserReducer from './newUser';
 import servicesReducer from './services';
-import googlemapReducer from './googlemap';
 import searchReducer from './search';
 import authReducer from './auth';
 
@@ -17,7 +16,6 @@ const rootReducer = combineReducers({
   user: userReducer,
   newUser: newUserReducer,
   services: servicesReducer,
-  google: googlemapReducer,
   search: searchReducer,
 });
 
