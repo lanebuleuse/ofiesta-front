@@ -1,30 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
 import Field from 'src/components/Field';
 
-import './newMember.scss';
+import './newPresta.scss';
 
 const NewMember = ({
   firstname,
   lastname,
+  company,
+  siret,
   email,
   phone,
   password,
   passwordbis,
   changeField,
-  createUser,
+  createPresta,
 }) => {
-  const handleCreateUser = (evt) => {
+  const handlecreatePresta = (evt) => {
     evt.preventDefault();
-    createUser();
+    createPresta();
   };
 
   return (
-    <div className="newMembers">
-      <h1 className="newMembers-title">Créer votre espace Membre</h1>
-      <form className="newMembers-form" onSubmit={handleCreateUser}>
+    <div className="newPresta">
+      <h1 className="newPresta-title">Créer votre espace Pro</h1>
+      <form className="newPresta-form" onSubmit={handlecreatePresta}>
         <Field
           name="lastname"
           styles="field-input"
@@ -38,6 +41,20 @@ const NewMember = ({
           placeholder="Prénom"
           onChange={changeField}
           value={firstname}
+        />
+        <Field
+          name="company"
+          styles=" field-input"
+          placeholder="Nom de votre société"
+          onChange={changeField}
+          value={company}
+        />
+        <Field
+          name="siret"
+          styles=" field-input"
+          placeholder="SIREN / SIRET"
+          onChange={changeField}
+          value={siret}
         />
         <Field
           name="phone"
@@ -71,7 +88,7 @@ const NewMember = ({
           value={passwordbis}
         />
         <button type="submit" className="adminConnect-submit">M'inscrire</button>
-        <p className="connectMembers-linkAccount"><a href="/se-connecter">Vous avez déjà un compte</a></p>
+        <p className="connectMembers-linkAccount"><Link to="/mon-compte-pro/se-connecter">Vous avez déjà un compte</Link></p>
       </form>
     </div>
   );
@@ -80,12 +97,14 @@ const NewMember = ({
 NewMember.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
+  company: PropTypes.string.isRequired,
+  siret: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   passwordbis: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
-  createUser: PropTypes.func.isRequired,
+  createPresta: PropTypes.func.isRequired,
 };
 
 export default NewMember;

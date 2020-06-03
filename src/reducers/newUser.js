@@ -1,4 +1,4 @@
-import { CHANGE_IMPUNT_VALUE, CREATE_NEW_USER } from 'src/actions/newUser';
+import { CHANGE_INPUT_VALUE, CREATE_NEW_USER } from 'src/actions/newUser';
 
 
 const initialState = {

@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './footer.scss';
 
 const Footer = () => (
   <footer className="footer">
     <section className="footer__links">
       <ul>
+        <li><Link to="/mon-compte-pro/se-connecter">Espace pro</Link></li>
         <li><a href="#">Qui-sommes-nous?</a></li>
         <li><a href="#">Mentions légales</a></li>
         <li><a href="#">Contactez-nous</a></li>

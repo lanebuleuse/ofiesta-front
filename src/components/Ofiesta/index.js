@@ -17,6 +17,8 @@ import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/components/ConnectPresta';
+import ConnectionPresta from 'src/components/ConnectionPresta';
+import NewPresta from 'src/components/NewPresta';
 import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
 
@@ -36,6 +38,12 @@ const Ofiesta = ({ fetchServices, loading }) => {
         <>
           <NavBar />
           <Switch>
+            <Route path="/mon-compte-pro/se-connecter">
+              <ConnectionPresta />
+            </Route>
+            <Route path="/mon-compte-pro/inscription">
+              <NewPresta />
+            </Route>
             <Route path="/connecter-presta">
               <ConnectPresta />
             </Route>
