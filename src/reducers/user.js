@@ -1,4 +1,4 @@
-import { SAVE_CONNECTION_INFO, SAVE_MEMBER } from 'src/actions/user';
+import { SAVE_CONNECTION_INFO, SAVE_MEMBER, CHANGE_FIELD } from 'src/actions/user';
 
 
 const initialState = {
@@ -37,6 +37,12 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
+      };
+
+    case CHANGE_FIELD:
+      return {
+        ...state,
+        [action.identifier]: action.newValue,
       };
     default: return state;
   }

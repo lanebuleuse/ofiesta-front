@@ -10,6 +10,7 @@ import NavBar from 'src/containers/NavBar';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
 import MemberArea from 'src/containers/MemberArea';
+import UpdateMember from 'src/containers/UpdateMember';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/containers/Search';
 import Home from 'src/containers/Home';
@@ -21,8 +22,6 @@ import ConnectionPresta from 'src/containers/ConnectionPresta';
 import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
-
-
 
 // == Composant
 const Ofiesta = ({ fetchServices, loading }) => {
@@ -47,7 +46,8 @@ const Ofiesta = ({ fetchServices, loading }) => {
             <Route path="/connecter-presta">
               <ConnectPresta />
             </Route>
-            <PrivateRoute path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
+            <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
+            <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_USER" />
             <Route path="/se-connecter">
               <ConnectMembers />
             </Route>

@@ -6,7 +6,7 @@ import Field from 'src/components/Field';
 
 import './connectionPresta.scss';
 
-const ConnectMembers = ({
+const ConnectPresta = ({
   changeField,
   email,
   password,
@@ -47,7 +47,7 @@ const ConnectMembers = ({
   );
 };
 
-ConnectMembers.propTypes = {
+ConnectPresta.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string,
   isLogged: PropTypes.bool.isRequired,
@@ -55,8 +55,8 @@ ConnectMembers.propTypes = {
   handleLogin: PropTypes.func.isRequired,
 };
 
-ConnectMembers.defaultProps = {
+ConnectPresta.defaultProps = {
   password: '',
 };
 
-export default ConnectMembers;
+export default ConnectPresta;

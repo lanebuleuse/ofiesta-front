@@ -45,7 +45,7 @@ const Card = ({
             </span>
           </li>
           <li className="card__content__list--item">
-            <span>Tarif à partir de </span>
+            <span>Tarif à partir de</span>
             {price}€
           </li>
         </ul>
