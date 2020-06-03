@@ -2,9 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import { Badge } from 'react-bootstrap';
+
 import './card.scss';
 
 const Card = ({
+  ServiceList,
   title,
   price,
   note,
@@ -31,6 +34,7 @@ const Card = ({
       />
       <div className="card__content">
         <h3 className="card__content--title">{title}</h3>
+        <Badge key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
         <p className="card__content--text">
           {liteDescription}
         </p>
@@ -57,6 +61,7 @@ const Card = ({
 };
 
 Card.propTypes = {
+  ServiceList: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   note: PropTypes.string.isRequired,

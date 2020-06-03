@@ -7,7 +7,7 @@ const initialState = {
   currentService: {
     id: null,
     title: '',
-    serviceList: {},
+    serviceList: null,
     address: '',
     postalCode: '',
     city: '',
@@ -39,12 +39,13 @@ const servicesReducer = (state = initialState, action = {}) => {
       };
 
     case SAVE_SERVICE_INFO:
+      console.log(action.data.ServicesList);
       return {
         ...state,
         currentService: {
           id: action.data.id,
           title: action.data.title,
-          serviceList: action.data.ServicesList,
+          serviceList: action.data.ServiceList,
           address: action.data.address,
           postalCode: action.data.postalCode,
           city: action.data.city,
