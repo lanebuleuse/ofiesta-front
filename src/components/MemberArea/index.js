@@ -8,7 +8,7 @@ const MemberArea = ({
   firstname,
   lastname,
   phone,
-  adress,
+  address,
   postalCode,
   city,
   email,
@@ -32,7 +32,7 @@ const MemberArea = ({
         <h2 className="memberArea-subTitle">Mes infos</h2>
         <a className="memberArea-modifier">Modifier</a>
         <p className="memberArea-detail"><i className="fa fa-user" aria-hidden="true" />{lastname} {firstname}</p>
-        <p className="memberArea-detail"><i className="fa fa-home" aria-hidden="true" />{adress} {postalCode} {city}</p>
+        <p className="memberArea-detail"><i className="fa fa-home" aria-hidden="true" />{address} {postalCode} {city}</p>
         <p className="memberArea-detail"><i className="fa fa-mobile" aria-hidden="true" />{phone}</p>
         <p className="memberArea-detail"><i className="fa fa-envelope-o" aria-hidden="true" />{email}</p>
       </div>
@@ -44,7 +44,7 @@ MemberArea.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
-  adress: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
   postalCode: PropTypes.number.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,

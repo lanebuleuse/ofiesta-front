@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
   firstname: state.user.firstname,
   lastname: state.user.lastname,
   phone: state.user.phone,
-  adress: state.user.adress,
+  adress: state.user.address,
   postalCode: state.user.postalCode,
   city: state.user.city,
   email: state.user.email,
