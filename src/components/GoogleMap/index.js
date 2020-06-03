@@ -13,25 +13,7 @@ const GoogleMap = ({ address, center, zoom, service, retrieveLocation }) => {
 
   let latitude = null;
   let longitude = null;
-  console.log(address);
-  Geocode.setApiKey('AIzaSyCuLVroL1_U2RRxad_rB99nnnUg3IRx7qw');
-  Geocode.setLanguage('fr');
-  Geocode.setRegion('fr');
-  Geocode.enableDebug();
-  Geocode.fromAddress(address).then(
-    (response) => {
-      console.log(response);
-      /* const { lat, lng } = response.results[0].geometry.location; */
-  /*     var { latitude, longitude } = response.results[0].geometry.location; */
- /*      store.dispatch(saveLocation(lat, lng)); */
-      latitude = response.results[0].geometry.location.lat;
-      longitude = response.results[0].geometry.location.lng;
-    },
-    (error) => {
-      console.error(error);
-    },
-  );
-  console.log(latitude);
+
 /* 
   console.log(center);
   const latitude = center.lat;
@@ -39,7 +21,6 @@ const GoogleMap = ({ address, center, zoom, service, retrieveLocation }) => {
   return (
     <div className="googlemaps">
       <GoogleMapReact
-      
         bootstrapURLKeys={{ key: 'AIzaSyCuLVroL1_U2RRxad_rB99nnnUg3IRx7qw' }}
         defaultCenter={{ lat: latitude, lng: longitude }}
         defaultZoom={11}

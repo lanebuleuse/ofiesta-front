@@ -13,20 +13,19 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './prestataire.scss';
 
-
-const Prestataire = ({ services, isLogged, retrieveLocation }) => {
-
+const Prestataire = ({ center, services, isLogged, retrieveLocation }) => {
   const { id } = useParams();
   const handleClick = () => {
     console.log('click');
   };
-  const stars = [];
   const service = services.find((currentService) => currentService.id == id);
   console.log('Passage');
   const address = `${service.address} ${service.postalCode} ${service.city}`;
-/*   useEffect(() => {
+  useEffect(() => {
     retrieveLocation(address);
-  }, []); */
+  }, []);
+  console.log(center);
+  const stars = [];
 
   for (let i = 0; i < 5; i += 1) {
     if (i < service.note) {
@@ -59,7 +58,7 @@ const Prestataire = ({ services, isLogged, retrieveLocation }) => {
             <p className="prestataire__intro__infos--content">Tarif à partir de {service.price}€</p>
             <p className="prestataire__intro__infos--label">Minimun invités :</p>
             <p className="prestataire__intro__infos--content">{service.minGuest}</p>
-            <p className="prestataire__intro__infos--label">Maimun invités :</p>
+            <p className="prestataire__intro__infos--label">Maximun invités :</p>
             <p className="prestataire__intro__infos--content">{service.maxGuest}</p>
           </div>
         </div>
