@@ -13,17 +13,19 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import './prestataire.scss';
 
-const Prestataire = ({ center, services, isLogged, retrieveLocation }) => {
+const Prestataire = ({ center, services, isLogged, fetchUserInformation }) => {
   const { id } = useParams();
+  useEffect(() => {
+    fetchUserInformation(id);
+  }, []);
+
   const handleClick = () => {
     console.log('click');
   };
   const service = services.find((currentService) => currentService.id == id);
   console.log('Passage');
   const address = `${service.address} ${service.postalCode} ${service.city}`;
-  useEffect(() => {
-    retrieveLocation(address);
-  }, []);
+
   console.log(center);
   const stars = [];
 

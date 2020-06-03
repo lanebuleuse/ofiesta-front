@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import Prestataire from 'src/components/Prestataire';
 
-import { retrieveLocation } from 'src/actions/services';
+import { retrieveLocation, fetchUserInformation } from 'src/actions/services';
 
 const mapStateToProps = (state) => ({
   services: state.services.listServices,
@@ -14,6 +14,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   retrieveLocation: (address) => {
     dispatch(retrieveLocation(address));
+  },
+
+  fetchUserInformation: (id) => {
+    dispatch(fetchUserInformation(id));
   },
 });
 
