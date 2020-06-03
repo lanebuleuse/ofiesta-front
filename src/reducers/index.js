@@ -6,15 +6,19 @@ import userReducer from './user';
 import newUserReducer from './newUser';
 import servicesReducer from './services';
 import googlemapReducer from './googlemap';
+import searchReducer from './search';
+import authReducer from './auth';
 
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
 
   /* administration: administrationReducer, */
+  auth: authReducer,
   user: userReducer,
   newUser: newUserReducer,
   services: servicesReducer,
   google: googlemapReducer,
+  search: searchReducer,
 });
 
 // pour accéder au state défini dans le reducer 'recipesReducer', il faudra que je

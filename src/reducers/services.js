@@ -9,6 +9,7 @@ const initialState = {
     lng: null,
   },
   zoom: 11,
+  loading: false,
 };
 
 const servicesReducer = (state = initialState, action = {}) => {
@@ -17,6 +18,7 @@ const servicesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         listServices: action.services,
+        loading: false,
       };
 
     case SAVE_LOCATION:

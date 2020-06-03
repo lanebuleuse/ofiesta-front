@@ -11,19 +11,10 @@ const PrivateRoute = ({
   isLogged,
   ...rest
 }) => (
-  /*     <Route
-      {...rest}
-      render={(props) => (
-        (isLogged && userRole === role) ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/se-connecter" />
-        ))}
-    /> */
   <Route
     {...rest}
     render={(props) => (
-      (isLogged && userRole === role) ? (
+      (isLogged && role.includes(userRole)) ? (
         <Component {...props} />
       ) : (
         (userRole !== role)
@@ -38,7 +29,7 @@ PrivateRoute.propTypes = {
   userRole: PropTypes.string.isRequired,
   component: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  role: PropTypes.string.isRequired,
+  role: PropTypes.array.isRequired,
 };
 
 export default PrivateRoute;

@@ -1,42 +1,45 @@
-import { CHANGE_IMPUNT_VALUE, CONNECT_USER, DISCONNECT_USER } from 'src/actions/user';
+import { SAVE_CONNECTION_INFO, SAVE_MEMBER } from 'src/actions/user';
 
 
 const initialState = {
   // ici l'état initial
-  isLogged: false,
-  firstname: 'Jacques',
-  lastname: 'Daniel',
-  phone: '0621232729',
-  adress: '15 rue du blanc poney',
-  cp: '74000',
-  city: 'annecy',
-  email: 'Jacquesdaniel@jeboistrop.com',
+  userid: null,
+  firstname: '',
+  lastname: '',
+  phone: '',
+  address: '',
+  cp: '',
+  city: '',
+  email: '',
   favori: [],
-  role: 'admin',
+  role: [],
+  password: '',
+  isLogged: false,
 };
 
 const userReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_IMPUNT_VALUE:
-      console.log('je change la valeur');
+    case SAVE_CONNECTION_INFO:
       return {
         ...state,
-        [action.name]: action.value,
-      };
-
-    case CONNECT_USER:
-      console.log('passage 3');
-      return {
-        ...state,
+        role: action.role,
+        userid: action.userid,
         isLogged: true,
       };
 
-    case DISCONNECT_USER:
+    case SAVE_MEMBER:
+      console.log(action.data);
+      console.log(action.data.firstname);
       return {
         ...state,
-        isLogged: false,
+        firstname: action.data.firstName,
+        lastname: action.data.name,
+        phone: action.data.phone,
+        email: action.data.email,
+        address: action.data.address,
+        postalCode: action.data.postalCode,
+        city: action.data.city,
       };
-
     default: return state;
   }
 };

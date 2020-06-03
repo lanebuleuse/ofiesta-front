@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import ConnectMembers from 'src/components/MemberArea';
 
-import {} from 'src/actions/user';
+import { fetchMemberinformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => ({
   lastname: state.user.lastname,
   phone: state.user.phone,
   adress: state.user.adress,
-  cp: state.user.cp,
+  postalCode: state.user.postalCode,
   city: state.user.city,
   email: state.user.email,
   roles: state.user.roles,
@@ -19,7 +19,10 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  fetchMemberinformation: (userId, token) => {
+    console.log('Container');
+    dispatch(fetchMemberinformation(userId, token));
+  },
 });
 
 export default connect(

@@ -14,12 +14,11 @@ const ConnectMembers = ({
   isLogged,
   handleLogin,
 }) => {
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
   };
-
-  console.log(isLogged);
 
   if (isLogged) return <Redirect to="/mon-compte" />;
   return (

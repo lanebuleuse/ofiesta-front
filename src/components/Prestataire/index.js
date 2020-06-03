@@ -20,7 +20,6 @@ const Prestataire = ({ center, services, isLogged, fetchUserInformation }) => {
   }, []);
 
   const handleClick = () => {
-    console.log('click');
   };
   const service = services.find((currentService) => currentService.id == id);
   console.log('Passage');
