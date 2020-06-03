@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PrivateRoute from 'src/components/PrivateRoute';
 
 const mapStateToProps = (state) => ({
-  // Retrieve the state on administration
+
   isLogged: state.user.isLogged,
   role: state.user.role,
   userid: state.user.userid,

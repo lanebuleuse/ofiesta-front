@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ConnectMembers from 'src/components/MemberArea';
+import MemberArea from 'src/components/MemberArea';
 
 import { fetchMemberinformation } from 'src/actions/user';
 
@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ConnectMembers);
+)(MemberArea);
