@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import ConnectionPresta from 'src/components/ConnectionPresta';
 
-import { changeField, connectPresta } from 'src/actions/auth';
+import { changeField, connectPresta } from 'src/actions/authPresta';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration

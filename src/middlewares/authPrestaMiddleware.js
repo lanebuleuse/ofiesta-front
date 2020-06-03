@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import { CONNECT_USER } from 'src/actions/auth';
+import { CONNECT_PRESTA } from 'src/actions/auth';
 import { saveConnectionInfo } from 'src/actions/user';
 
-const authMiddleware = (store) => (next) => (action) => {
+const authPrestaMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
-    case CONNECT_USER: {
+    case CONNECT_PRESTA: {
       const { email, password } = store.getState().auth;
       axios({
         headers: {
@@ -43,4 +43,4 @@ const authMiddleware = (store) => (next) => (action) => {
       next(action);
   }
 };
-export default authMiddleware;
+export default authPrestaMiddleware;

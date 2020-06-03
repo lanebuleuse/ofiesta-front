@@ -3,8 +3,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import userMiddleware from 'src/middlewares/userMiddleware';
 import newUserMiddleware from 'src/middlewares/newUserMiddleware';
+import newPrestaMiddleware from 'src/middlewares/newPrestaMiddleware';
 import servicesMiddleware from 'src/middlewares/servicesMiddleware';
 import authMiddleware from 'src/middlewares/authMiddleware';
+import authPrestaMiddleware from 'src/middlewares/authPrestaMiddleware';
 
 import reducer from 'src/reducers/';
 
@@ -13,8 +15,10 @@ const enhancers = composeWithDevTools(
   applyMiddleware(
     servicesMiddleware,
     authMiddleware,
+    authPrestaMiddleware,
     userMiddleware,
     newUserMiddleware,
+    newPrestaMiddleware,
     // ... d'autres middlewares
   ),
 );

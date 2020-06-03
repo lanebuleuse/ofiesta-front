@@ -17,8 +17,8 @@ import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/components/ConnectPresta';
-import ConnectionPresta from 'src/components/ConnectionPresta';
-import NewPresta from 'src/components/NewPresta';
+import ConnectionPresta from 'src/containers/ConnectionPresta';
+import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
 
