@@ -21,6 +21,12 @@ const newUserReducer = (state = initialState, action = {}) => {
         ...state,
       };
 
+    case CHANGE_INPUT_VALUE:
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+
     default: return state;
   }
 };
