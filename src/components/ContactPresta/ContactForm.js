@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 const ContactForm = () => (
   <Form>
@@ -53,6 +53,9 @@ const ContactForm = () => (
         type="textarea"
       />
     </Form.Group>
+    <Button className="buttonInFormValid" onClick={handleClose}>
+      Envoyer votre demande
+    </Button>
   </Form>
 );
 
