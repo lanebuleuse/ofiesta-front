@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -30,7 +31,7 @@ const MemberArea = ({
       </div>
       <div className="memberArea-mesinfos">
         <h2 className="memberArea-subTitle">Mes infos</h2>
-        <a className="memberArea-modifier">Modifier</a>
+        <Link to="/mon-compte/modifier" className="memberArea-modifier">Modifier</Link>
         <p className="memberArea-detail"><i className="fa fa-user" aria-hidden="true" />{lastname} {firstname}</p>
         <p className="memberArea-detail"><i className="fa fa-home" aria-hidden="true" />{address} {postalCode} {city}</p>
         <p className="memberArea-detail"><i className="fa fa-mobile" aria-hidden="true" />{phone}</p>

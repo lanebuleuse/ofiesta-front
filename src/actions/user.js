@@ -2,6 +2,9 @@
 export const SAVE_CONNECTION_INFO = 'SAVE_CONNECTION_INFO';
 export const FETCH_MEMBER = 'FETCH_MEMBER';
 export const SAVE_MEMBER = 'SAVE_MEMBER';
+export const CHANGE_FIELD = 'CHANGE_FIELD';
+export const UPDATE_MEMBER = 'UPDATE_MEMBER';
+
 
 export const saveConnectionInfo = (role, userid) => ({
   type: SAVE_CONNECTION_INFO,
@@ -20,3 +23,12 @@ export const saveMemberInformation = (data) => ({
   data,
 });
 
+export const changeField = (newValue, identifier) => ({
+  type: CHANGE_FIELD,
+  newValue,
+  identifier,
+});
+
+export const handleUpdateMember = () => ({
+  type: UPDATE_MEMBER,
+});

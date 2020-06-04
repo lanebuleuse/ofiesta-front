@@ -48,6 +48,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "emailjs-com": "^2.4.1",
     "google-map-react": "^1.1.7",
     "prop-types": "*",
     "react": "*",

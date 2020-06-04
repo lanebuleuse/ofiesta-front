@@ -5,6 +5,9 @@ const initialState = {
   // ici l'état initial
   firstname: '',
   lastname: '',
+  city: '',
+  address: '',
+  postalCode: '',
   email: '',
   phone: '',
   password: '',
@@ -19,6 +22,12 @@ const newUserReducer = (state = initialState, action = {}) => {
 
       return {
         ...state,
+      };
+
+    case CHANGE_INPUT_VALUE:
+      return {
+        ...state,
+        [action.name]: action.value,
       };
 
     default: return state;

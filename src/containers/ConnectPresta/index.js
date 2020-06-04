@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 
-import ConnectionPresta from 'src/components/ConnectionPresta';
+import ConnectPresta from 'src/components/ConnectPresta';
 
 import { changeField, connectPresta } from 'src/actions/authPresta';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
-  email: state.auth.email,
-  password: state.auth.password,
-  isLogged: state.user.isLogged,
+  email: state.authPresta.email,
+  password: state.authPresta.password,
+  isLogged: state.authPresta.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -26,4 +26,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ConnectionPresta);
+)(ConnectPresta);

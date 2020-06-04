@@ -10,14 +10,14 @@ import NavBar from 'src/containers/NavBar';
 import Footer from 'src/components/Footer';
 import ConnectMembers from 'src/containers/ConnectMembers';
 import MemberArea from 'src/containers/MemberArea';
+import UpdateMember from 'src/containers/UpdateMember';
 import NewMember from 'src/containers/NewMember';
 import Search from 'src/containers/Search';
 import Home from 'src/containers/Home';
 import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
-import ConnectPresta from 'src/components/ConnectPresta';
-import ConnectionPresta from 'src/containers/ConnectionPresta';
+import ConnectPresta from 'src/containers/ConnectPresta';
 import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
@@ -37,15 +37,13 @@ const Ofiesta = ({ fetchServices, fetchDepartment, loading }) => {
           <NavBar />
           <Switch>
             <Route path="/mon-compte-pro/se-connecter">
-              <ConnectionPresta />
+              <ConnectPresta />
             </Route>
             <Route path="/mon-compte-pro/inscription">
               <NewPresta />
             </Route>
-            <Route path="/connecter-presta">
-              <ConnectPresta />
-            </Route>
-            <PrivateRoute path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
+            <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
+            <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_USER" />
             <Route path="/se-connecter">
               <ConnectMembers />
             </Route>

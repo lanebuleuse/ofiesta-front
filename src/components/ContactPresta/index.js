@@ -37,13 +37,8 @@ const ContactPresta = ({ isLogged }) => {
             <Modal.Title>Contactez nous</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <ContactForm />
+            <ContactForm handleClose={handleClose} />
           </Modal.Body>
-          <Modal.Footer>
-            <Button className="buttonInFormValid" onClick={handleClose}>
-              Envoyer votre demande
-            </Button>
-          </Modal.Footer>
         </Modal>
       )}
     </>

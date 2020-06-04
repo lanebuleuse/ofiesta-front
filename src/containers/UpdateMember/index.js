@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
-import MemberArea from 'src/components/MemberArea';
+import UpdateMember from 'src/components/UpdateMember';
 
-import { fetchMemberinformation } from 'src/actions/user';
+import { fetchMemberinformation, changeField, handleUpdateMember } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -15,16 +15,22 @@ const mapStateToProps = (state) => ({
   city: state.user.city,
   email: state.user.email,
   roles: state.user.roles,
-  isLogged: state.user.isLogged,
+  isLogged: state.user.password,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   fetchMemberinformation: (userId, token) => {
     dispatch(fetchMemberinformation(userId, token));
   },
+  changeField: (value, name) => {
+    dispatch(changeField(value, name));
+  },
+  handleUpdateMember: () => {
+    dispatch(handleUpdateMember());
+  },
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(MemberArea);
+)(UpdateMember);

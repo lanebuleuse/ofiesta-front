@@ -13,6 +13,7 @@ const Card = ({
   note,
   id,
   description,
+  department,
 }) => {
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
@@ -33,8 +34,8 @@ const Card = ({
         alt=""
       />
       <div className="card__content">
-        <h3 className="card__content--title">{title}</h3>
-        <Badge key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
+        <h3 className="card__content--title">{title} <span className="card__content--dep">({department})</span></h3>
+        <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
         <p className="card__content--text">
 {/*           {liteDescription} */}
         </p>
@@ -45,7 +46,7 @@ const Card = ({
             </span>
           </li>
           <li className="card__content__list--item">
-            <span>Tarif à partir de </span>
+            <span>Tarif à partir de</span>
             {price}€
           </li>
         </ul>
@@ -67,6 +68,7 @@ Card.propTypes = {
   note: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
+  department: PropTypes.string.isRequired,
 };
 
 export default Card;

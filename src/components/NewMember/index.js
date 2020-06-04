@@ -9,6 +9,9 @@ import './newMember.scss';
 const NewMember = ({
   firstname,
   lastname,
+  address,
+  postalCode,
+  city,
   email,
   phone,
   password,
@@ -38,6 +41,27 @@ const NewMember = ({
           placeholder="Prénom"
           onChange={changeField}
           value={firstname}
+        />
+        <Field
+          name="address"
+          styles=" field-input"
+          placeholder="N° et nom de rue"
+          onChange={changeField}
+          value={address}
+        />
+        <Field
+          name="postalCode"
+          styles=" field-input"
+          placeholder="Code postal"
+          onChange={changeField}
+          value={postalCode}
+        />
+        <Field
+          name="city"
+          styles=" field-input"
+          placeholder="Ville"
+          onChange={changeField}
+          value={city}
         />
         <Field
           name="phone"
@@ -80,6 +104,9 @@ const NewMember = ({
 NewMember.propTypes = {
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  postalCode: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,

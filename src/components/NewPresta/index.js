@@ -12,6 +12,9 @@ const NewMember = ({
   lastname,
   company,
   siret,
+  address,
+  postalCode,
+  city,
   email,
   phone,
   password,
@@ -57,6 +60,27 @@ const NewMember = ({
           value={siret}
         />
         <Field
+          name="address"
+          styles=" field-input"
+          placeholder="N° et nom de rue"
+          onChange={changeField}
+          value={address}
+        />
+        <Field
+          name="postalCode"
+          styles=" field-input"
+          placeholder="Code postal"
+          onChange={changeField}
+          value={postalCode}
+        />
+        <Field
+          name="city"
+          styles=" field-input"
+          placeholder="Ville"
+          onChange={changeField}
+          value={city}
+        />
+        <Field
           name="phone"
           styles="field-input"
           type="phone"
@@ -99,6 +123,9 @@ NewMember.propTypes = {
   lastname: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
   siret: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  postalCode: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,

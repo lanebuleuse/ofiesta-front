@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import { useParams } from 'react-router-dom';
 
+import { Badge } from 'react-bootstrap';
+
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
 import ContactPresta from 'src/containers/ContactPresta';
 import GoogleMap from 'src/containers/GoogleMap';
@@ -22,7 +24,7 @@ const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
 
   const handleClick = () => {
   };
-
+  
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < currentService.note) {
@@ -36,7 +38,9 @@ const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
     <>
       <section className="prestataire">
         <div className="prestataire__top">
-          <h4 className="prestataire__top--title">{currentService.title}</h4>
+          <h4 className="prestataire__top--title">
+            {currentService.title}
+          </h4>
           <div className="prestataire__top--grades">
             {stars}
           </div>
@@ -66,7 +70,7 @@ const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
           </p>
         </div>
       </section>
-      {loading && <Loader /> }
+      {loading && <Loader />}
       {!loading && <GoogleMap />}
     </>
   );
