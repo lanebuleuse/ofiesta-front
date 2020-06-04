@@ -5,6 +5,9 @@ const initialState = {
   // ici l'état initial
   firstname: '',
   lastname: '',
+  city: '',
+  address: '',
+  postalCode: '',
   email: '',
   phone: '',
   password: '',

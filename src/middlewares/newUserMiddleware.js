@@ -9,6 +9,9 @@ const newUserMiddleware = (store) => (next) => (action) => {
       const {
         firstname,
         lastname,
+        address,
+        postalCode,
+        city,
         email,
         phone,
         password,

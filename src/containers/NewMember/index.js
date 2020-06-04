@@ -8,6 +8,9 @@ const mapStateToProps = (state) => ({
   // Retrieve the state on administration
   firstname: state.newUser.firstname,
   lastname: state.newUser.lastname,
+  address: state.newPresta.address,
+  postalCode: state.newPresta.postalCode,
+  city: state.newPresta.city,
   email: state.newUser.email,
   phone: state.newUser.phone,
   password: state.newUser.password,
