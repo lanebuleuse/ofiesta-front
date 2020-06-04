@@ -52,7 +52,8 @@
     width: 100%;
 
     &--input{
-      width: 80%;
+      width: 100%;
+      display: inline-block;
       margin-bottom: 0.5em;
       height: 2em;
       border: none;
@@ -110,5 +111,26 @@
         color: #fff;
       }
     }
+
+    .searchDepartment {
+      display: inline-block;
+      width: auto;
+
+      .search__form--input {
+
+      }
+
+      .searchDepartment_list {
+        position: absolute;
+        background-color: white;
+        color: black;
+        display: none;
+      }
+      
+      .visible {
+        display: block;
+      }
+    }
+    
   }
 }

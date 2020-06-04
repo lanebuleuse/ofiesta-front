@@ -45,7 +45,7 @@ MemberArea.propTypes = {
   lastname: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
-  postalCode: PropTypes.number.isRequired,
+  postalCode: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   fetchMemberinformation: PropTypes.func.isRequired,

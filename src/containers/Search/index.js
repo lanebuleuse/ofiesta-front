@@ -7,6 +7,7 @@ import { changeField, search } from 'src/actions/search';
 const mapStateToProps = (state) => ({
   service: state.search.service,
   department: state.search.department,
+  departmentList: state.search.departmentList,
 });
 
 const mapDispatchToProps = (dispatch) => ({

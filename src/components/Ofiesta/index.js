@@ -22,16 +22,14 @@ import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
 
-
-
 // == Composant
-const Ofiesta = ({ fetchServices, loading }) => {
+const Ofiesta = ({ fetchServices, fetchDepartment, loading }) => {
   // This effect is start one time at the launch of the application with [] at the end
   useEffect(() => {
+    fetchDepartment();
     fetchServices();
   }, []);
   return (
-
     <div className="ofiesta">
       {loading && <Loader />}
       {!loading && (
@@ -83,6 +81,7 @@ const Ofiesta = ({ fetchServices, loading }) => {
 
 Ofiesta.propTypes = {
   fetchServices: PropTypes.func.isRequired,
+  fetchDepartment: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
