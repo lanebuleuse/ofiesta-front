@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ConnectionPresta from 'src/components/ConnectionPresta';
+import ConnectPresta from 'src/components/ConnectPresta';
 
 import { changeField, connectPresta } from 'src/actions/authPresta';
 
@@ -26,4 +26,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ConnectionPresta);
+)(ConnectPresta);
