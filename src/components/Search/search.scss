@@ -111,26 +111,50 @@
         color: #fff;
       }
     }
-
-    .searchDepartment {
-      display: inline-block;
-      width: auto;
-
-      .search__form--input {
-
-      }
-
-      .searchDepartment_list {
-        position: absolute;
-        background-color: white;
-        color: black;
-        display: none;
-      }
-      
-      .visible {
-        display: block;
-      }
-    }
+    
     
   }
+  
 }
+
+.modal-dialog {
+  @media only screen and (min-width: $breakMini) {
+    /* tablets */
+    width: 90%;
+    max-height: 50vh;
+    max-width: 900px;
+  }
+
+  @media only screen and (min-width: $breakMedium) {
+    /* tablets */
+    width: 90%;
+    max-height: 50vh;
+    max-width: 1200px;
+  }
+}
+.modal_departments {
+  display: flex;
+  flex-wrap: wrap;
+/*   flex-direction: column;
+  max-height: 90vh;
+  max-height: 130vh; */ 
+
+  .department {
+    font-size: 0.8rem;
+    width: 50%;
+    @media only screen and (min-width: $breakMini) {
+      /* tablets */
+      width: 25%;
+    }
+
+    .form-group {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .form-check-label {
+    line-height: 1.5rem;
+  }
+}
+
+

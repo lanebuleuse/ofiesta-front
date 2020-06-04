@@ -1,50 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'react-bootstrap';
+import { Form, Modal, Button } from 'react-bootstrap';
 
 import './search.scss';
 
 const Search = ({
   handleSearch,
-  changeField,
+  /*   changeField, */
   service,
-  department,
+  departmentName,
+  departmentCode,
   departmentList,
+  addDepartement,
+  removeDepartment,
 }) => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleSearch();
   };
 
-  const handleChange = (evt) => {
-    // console.log(evt.currentTarget.name);
-    changeField(evt.target.value, evt.currentTarget.name);
+  const handleChange = () => {
+
   };
 
-  const handleBlur = (evt) => {
-    console.log('je passe ici');
-    const currentDiv = evt.target;
-    currentDiv.classList.remove('visible');
-  };
+  const handleChangeDepartment = (evt) => {
 
-  const handleClickDepartment = (evt) => {
-    const departmentInput = evt.target.getBoundingClientRect();
-    const departmentTop = departmentInput.y;
-    const departmentLeft = departmentInput.x;
-    const departmentSize = departmentInput.width;
-    console.log(evt.target.getBoundingClientRect());
-    console.log(departmentTop);
-    console.log(departmentLeft);
-    const divListDepartment = document.querySelector('.searchDepartment_list');
-    console.log(divListDepartment);
-    divListDepartment.classList.add('visible');
-    divListDepartment.style.top = `${departmentTop + 28}px`;
-    divListDepartment.style.left = `${departmentLeft}px`;
-    divListDepartment.style.minWidth = `${departmentSize}px`;
-    divListDepartment.style.maxWidth = `${departmentSize + 100}px`;
-    divListDepartment.focus();
+    const targetStatus = evt.target.checked;
+    if (targetStatus) {
+      addDepartement(evt.target.value, evt.target.id);
+    }
+    else {
+      let depCode = '';
+      let depName = '';
+      depName = departmentName.filter((dep) => (
+        dep !== evt.target.id
+      ));
+      depCode = departmentCode.filter((dep) => (
+        dep !== evt.target.value
+      ));
+      removeDepartment(depCode, depName);
+    }
   };
-  console.log(departmentList);
 
   return (
     <div className="search">
@@ -60,26 +60,58 @@ const Search = ({
             onChange={handleChange}
             value={service}
           />
-          <div className="searchDepartment">
-            <input
-              className="search__form--input"
-              type="search"
-              placeholder="Département rechercher"
-              name="department"
-              onChange={handleChange}
-              onClick={handleClickDepartment}
-              value={department}
-            />
-            <div className="searchDepartment_list" onBlur={handleBlur}>
-              <Form.Group id="formGridCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-              <p>test</p>
-              <p>test</p>
-              <p>test</p>
-            </div>
-          </div>
+          <input
+            className="search__form--input"
+            type="search"
+            placeholder="Département rechercher"
+            id="department"
+            name="department"
+            onClick={handleShow}
+            value={departmentName}
+            readOnly=" readonly "
+          />
           <button className="search__form--button" type="submit">Rechercher</button>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Séléctionner les départements</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="modal_departments">
+              {departmentList.map((currentDepartment) => (
+                <div className="department" key={currentDepartment.code}>
+                  <Form.Group controlId={currentDepartment.nom}>
+                    {(departmentCode.includes(currentDepartment.code)) && (
+                      <Form.Check
+                        type="checkbox"
+                        value={currentDepartment.code}
+                        label={currentDepartment.nom}
+                        onChange={handleChangeDepartment}
+                        checked
+                      />
+                    )}
+                    {(!departmentCode.includes(currentDepartment.code)) && (
+                      <Form.Check
+                        type="checkbox"
+                        value={currentDepartment.code}
+                        label={currentDepartment.nom}
+                        onChange={handleChangeDepartment}
+                      />
+                    )}
+                  </Form.Group>
+                </div>
+              ))}
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Annuler
+              </Button>
+              <Button variant="primary">Valider</Button>
+            </Modal.Footer>
+          </Modal>
         </form>
       </div>
     </div>
@@ -88,10 +120,12 @@ const Search = ({
 
 Search.propTypes = {
   handleSearch: PropTypes.func.isRequired,
-  changeField: PropTypes.func.isRequired,
   service: PropTypes.string.isRequired,
-  department: PropTypes.string.isRequired,
+  departmentCode: PropTypes.array.isRequired,
+  departmentName: PropTypes.array.isRequired,
   departmentList: PropTypes.array.isRequired,
+  addDepartement: PropTypes.func.isRequired,
+  removeDepartment: PropTypes.func.isRequired,
 };
 
 export default Search;
