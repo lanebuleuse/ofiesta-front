@@ -23,7 +23,7 @@ const ContactForm = ({
   return (
     <Form>
       <Form.Row>
-        <Form.Group md="6" controlId="validationCustom01">
+        <Form.Group md="6" controlId="validationCustom01" className="formContactPrestaInput">
           <Form.Label>Nom</Form.Label>
           <Form.Control
             required
@@ -33,7 +33,7 @@ const ContactForm = ({
             value={lastname}
           />
         </Form.Group>
-        <Form.Group md="6" controlId="validationCustom02">
+        <Form.Group md="6" controlId="validationCustom02" className="formContactPrestaInput">
           <Form.Label>Prénom</Form.Label>
           <Form.Control
             required
@@ -45,7 +45,7 @@ const ContactForm = ({
         </Form.Group>
       </Form.Row>
       <Form.Row>
-        <Form.Group md="6" controlId="validationCustom03">
+        <Form.Group md="6" controlId="validationCustom03" className="formContactPrestaInput">
           <Form.Label>Email</Form.Label>
           <Form.Control
             required
@@ -55,7 +55,7 @@ const ContactForm = ({
             value={email}
           />
         </Form.Group>
-        <Form.Group md="6" controlId="validationCustom04">
+        <Form.Group md="6" controlId="validationCustom04" className="formContactPrestaInput">
           <Form.Label>Téléphone</Form.Label>
           <Form.Control
             pattern="[0-9]{10}"

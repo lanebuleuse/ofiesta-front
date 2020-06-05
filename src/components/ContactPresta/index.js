@@ -12,15 +12,13 @@ const ContactPresta = ({ isLogged }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
-    <>
+    <div className="contactPresta">
       <Button variant="primary" onClick={handleShow} className="button-contact">
         Contactez nous
       </Button>
 
       {(!isLogged) && (
-        <Modal show={show} onHide={handleClose}>
-
-
+        <Modal className="modal--form" show={show} onHide={handleClose}>
           <Modal.Body>
             <p>Merci de vous connecter pour nous contacter</p>
           </Modal.Body>
@@ -32,7 +30,7 @@ const ContactPresta = ({ isLogged }) => {
         </Modal>
       )}
       {(isLogged) && (
-        <Modal show={show} onHide={handleClose}>
+        <Modal className="modal--form" show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Contactez nous</Modal.Title>
           </Modal.Header>
@@ -41,7 +39,7 @@ const ContactPresta = ({ isLogged }) => {
           </Modal.Body>
         </Modal>
       )}
-    </>
+    </div>
   );
 };
 
