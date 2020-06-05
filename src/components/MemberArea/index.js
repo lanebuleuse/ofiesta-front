@@ -16,7 +16,7 @@ const MemberArea = ({
   fetchMemberinformation,
 }) => {
   useEffect(() => {
-    fetchMemberinformation(localStorage.getItem('USER_ID'), localStorage.getItem('JWT_token'));
+    fetchMemberinformation();
   }, []);
   const authToken = localStorage.getItem('JWT_token');
   console.log(authToken);

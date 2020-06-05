@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
   // Retrieve the state on administration
   email: state.authPresta.email,
   password: state.authPresta.password,
-  isLogged: state.authPresta.isLogged,
+  isLogged: state.user.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

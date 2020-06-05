@@ -17,8 +17,6 @@ export const saveConnectionInfo = (role, userid) => ({
 
 export const fetchMemberinformation = (userId, token) => ({
   type: FETCH_MEMBER,
-  userId,
-  token,
 });
 
 export const saveMemberInformation = (data) => ({

@@ -13,13 +13,13 @@ const ConnectPresta = ({
   isLogged,
   handleLogin,
 }) => {
-
+  console.log(isLogged);
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
   };
 
-  if (isLogged) return <Redirect to="/mon-compte" />;
+  if (isLogged) return <Redirect to="/mon-compte-pro" />;
   return (
     <div className="connectMembers">
       <form className="connectMembers-form" onSubmit={handleSubmit}>
