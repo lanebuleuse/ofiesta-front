@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Form, Button } from 'react-bootstrap';
 
-const ContactForm = ({ 
+const ContactForm = ({
   handleClose,
   changeField,
   firstname,
@@ -12,9 +12,12 @@ const ContactForm = ({
   phone,
   date,
   message,
+  sendFeedback,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    const templateId = 'template_cyvMytvr';
+    sendFeedback(templateId, { message_html: message, from_name: lastname, reply_to: email });
     handleClose();
   };
   return (
@@ -97,6 +100,7 @@ ContactForm.propTypes = {
   phone: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
+  sendFeedback: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
