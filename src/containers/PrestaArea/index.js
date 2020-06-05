@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import PrestaArea from 'src/components/PrestaArea';
 
-import {} from 'src/actions/user';
+import { fetchProInformation } from 'src/actions/pro';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -13,23 +13,18 @@ const mapStateToProps = (state) => ({
   cp: state.user.cp,
   city: state.user.city,
   email: state.user.email,
-  roles: state.user.roles,
+  // roles: state.user.roles,
   isLogged: state.user.password,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeField: (value, name) => {
-    dispatch(changeField(value, name));
+  fetchProInformation: () => {
+    dispatch(fetchProInformation());
+  },
+});
 
-},
-
-handleLogin: () => {
-  dispatch(connectPresta());
-},
-
-};
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PrestaArea)
+)(PrestaArea);

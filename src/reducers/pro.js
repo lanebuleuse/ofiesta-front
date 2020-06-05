@@ -1,10 +1,10 @@
 import {
   SAVE_CONNECTION_INFO,
-  SAVE_MEMBER,
+  SAVE_PRO,
   CHANGE_FIELD,
   CONNECT_USER,
   DISCONNECT_USER,
-} from 'src/actions/user';
+} from 'src/actions/pro';
 
 
 const initialState = {
@@ -21,9 +21,11 @@ const initialState = {
   role: [],
   password: '',
   isLogged: false,
+  serviceList: [],
+
 };
 
-const userReducer = (state = initialState, action = {}) => {
+const proReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_CONNECTION_INFO:
       return {
@@ -33,7 +35,7 @@ const userReducer = (state = initialState, action = {}) => {
         isLogged: true,
       };
 
-    case SAVE_MEMBER:
+    case SAVE_PRO:
       return {
         ...state,
         firstname: action.data.firstName,
@@ -43,6 +45,7 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
+        serviceList: action.serviceList,
       };
 
     case DISCONNECT_USER:
@@ -60,4 +63,4 @@ const userReducer = (state = initialState, action = {}) => {
   }
 };
 
-export default userReducer;
+export default proReducer;

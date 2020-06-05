@@ -22,7 +22,7 @@ import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
 import Disconnect from 'src/containers/Disconnect';
 import Page404 from 'src/components/Page404';
-import PrestaArea from 'src/components/PrestaArea';
+import PrestaArea from 'src/containers/PrestaArea';
 
 // == Composant
 const Ofiesta = ({

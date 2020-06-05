@@ -19,7 +19,6 @@ const MemberArea = ({
     fetchMemberinformation();
   }, []);
   const authToken = localStorage.getItem('JWT_token');
-  console.log(authToken);
   return (
     <div className="memberArea">
       <div className="memberArea-favori">

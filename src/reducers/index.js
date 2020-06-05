@@ -10,9 +10,11 @@ import searchReducer from './search';
 import authReducer from './auth';
 import authPrestaReducer from './authPresta';
 import contactPrestaReducer from './contactPresta';
+import proReducer from './pro';
 
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
+  pro: proReducer,
 
   /* administration: administrationReducer, */
   auth: authReducer,

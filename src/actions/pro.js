@@ -1,7 +1,7 @@
 // action types
 export const SAVE_CONNECTION_INFO = 'SAVE_CONNECTION_INFO';
-export const FETCH_MEMBER = 'FETCH_MEMBER';
-export const SAVE_MEMBER = 'SAVE_MEMBER';
+export const FETCH_PRO = 'FETCH_PRO';
+export const SAVE_PRO = 'SAVE_PRO';
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const UPDATE_MEMBER = 'UPDATE_MEMBER';
 export const CHECK_USER_CONNECT = 'CHECK_USER_CONNECT';
@@ -15,16 +15,16 @@ export const saveConnectionInfo = (role, userid) => ({
   userid,
 });
 
-export const fetchMemberinformation = () => {
-  console.log('je passe dans l action');
+export const fetchProInformation = () => {
   return ({
-    type: FETCH_MEMBER,
+    type: FETCH_PRO,
   });
 };
 
-export const saveMemberInformation = (data) => ({
-  type: SAVE_MEMBER,
+export const saveProInformation = (data, serviceList) => ({
+  type: SAVE_PRO,
   data,
+  serviceList,
 });
 
 export const changeField = (newValue, identifier) => ({
