@@ -26,8 +26,10 @@ import Page404 from 'src/components/Page404';
 const Ofiesta = ({ fetchServices, fetchDepartment, loading }) => {
   // This effect is start one time at the launch of the application with [] at the end
   useEffect(() => {
-    fetchDepartment();
     fetchServices();
+  }, []);
+  useEffect(() => {
+    fetchDepartment();
   }, []);
   return (
     <div className="ofiesta">

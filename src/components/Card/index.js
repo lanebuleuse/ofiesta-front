@@ -24,7 +24,7 @@ const Card = ({
       stars.push(<i key={i} className="stars fa fa-star-o" aria-hidden="true" />);
     }
   }
-/*   const liteDescription = description.slice(0, 180); */
+  const liteDescription = description.slice(0, 180);
 
   return (
     <div className="card">
@@ -37,7 +37,7 @@ const Card = ({
         <h3 className="card__content--title">{title} <span className="card__content--dep">({department})</span></h3>
         <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
         <p className="card__content--text">
-{/*           {liteDescription} */}
+          {liteDescription}
         </p>
         <ul className="card__content__list">
           <li className="card__content__list--item">
