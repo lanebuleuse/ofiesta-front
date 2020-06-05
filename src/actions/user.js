@@ -6,6 +6,7 @@ export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const UPDATE_MEMBER = 'UPDATE_MEMBER';
 export const CHECK_USER_CONNECT = 'CHECK_USER_CONNECT';
 export const CONNECT_USER = 'CONNECT_USER';
+export const DISCONNECT_USER = 'DISCONNECT_USER';
 
 
 export const saveConnectionInfo = (role, userid) => ({
@@ -41,4 +42,8 @@ export const checkUserConnected = () => ({
 
 export const connectUser = () => ({
   type: CONNECT_USER,
+});
+
+export const disconnectUser = () => ({
+  type: DISCONNECT_USER,
 });

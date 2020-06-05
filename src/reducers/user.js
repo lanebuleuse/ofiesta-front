@@ -3,6 +3,7 @@ import {
   SAVE_MEMBER,
   CHANGE_FIELD,
   CONNECT_USER,
+  DISCONNECT_USER,
 } from 'src/actions/user';
 
 
@@ -50,6 +51,12 @@ const userReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         islogged: true,
+      };
+
+    case DISCONNECT_USER:
+      return {
+        ...state,
+        isLogged: false,
       };
 
     case CHANGE_FIELD:

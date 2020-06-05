@@ -20,6 +20,7 @@ import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/containers/ConnectPresta';
 import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
+import Disconnect from 'src/containers/Disconnect';
 import Page404 from 'src/components/Page404';
 
 // == Composant
@@ -63,6 +64,9 @@ const Ofiesta = ({ fetchServices, fetchDepartment,checkUserConnected, loading })
             </Route>
             <Route path="/401">
               <Page401 />
+            </Route>
+            <Route path="/deconnection">
+              <Disconnect />
             </Route>
             <Route path="/" exact>
               <Search />
