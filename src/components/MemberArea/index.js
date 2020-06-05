@@ -58,7 +58,6 @@ MemberArea.propTypes = {
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   fetchMemberinformation: PropTypes.func.isRequired,
-  loadding: PropTypes.bool.isRequired,
 };
 
 export default MemberArea;

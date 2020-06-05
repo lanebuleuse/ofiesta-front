@@ -6,7 +6,6 @@ import './search.scss';
 
 const Search = ({
   handleSearch,
-  /*   changeField, */
   service,
   departmentName,
   departmentCode,
@@ -68,7 +67,7 @@ const Search = ({
             name="department"
             onClick={handleShow}
             value={departmentName}
-            readOnly=" readonly "
+            readOnly=" readonly"
           />
           <button className="search__form--button" type="submit">Rechercher</button>
           <Modal

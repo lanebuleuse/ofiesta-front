@@ -4,14 +4,18 @@ import { Redirect } from 'react-router-dom';
 
 const Disconnect = ({ disconnectUser }) => {
   disconnectUser();
-  if (!localStorage.getItem('JWT_token')) {
+  return (
+    <Redirect to="/" />
+  );
+
+/*   if (!localStorage.getItem('JWT_token')) {
     return (
       <Redirect to="/" />
     );
   }
   return (
     <Redirect to="/Page404" />
-  );
+  ); */
 };
 
 Disconnect.propTypes = {

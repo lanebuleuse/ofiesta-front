@@ -2,7 +2,6 @@ import {
   SAVE_CONNECTION_INFO,
   SAVE_MEMBER,
   CHANGE_FIELD,
-  CONNECT_USER,
   DISCONNECT_USER,
 } from 'src/actions/user';
 
