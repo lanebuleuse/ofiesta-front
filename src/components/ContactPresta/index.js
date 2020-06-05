@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Button, Modal } from 'react-bootstrap';
-import ContactForm from './ContactForm';
+import ContactForm from 'src/containers/ContactPresta/ContactForm';
 import './contactPresta.scss';
 
 const ContactPresta = ({ isLogged }) => {

@@ -15,6 +15,8 @@ const initialState = {
   role: [],
   password: '',
   isLogged: false,
+  date: '',
+  message: '',
 };
 
 const userReducer = (state = initialState, action = {}) => {
