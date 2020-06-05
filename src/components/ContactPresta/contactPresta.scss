@@ -50,3 +50,22 @@
     color: #fff;
   } 
 }
+
+.contactPresta{
+  width: 100%;
+  margin: auto;
+}
+
+.modal--form{
+  width: 50%;
+  margin-left: 25%;
+}
+
+.formContactPrestaInput{
+  width: 100%;
+
+  @media only screen and (min-width: $breakMedium) {
+    /* tablets */
+    width: 50%;
+  }
+}
