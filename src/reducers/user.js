@@ -1,4 +1,9 @@
-import { SAVE_CONNECTION_INFO, SAVE_MEMBER, CHANGE_FIELD } from 'src/actions/user';
+import {
+  SAVE_CONNECTION_INFO,
+  SAVE_MEMBER,
+  CHANGE_FIELD,
+  CONNECT_USER,
+} from 'src/actions/user';
 
 
 const initialState = {
@@ -39,6 +44,12 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
+      };
+
+    case CONNECT_USER:
+      return {
+        ...state,
+        islogged: true,
       };
 
     case CHANGE_FIELD:

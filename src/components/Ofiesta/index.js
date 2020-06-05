@@ -23,13 +23,14 @@ import Loader from 'src/components/Loader';
 import Page404 from 'src/components/Page404';
 
 // == Composant
-const Ofiesta = ({ fetchServices, fetchDepartment, loading }) => {
+const Ofiesta = ({ fetchServices, fetchDepartment,checkUserConnected, loading }) => {
   // This effect is start one time at the launch of the application with [] at the end
   useEffect(() => {
     fetchServices();
   }, []);
   useEffect(() => {
     fetchDepartment();
+    checkUserConnected();
   }, []);
   return (
     <div className="ofiesta">
@@ -80,6 +81,7 @@ const Ofiesta = ({ fetchServices, fetchDepartment, loading }) => {
 };
 
 Ofiesta.propTypes = {
+  checkUserConnected: PropTypes.func.isRequired,
   fetchServices: PropTypes.func.isRequired,
   fetchDepartment: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
