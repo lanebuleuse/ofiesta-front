@@ -26,7 +26,7 @@ const initialState = {
     loading: true,
   },
   zoom: 11,
-  loading: false,
+  loading: true,
 };
 
 const servicesReducer = (state = initialState, action = {}) => {

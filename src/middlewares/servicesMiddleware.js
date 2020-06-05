@@ -15,8 +15,9 @@ const servicesMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case FETCH_SERVICES:
-      axios.get('http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/services')
+      axios.get('http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/services?page=1')
         .then((response) => {
+/*           console.log(response); */
           // je voudrais enregistrer response.data dans le state=> nouvelle action
           store.dispatch(saveServices(response.data));
         })

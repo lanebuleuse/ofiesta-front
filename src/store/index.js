@@ -7,6 +7,7 @@ import newPrestaMiddleware from 'src/middlewares/newPrestaMiddleware';
 import servicesMiddleware from 'src/middlewares/servicesMiddleware';
 import authMiddleware from 'src/middlewares/authMiddleware';
 import authPrestaMiddleware from 'src/middlewares/authPrestaMiddleware';
+import searchMiddleware from 'src/middlewares/searchMiddleware';
 
 import reducer from 'src/reducers/';
 
@@ -19,6 +20,7 @@ const enhancers = composeWithDevTools(
     userMiddleware,
     newUserMiddleware,
     newPrestaMiddleware,
+    searchMiddleware,
     // ... d'autres middlewares
   ),
 );

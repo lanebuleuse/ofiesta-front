@@ -8,7 +8,7 @@ const initialState = {
   lastname: '',
   phone: '',
   address: '',
-  cp: '',
+  postalCode: '',
   city: '',
   email: '',
   favori: [],

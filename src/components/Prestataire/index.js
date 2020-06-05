@@ -24,6 +24,7 @@ const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
 
   const handleClick = () => {
   };
+  
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < currentService.note) {
