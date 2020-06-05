@@ -28,20 +28,20 @@ const Ofiesta = ({
   fetchServices,
   fetchDepartment,
   checkUserConnected,
+
   loading,
 }) => {
-  // This effect is start one time at the launch of the application with [] at the end
   useEffect(() => {
+    checkUserConnected();
     fetchServices();
   }, []);
   useEffect(() => {
     fetchDepartment();
-    checkUserConnected();
   }, []);
   return (
     <div className="ofiesta">
       {loading && <Loader />}
-      {!loading && (
+      {(!loading) && (
         <>
           <NavBar />
           <Switch>

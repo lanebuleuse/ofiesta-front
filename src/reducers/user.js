@@ -23,6 +23,7 @@ const initialState = {
   isLogged: false,
   date: '',
   message: '',
+  loading: true,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -33,11 +34,13 @@ const userReducer = (state = initialState, action = {}) => {
         role: action.role,
         userid: action.userid,
         isLogged: true,
+        loading: false,
       };
 
     case SAVE_MEMBER:
       return {
         ...state,
+        role: action.data.roles,
         firstname: action.data.firstName,
         lastname: action.data.name,
         phone: action.data.phone,
@@ -45,12 +48,23 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
+        loading: false,
+        isLogged: true,
       };
 
     case DISCONNECT_USER:
       return {
         ...state,
         isLogged: false,
+        loading: true,
+        role: [],
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        address: '',
+        postalCode: '',
+        city: '',
       };
 
     case CHANGE_FIELD:

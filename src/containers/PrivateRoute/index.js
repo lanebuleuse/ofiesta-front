@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 
 import PrivateRoute from 'src/components/PrivateRoute';
 
+import { fetchMemberinformation } from 'src/actions/user';
+
 const mapStateToProps = (state) => ({
 
   isLogged: state.user.isLogged,
@@ -10,7 +12,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  fetchMemberinformation: () => {
+    dispatch(fetchMemberinformation());
+  },
 });
 
 export default connect(

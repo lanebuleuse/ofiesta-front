@@ -4,11 +4,12 @@ import Ofiesta from 'src/components/Ofiesta';
 
 import { fetchServices } from 'src/actions/services';
 import { fetchDepartment } from 'src/actions/search';
-import { connectUser } from 'src/actions/user';
+import { fetchMemberinformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   services: state.services.listServices,
   loading: state.services.loading,
+  loadingUser: state.user.loading,
   departmentList: state.search.departmentList,
 });
 
@@ -22,10 +23,14 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(fetchDepartment());
   },
 
+  fetchMemberinformation: () => {
+    dispatch(fetchMemberinformation());
+  },
+
   checkUserConnected: () => {
     const authToken = localStorage.getItem('JWT_token');
     if (authToken) {
-      dispatch(connectUser());
+      dispatch(fetchMemberinformation());
     }
   },
 });

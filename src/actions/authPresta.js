@@ -4,7 +4,6 @@ export const CONNECT_PRESTA = 'CONNECT_PRESTA';
 export const DISCONNECT_PRESTA = 'DISCONNECT_PRESTA';
 export const SAVE_PRESTA = 'SAVE_PRESTA';
 
-
 // action creators
 export const changeField = (value, name) => ({
   type: CHANGE_INPUT_VALUE,

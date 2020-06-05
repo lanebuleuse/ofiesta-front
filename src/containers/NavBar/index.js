@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import NavBar from 'src/components/NavBar';
 
-import { disconnectUser } from 'src/actions/auth';
+import { disconnectUser } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   // Retrieve in the state if user is logged
