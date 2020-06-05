@@ -1,31 +1,30 @@
 import { connect } from 'react-redux';
 
-import MemberArea from 'src/components/MemberArea';
+import PrestaArea from 'src/components/PrestaArea';
 
-import { fetchMemberinformation } from 'src/actions/user';
+import { fetchProInformation } from 'src/actions/pro';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
-  genre: state.user.genre,
   firstname: state.user.firstname,
   lastname: state.user.lastname,
   phone: state.user.phone,
-  address: state.user.address,
-  postalCode: state.user.postalCode,
+  adress: state.user.adress,
+  cp: state.user.cp,
   city: state.user.city,
   email: state.user.email,
-  roles: state.user.roles,
-  isLogged: state.user.isLogged,
-  loadding: state.user.loadding,
+  // roles: state.user.roles,
+  isLogged: state.user.password,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMemberinformation: () => {
-    dispatch(fetchMemberinformation());
+  fetchProInformation: () => {
+    dispatch(fetchProInformation());
   },
 });
+
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(MemberArea);
+)(PrestaArea);

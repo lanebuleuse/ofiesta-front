@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-import { FETCH_MEMBER, saveMemberInformation } from 'src/actions/user';
+import { FETCH_PRO, saveProInformation } from 'src/actions/pro';
 
-const userMiddleware = (store) => (next) => (action) => {
+const proMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
-    case FETCH_MEMBER:
+    case FETCH_PRO:
       const authToken = localStorage.getItem('JWT_token');
       const userId = localStorage.getItem('USER_ID');
 
@@ -17,12 +17,13 @@ const userMiddleware = (store) => (next) => (action) => {
         },
         method: 'get',
         responseType: 'json',
-        url: `http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/${userId}`,
+        url: `http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/pro/users/${userId}`,
       })
         .then((response) => {
-          console.log(response);
+          console.log(response.data);
+          console.log(response.data);
           // je voudrais enregistrer response.data dans le state=> nouvelle action
-          store.dispatch(saveMemberInformation(response.data));
+          store.dispatch(saveProInformation(response.data[0], response.data[1]));
         })
         .catch((error) => {
           console.warn(error);
@@ -36,4 +37,4 @@ const userMiddleware = (store) => (next) => (action) => {
       next(action);
   }
 };
-export default userMiddleware;
+export default proMiddleware;

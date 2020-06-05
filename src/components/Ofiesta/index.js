@@ -22,6 +22,7 @@ import NewPresta from 'src/containers/NewPresta';
 import Loader from 'src/components/Loader';
 import Disconnect from 'src/containers/Disconnect';
 import Page404 from 'src/components/Page404';
+import PrestaArea from 'src/containers/PrestaArea';
 
 // == Composant
 const Ofiesta = ({
@@ -55,6 +56,9 @@ const Ofiesta = ({
             <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_USER" />
             <Route path="/se-connecter">
               <ConnectMembers />
+            </Route>
+            <Route path="/mon-compte-pro">
+              <PrestaArea />
             </Route>
             <Route path="/inscription">
               <NewMember />
