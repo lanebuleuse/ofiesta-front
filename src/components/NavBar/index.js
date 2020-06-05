@@ -34,7 +34,7 @@ const NavBar = ({ isLogged, handleLogout }) => (
               <Link to="/mon-compte" className="nav-links">Mon compte</Link>
             </li>
             <li>
-              <a onClick={handleLogout} className="nav-links">Se déconnecter</a>
+              <Link to="/deconnection" className="nav-links">Se déconnecter</Link>
             </li>
           </>
         )}
