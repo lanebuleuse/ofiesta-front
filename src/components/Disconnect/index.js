@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 const Disconnect = ({ disconnectUser }) => {
   disconnectUser();
   if (!localStorage.getItem('JWT_token')) {
+    console.log('je passe ici');
     return (
       <Redirect to="/" />
     );

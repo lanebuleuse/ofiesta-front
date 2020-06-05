@@ -47,12 +47,6 @@ const userReducer = (state = initialState, action = {}) => {
         city: action.data.city,
       };
 
-    case CONNECT_USER:
-      return {
-        ...state,
-        islogged: true,
-      };
-
     case DISCONNECT_USER:
       return {
         ...state,

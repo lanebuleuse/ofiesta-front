@@ -18,6 +18,8 @@ const MemberArea = ({
   useEffect(() => {
     fetchMemberinformation(localStorage.getItem('USER_ID'), localStorage.getItem('JWT_token'));
   }, []);
+  const authToken = localStorage.getItem('JWT_token');
+  console.log(authToken);
   return (
     <div className="memberArea">
       <div className="memberArea-favori">

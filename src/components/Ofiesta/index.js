@@ -24,7 +24,12 @@ import Disconnect from 'src/containers/Disconnect';
 import Page404 from 'src/components/Page404';
 
 // == Composant
-const Ofiesta = ({ fetchServices, fetchDepartment,checkUserConnected, loading }) => {
+const Ofiesta = ({
+  fetchServices,
+  fetchDepartment,
+  checkUserConnected,
+  loading,
+}) => {
   // This effect is start one time at the launch of the application with [] at the end
   useEffect(() => {
     fetchServices();

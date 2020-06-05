@@ -7,6 +7,8 @@ const userMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_MEMBER:
       const authToken = localStorage.getItem('JWT_token');
+      const userId = localStorage.getItem('USER_ID');
+
       axios({
         headers: {
           'Content-type': 'application/json',
@@ -15,7 +17,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
         method: 'get',
         responseType: 'json',
-        url: `http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/${action.userId}`,
+        url: `http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/${userId}`,
       })
         .then((response) => {
           // je voudrais enregistrer response.data dans le state=> nouvelle action

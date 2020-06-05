@@ -2,7 +2,6 @@
 export const CHANGE_INPUT_VALUE = 'CHANGE_INPUT_VALUE';
 export const CONNECT_USER = 'CONNECT_USER';
 export const CONNECT_PRESTA = 'CONNECT_PRESTA';
-export const DISCONNECT_USER = 'DISCONNECT_USER';
 export const SAVE_USER = 'SAVE_USER';
 
 
@@ -23,8 +22,4 @@ export const connectPresta = () => ({
 
 export const saveUser = () => ({
   type: SAVE_USER,
-});
-
-export const disconnectUser = () => ({
-  type: DISCONNECT_USER,
 });
