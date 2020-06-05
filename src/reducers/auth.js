@@ -1,9 +1,9 @@
-import { CHANGE_INPUT_VALUE, DISCONNECT_USER } from 'src/actions/auth';
+import { CHANGE_INPUT_VALUE } from 'src/actions/auth';
 
 
 const initialState = {
   // ici l'état initial
-  email: 'ereynaud@dbmail.com',
+  email: 'test@test.test',
   password: '147258',
 };
 
@@ -14,12 +14,6 @@ const authReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
-      };
-
-    case DISCONNECT_USER:
-      return {
-        ...state,
-        isLogged: false,
       };
 
     default: return state;

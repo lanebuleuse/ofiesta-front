@@ -7,7 +7,7 @@ const authPrestaMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
   switch (action.type) {
     case CONNECT_PRESTA: {
-      const { email, password } = store.getState().auth;
+      const { email, password } = store.getState().authPresta;
       axios({
         headers: {
           'Content-type': 'application/json',

@@ -30,6 +30,7 @@ const NavBar = ({ isLogged, handleLogout }) => (
         )}
         {(isLogged) && (
           <>
+            
             <li>
               <Link to="/mon-compte" className="nav-links">Mon compte</Link>
             </li>

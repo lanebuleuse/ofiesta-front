@@ -3,7 +3,7 @@ import { CHANGE_INPUT_VALUE, DISCONNECT_PRESTA } from 'src/actions/authPresta';
 
 const initialState = {
   // ici l'état initial
-  email: 'ereynaud@dbmail.com',
+  email: 'fschmitt@ifrance.com',
   password: '147258',
 };
 
