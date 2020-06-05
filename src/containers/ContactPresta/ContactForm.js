@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
   sendFeedback: (templateId, variables) => {
     window.emailjs.send(
       'gmail', templateId,
-      variables,
+      //variables,
     ).then((res) => {
       console.log('Email successfully sent!');
     })

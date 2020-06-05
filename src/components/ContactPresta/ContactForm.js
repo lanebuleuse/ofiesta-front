@@ -15,7 +15,7 @@ const ContactForm = ({
   sendFeedback,
 }) => {
   const handleSubmit = (evt) => {
-    evt.preventDefault();
+    //evt.preventDefault();
     const templateId = 'template_cyvMytvr';
     sendFeedback(templateId, { message_html: message, from_name: lastname, reply_to: email });
     handleClose();
