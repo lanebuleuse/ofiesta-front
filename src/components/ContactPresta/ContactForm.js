@@ -6,6 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 const ContactForm = ({
   handleClose,
   changeField,
+  changeFieldContact,
   firstname,
   lastname,
   email,
@@ -51,7 +52,7 @@ const ContactForm = ({
             required
             type="email"
             placeholder="Votre adresse mail"
-            onChange={changeField}
+            onChange={changeFieldContact}
             value={email}
           />
         </Form.Group>
@@ -61,7 +62,7 @@ const ContactForm = ({
             pattern="[0-9]{10}"
             type="text"
             placeholder="Votre numéro de téléphone"
-            onChange={changeField}
+            onChange={changeFieldContact}
             value={phone}
           />
         </Form.Group>
@@ -71,7 +72,7 @@ const ContactForm = ({
         <Form.Control
           required
           type="date"
-          onChange={changeField}
+          onChange={changeFieldContact}
           value={date}
         />
       </Form.Group>
@@ -80,7 +81,7 @@ const ContactForm = ({
         <Form.Control
           required
           type="textarea"
-          onChange={changeField}
+          onChange={changeFieldContact}
           value={message}
         />
       </Form.Group>
@@ -94,6 +95,7 @@ const ContactForm = ({
 ContactForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
+  changeFieldContact: PropTypes.func.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
