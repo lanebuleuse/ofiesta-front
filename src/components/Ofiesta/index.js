@@ -29,16 +29,19 @@ const Ofiesta = ({
   fetchServices,
   fetchDepartment,
   checkUserConnected,
-
+  fetchNameService,
   loading,
+
 }) => {
   useEffect(() => {
     checkUserConnected();
     fetchServices();
+    fetchNameService();
   }, []);
   useEffect(() => {
     fetchDepartment();
   }, []);
+
   return (
     <div className="ofiesta">
       {loading && <Loader />}
@@ -97,7 +100,9 @@ Ofiesta.propTypes = {
   checkUserConnected: PropTypes.func.isRequired,
   fetchServices: PropTypes.func.isRequired,
   fetchDepartment: PropTypes.func.isRequired,
+  fetchNameService: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+
 };
 
 // == Export

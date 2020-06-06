@@ -10,7 +10,7 @@ import {
 } from 'src/actions/search';
 
 const mapStateToProps = (state) => ({
-  service: state.search.service,
+  serviceListName: state.search.serviceListName,
   departmentName: state.search.departmentName,
   departmentList: state.search.departmentList,
   departmentCode: state.search.departmentCode,
@@ -28,7 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   removeDepartment: (depCode, depName) => {
-    dispatch(removeDepartment(depCode, depName ));
+    dispatch(removeDepartment(depCode, depName));
   },
 });
 

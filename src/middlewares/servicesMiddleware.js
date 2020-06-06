@@ -22,7 +22,9 @@ const servicesMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveServices(response.data));
         })
         .catch((error) => {
-/*           console.warn(error); */
+          if (error) {
+            console.log(error);
+          }
         });
 
       next(action);
@@ -41,7 +43,9 @@ const servicesMiddleware = (store) => (next) => (action) => {
           store.dispatch(saveServiceInformation(action.data, lat, lng));
         },
         (error) => {
-          console.error(error);
+          if (error) {
+            console.log(error);
+          }
         },
       );
       next(action);
@@ -50,7 +54,6 @@ const servicesMiddleware = (store) => (next) => (action) => {
     case FETCH_SERVICE_INFO:
       axios.get(`http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/services/${action.id}`)
         .then((response) => {
-          console.log(response);
           // je voudrais enregistrer response.data dans le state=> nouvelle action
           store.dispatch(retrieveLocation(response.data));
         })

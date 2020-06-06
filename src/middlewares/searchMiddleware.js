@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_DEPARTMENT, savedepartment } from 'src/actions/search';
+import { FETCH_DEPARTMENT, savedepartment, FETCH_NAME_SERVICE, saveNameService } from 'src/actions/search';
 
 const searchMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -14,7 +14,26 @@ const searchMiddleware = (store) => (next) => (action) => {
           store.dispatch(savedepartment(response.data));
         })
         .catch((error) => {
-          console.log(error);
+          if (error) {
+            console.log(error);
+          };
+        });
+      next(action);
+      break;
+    }
+
+    case FETCH_NAME_SERVICE: {
+      axios({
+        method: 'get',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/servicelist',
+      })
+        .then((response) => {
+          store.dispatch(saveNameService(response.data));
+        })
+        .catch((error) => {
+          if (error) {
+            console.log(error);
+          }
         });
       next(action);
       break;
