@@ -1,5 +1,7 @@
 export const CHANGE_FIELD = 'CHANGE_FIELD';
 export const SEARCH = 'SEARCH';
+export const ADD_SERVICE_TO_SEARCH = 'ADD_SERVICE_TO_SEARCH';
+export const REMOVE_SERVICE_TO_SEARCH = 'REMOVE_SERVICE_TO_SEARCH';
 export const FETCH_NAME_SERVICE = 'FETCH_NAME_SERVICE';
 export const SAVE_NAME_SERVICE = 'SAVE_NAME_SERVICE';
 export const FETCH_DEPARTMENT = 'FETCH_DEPARTMENT';
@@ -15,6 +17,16 @@ export const changeField = (newValue, identifier) => ({
 
 export const search = () => ({
   type: SEARCH,
+});
+
+export const addServiceToSearch = (service) => ({
+  type: ADD_SERVICE_TO_SEARCH,
+  service,
+});
+
+export const removeServiceToSearch = (listService) => ({
+  type: REMOVE_SERVICE_TO_SEARCH,
+  listService,
 });
 
 export const fetchNameService = () => ({

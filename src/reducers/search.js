@@ -1,5 +1,7 @@
 import {
   CHANGE_FIELD,
+  ADD_SERVICE_TO_SEARCH,
+  REMOVE_SERVICE_TO_SEARCH,
   SAVE_DEPARTMENT,
   ADD_DEPARTMENT,
   REMOVE_DEPARTMENT,
@@ -12,7 +14,7 @@ const initialState = {
   departmentCode: [], /* List of department number we want to search  */
   departmentList: [], /* List of all department */
   serviceListName: [], /* List of name for all services */
-  serviceToSearch: '',
+  serviceToSearch: [],
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -21,6 +23,18 @@ const searchReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: action.newValue,
+      };
+
+    case ADD_SERVICE_TO_SEARCH:
+      return {
+        ...state,
+        serviceToSearch: [...state.serviceToSearch, action.service],
+      };
+
+    case REMOVE_SERVICE_TO_SEARCH:
+      return {
+        ...state,
+        serviceToSearch: action.listService,
       };
 
     case SAVE_NAME_SERVICE:

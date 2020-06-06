@@ -21,6 +21,9 @@ const Search = ({
   addDepartement,
   removeDepartment,
   serviceListName,
+  addServiceToSearch,
+  removeServiceToSearch,
+  serviceToSearch,
 }) => {
   const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
@@ -34,8 +37,6 @@ const Search = ({
     text: currentService.name,
     value: currentService.name,
   }));
-
-  console.log(options);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -61,7 +62,24 @@ const Search = ({
   };
 
   const handleChangeService = (evt) => {
+    console.log(serviceToSearch);
+
+    if (evt.currentTarget.id) {
+      addServiceToSearch(evt.currentTarget.id);
+    }
+    else {
+      const dataToRemove = evt.currentTarget.parentElement.textContent;
+      let searchArray = '';
+      searchArray = serviceToSearch.filter((currentService) => (
+        currentService !== dataToRemove
+      ));
+      removeServiceToSearch(searchArray);
+    }
     console.log(evt.currentTarget.id);
+    console.log(evt.currentTarget.status);
+    console.log(evt.currentTarget.parentElement.textContent);
+    console.log(evt.currentTarget.parentElement);
+    console.log(evt.target.value);
   };
 
   return (
@@ -70,7 +88,7 @@ const Search = ({
         <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
         <Form className="search--form" onSubmit={handleSubmit}>
           <Form.Group widths="equal">
-            <Dropdown placeholder='Skills' fluid multiple selection options={options} onChange={handleChangeService} />
+            <Dropdown placeholder="Que cherchez vous ?" fluid multiple selection options={options} onChange={handleChangeService} />
           </Form.Group>
           <Modal
             trigger={<input onClick={handleOpen} placeholder="Où ça ?" value={departmentName} readOnly />}
@@ -129,6 +147,8 @@ const Search = ({
 };
 
 Search.propTypes = {
+  addServiceToSearch: PropTypes.func.isRequired,
+  removeServiceToSearch: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
   departmentCode: PropTypes.array.isRequired,
   departmentName: PropTypes.array.isRequired,
@@ -136,6 +156,7 @@ Search.propTypes = {
   addDepartement: PropTypes.func.isRequired,
   removeDepartment: PropTypes.func.isRequired,
   serviceListName: PropTypes.array.isRequired,
+  serviceToSearch: PropTypes.array.isRequired,
 };
 
 export default Search;

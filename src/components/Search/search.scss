@@ -57,7 +57,13 @@
       color: #fff;
     }
     }
+
+    
   }
+}
+// stop the default comportement of semantic with this king of field
+.ui.form .fields {
+  margin: 0 0 1rem;
 }
 
 .modals.dimmer .ui.scrolling.modal {
