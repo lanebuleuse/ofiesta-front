@@ -8,6 +8,7 @@ import { fetchMemberinformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   loading: state.services.loading,
+  actualPage: state.services.actualPage,
 });
 
 const mapDispatchToProps = (dispatch) => ({

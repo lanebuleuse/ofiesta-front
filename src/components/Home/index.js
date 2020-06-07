@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { Redirect, useParams } from 'react-router-dom';
+
 import PropTypes from 'prop-types';
 
 import Card from 'src/components/Card';
-import { Pagination } from 'react-bootstrap';
+import { Pagination } from 'semantic-ui-react';
 
 import './home.scss';
 
-const Home = ({ services }) => {
-  const servicesList = services.results;
-/*   console.log(services);
-  console.log(services.results);
-  let paginItem = [];
-  console.log(services.count_pages);
-  if (services.count_pages < 3) {
-    for (let i = services.current_page; i <= services.count_pages; i++) {
-      if (i === services.current_page) {
-        paginItem.push(<Pagination.Item active>{i}</Pagination.Item>);
-      }
-      paginItem.push(<Pagination.Item>{i}</Pagination.Item>);
-    }
-  }
-  console.log(paginItem); */
+const Home = ({ services, actualPage, numberOPage, changePageService, fetchServices }) => {
+  const { pageId } = useParams();
+  console.log(`Je suis sur l'URL ${pageId}`);
 
-  const handleClickPrev = () => {
-    if(services.current_page !== 1) {
-      
+  const servicesList = services.results;
+
+  const handleClick = (evt) => {
+    const page = evt.target.getAttribute('value');
+    if (page !== actualPage) {
+/*       history.pushState(null, null, `/accueil/${page}`); */
+      changePageService(page);
     }
   };
 
@@ -35,19 +30,24 @@ const Home = ({ services }) => {
           <Card key={service.id} {...service} />
         );
       })}
-      <Pagination>
-        <Pagination.First />
-        <Pagination.Prev onClick={handleClickPrev} />
-        <Pagination.Item>{services.current_page}</Pagination.Item>
-        <Pagination.Next />
-        <Pagination.Last />
-      </Pagination>
+      <Pagination
+        defaultActivePage={actualPage}
+        firstItem={null}
+        lastItem={null}
+        pointing
+        secondary
+        totalPages={numberOPage}
+        onClick={handleClick}
+      />
     </div>
   );
 };
 
 Home.propTypes = {
   services: PropTypes.object.isRequired,
+  actualPage: PropTypes.string.isRequired,
+  numberOPage: PropTypes.number.isRequired,
+  changePageService: PropTypes.func.isRequired,
 };
 
 export default Home;

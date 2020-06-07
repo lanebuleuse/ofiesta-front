@@ -5,17 +5,17 @@ import Search from 'src/components/Search';
 import {
   changeField,
   addDepartement,
-  search,
   removeDepartment,
   addServiceToSearch,
   removeServiceToSearch,
+  handleSearch,
 } from 'src/actions/search';
 
 const mapStateToProps = (state) => ({
   serviceListName: state.search.serviceListName,
   departmentName: state.search.departmentName,
   departmentList: state.search.departmentList,
-  departmentCode: state.search.departmentCode,
+  departmentCodeToSearch: state.search.departmentCodeToSearch,
   serviceToSearch: state.search.serviceToSearch,
 });
 
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   handleSearch: () => {
-    dispatch(search());
+    dispatch(handleSearch());
   },
 
   addServiceToSearch: (service) => {

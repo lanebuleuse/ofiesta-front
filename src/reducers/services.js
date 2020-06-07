@@ -1,9 +1,17 @@
-import { SAVE_SERVICES, SAVE_SERVICE_INFO } from 'src/actions/services';
+import {
+  SAVE_SERVICES,
+  SAVE_SERVICE_INFO,
+  SAVE_SEARCH,
+  CHANGE_PAGE_SERVICE,
+} from 'src/actions/services';
 
 
 const initialState = {
   // Initial State
   listServices: [],
+  actualPage: '1',
+  newPage: null,
+  numberOPage: '',
   currentService: {
     id: null,
     title: '',
@@ -35,11 +43,12 @@ const servicesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         listServices: action.services,
+        actualPage: action.services.current_page,
+        numberOPage: action.services.count_pages,
         loading: false,
       };
 
     case SAVE_SERVICE_INFO:
-      console.log(action.data.ServicesList);
       return {
         ...state,
         currentService: {
@@ -64,6 +73,20 @@ const servicesReducer = (state = initialState, action = {}) => {
           loading: false,
         },
       };
+
+    case CHANGE_PAGE_SERVICE:
+      return {
+        ...state,
+        actualPage: action.page,
+      };
+
+    case SAVE_SEARCH:
+      console.log('Services Reducer');
+      return {
+        ...state,
+        /* listServices: action.listOfResult, */
+      };
+
     default: return state;
   }
 };

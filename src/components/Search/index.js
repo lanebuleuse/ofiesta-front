@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import {
   Form,
-  Select,
   Modal,
   Button,
   Icon,
@@ -16,7 +15,7 @@ import './search.scss';
 const Search = ({
   handleSearch,
   departmentName,
-  departmentCode,
+  departmentCodeToSearch,
   departmentList,
   addDepartement,
   removeDepartment,
@@ -40,6 +39,8 @@ const Search = ({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log('Handle submit');
+
     handleSearch();
   };
 
@@ -54,7 +55,7 @@ const Search = ({
       depName = departmentName.filter((dep) => (
         dep !== evt.target.id
       ));
-      depCode = departmentCode.filter((dep) => (
+      depCode = departmentCodeToSearch.filter((dep) => (
         dep !== evt.target.value
       ));
       removeDepartment(depCode, depName);
@@ -62,8 +63,6 @@ const Search = ({
   };
 
   const handleChangeService = (evt) => {
-    console.log(serviceToSearch);
-
     if (evt.currentTarget.id) {
       addServiceToSearch(evt.currentTarget.id);
     }
@@ -75,11 +74,6 @@ const Search = ({
       ));
       removeServiceToSearch(searchArray);
     }
-    console.log(evt.currentTarget.id);
-    console.log(evt.currentTarget.status);
-    console.log(evt.currentTarget.parentElement.textContent);
-    console.log(evt.currentTarget.parentElement);
-    console.log(evt.target.value);
   };
 
   return (
@@ -88,7 +82,14 @@ const Search = ({
         <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
         <Form className="search--form" onSubmit={handleSubmit}>
           <Form.Group widths="equal">
-            <Dropdown placeholder="Que cherchez vous ?" fluid multiple selection options={options} onChange={handleChangeService} />
+            <Dropdown
+              placeholder="Que cherchez vous ?"
+              fluid
+              multiple
+              selection
+              options={options}
+              onChange={handleChangeService}
+            />
           </Form.Group>
           <Modal
             trigger={<input onClick={handleOpen} placeholder="Où ça ?" value={departmentName} readOnly />}
@@ -107,7 +108,7 @@ const Search = ({
             <Modal.Content scrolling>
               {departmentList.map((currentDepartment) => (
                 <div className="department" key={currentDepartment.code}>
-                  {(departmentCode.includes(currentDepartment.code)) && (
+                  {(departmentCodeToSearch.includes(currentDepartment.code)) && (
                     <Form.Field
                       label={currentDepartment.nom}
                       id={currentDepartment.nom}
@@ -119,7 +120,7 @@ const Search = ({
                       checked
                     />
                   )}
-                  {(!departmentCode.includes(currentDepartment.code)) && (
+                  {(!departmentCodeToSearch.includes(currentDepartment.code)) && (
                     <Form.Field
                       label={currentDepartment.nom}
                       id={currentDepartment.nom}
@@ -150,7 +151,7 @@ Search.propTypes = {
   addServiceToSearch: PropTypes.func.isRequired,
   removeServiceToSearch: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
-  departmentCode: PropTypes.array.isRequired,
+  departmentCodeToSearch: PropTypes.array.isRequired,
   departmentName: PropTypes.array.isRequired,
   departmentList: PropTypes.array.isRequired,
   addDepartement: PropTypes.func.isRequired,

@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect, useParams } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -31,14 +31,17 @@ const Ofiesta = ({
   checkUserConnected,
   fetchNameService,
   loading,
-
+  actualPage,
 }) => {
+
   useEffect(() => {
     checkUserConnected();
-    fetchServices();
-    fetchNameService();
   }, []);
   useEffect(() => {
+    fetchServices();
+  }, [actualPage]);
+  useEffect(() => {
+    fetchNameService();
     fetchDepartment();
   }, []);
 
@@ -80,9 +83,12 @@ const Ofiesta = ({
             <Route path="/deconnection">
               <Disconnect />
             </Route>
-            <Route path="/" exact>
+            <Route path="/accueil/:pageId" exact>
               <Search />
               <Home />
+            </Route>
+            <Route path="/" exact>
+              <Redirect to={`/accueil/${actualPage}`} />
             </Route>
             <Route>
               <Search />
@@ -102,6 +108,7 @@ Ofiesta.propTypes = {
   fetchDepartment: PropTypes.func.isRequired,
   fetchNameService: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  actualPage: PropTypes.string.isRequired,
 
 };
 
