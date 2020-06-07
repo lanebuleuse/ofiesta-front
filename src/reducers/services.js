@@ -9,7 +9,7 @@ import {
 const initialState = {
   // Initial State
   listServices: [],
-  actualPage: '1',
+  actualPage: 1,
   newPage: null,
   numberOPage: '',
   currentService: {

@@ -45,7 +45,7 @@ const Home = ({ services, actualPage, numberOPage, changePageService, fetchServi
 
 Home.propTypes = {
   services: PropTypes.object.isRequired,
-  actualPage: PropTypes.string.isRequired,
+  actualPage: PropTypes.number.isRequired,
   numberOPage: PropTypes.number.isRequired,
   changePageService: PropTypes.func.isRequired,
 };

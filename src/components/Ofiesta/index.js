@@ -108,7 +108,7 @@ Ofiesta.propTypes = {
   fetchDepartment: PropTypes.func.isRequired,
   fetchNameService: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  actualPage: PropTypes.string.isRequired,
+  actualPage: PropTypes.number.isRequired,
 
 };
 
