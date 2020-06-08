@@ -62,6 +62,7 @@ const NewMember = ({
     }
     surligne(evt.currentTarget, true);
     return false;
+    
   };
 
   const handleBlurEmail = (evt) => {
