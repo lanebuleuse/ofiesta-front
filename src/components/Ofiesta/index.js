@@ -83,12 +83,9 @@ const Ofiesta = ({
             <Route path="/deconnection">
               <Disconnect />
             </Route>
-            <Route path="/accueil/:pageId" exact>
+            <Route path="/" exact>
               <Search />
               <Home />
-            </Route>
-            <Route path="/" exact>
-              <Redirect to={`/accueil/${actualPage}`} />
             </Route>
             <Route>
               <Search />

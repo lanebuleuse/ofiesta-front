@@ -17,7 +17,7 @@ const userMiddleware = (store) => (next) => (action) => {
         },
         method: 'get',
         responseType: 'json',
-        url: `http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/${userId}`,
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/profile',
       })
         .then((response) => {
           // je voudrais enregistrer response.data dans le state=> nouvelle action

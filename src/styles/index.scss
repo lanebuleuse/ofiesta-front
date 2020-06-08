@@ -5,6 +5,14 @@ body {
   font-family: sans-serif;
 }
 
+.invalide {
+  background-color: rgba($color: rgba(255, 0, 0, 0.445), $alpha: 1.0);
+}
+
+.valide {
+  
+}
+
 /* 
   // or you can import your own font
   @font-face {
