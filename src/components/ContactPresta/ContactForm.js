@@ -106,6 +106,7 @@ const ContactForm = ({
           name="message"
         />
       </Form.Group>
+      <div className="g-recaptcha" data-sitekey="6LfvXAEVAAAAAOFur0VdCDEXkI_OaLPu09gLbe0l" />
       <Button className="buttonInFormValid" onClick={handleSubmit}>
         Envoyer votre demande
       </Button>

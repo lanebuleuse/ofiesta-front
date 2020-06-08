@@ -37,8 +37,8 @@ const mapDispatchToProps = (dispatch) => ({
     window.emailjs.send(
       'gmail', templateId,
       variables,
-    ).then(() => {
-      console.log('Email successfully sent!');
+    ).then((resp) => {
+      console.log(resp);
     })
       // Handle errors here however you like, or use a React error boundary
       .catch((err) => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err));
