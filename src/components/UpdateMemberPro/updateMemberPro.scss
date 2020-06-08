@@ -1,0 +1,140 @@
+@import "src/styles/vars";
+
+.memberAreaPro {
+  margin: 1rem auto;
+  width: 90%;
+
+  @media only screen and (min-width: $breakMedium) {
+    /* tablets */
+    max-width: 700px;
+  }
+
+  .memberAreaPro-subTitle {
+    font-size: 1.1rem;
+    color: $colorOther;
+    padding: 0.5rem 0 1.5rem;
+  }
+
+  .memberAreaPro-favori,
+  .memberAreaPro-mesinfos {
+    position: relative;
+    margin: 2rem 0;
+    border: 1px solid $colorOther;
+    box-shadow: 0 0 5px rgba(165, 165, 165, 0.5);
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+
+    & p,
+    a {
+      font-size: 0.9rem;
+    }
+  }
+
+  .memberAreaPro-title {
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $colorAlt;
+  }
+
+  .memberAreaPro-modifier {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    border-radius: 0.2rem;
+    background-color: $colorAlt;
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+
+    &:hover {
+      border-color: $colorOther;
+      background-color: $colorOther;
+      color: white;
+    }
+  }
+
+  .memberAreaPro-cancel {
+    position: absolute;
+    top: 0.5rem;
+    right: 6rem;
+    border-radius: 0.2rem;
+    background-color: lightgrey;
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+
+    &:hover {
+      border-color: $colorOther;
+      background-color: $colorOther;
+      color: white;
+    }
+  }
+
+  .memberAreaPro-detail {
+    padding-bottom: 0.5rem;
+  }
+
+  .fa {
+    text-align: center;
+    font-size: 1.4rem;
+    width: 40px;
+    padding: 0rem;
+  }
+}
+
+.updateMemberProForm {
+  width: 100%;
+
+  @media only screen and (min-width: $breakMedium) {
+    /* desktop */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &--label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+
+    @media only screen and (min-width: $breakMedium) {
+      /* desktop */
+      width: 45%;
+
+      &-address {
+        width: 100%;
+      }
+    }
+  }
+
+  &--input {
+    margin-top: 0.3em;
+    width: 100%;
+    padding: 0.5em;
+    border: none;
+    border-bottom: 1px solid $colorOther;
+
+    &:focus {
+      border-bottom: 2px solid red;
+    }
+  }
+
+  &--button {
+    width: 30%;
+    border: none;
+    border-radius: 5px;
+    background-color: $colorAlt;
+    height: 2em;
+    margin-right: 1em;
+
+    &-cancel{
+      background-color: lightgrey;
+    }
+
+    &:hover {
+      background-color: $colorOther;
+      color: #fff;
+    }
+  }
+}
