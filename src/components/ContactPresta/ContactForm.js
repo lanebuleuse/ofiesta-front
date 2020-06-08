@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { Form, Button } from 'react-bootstrap';
 
 const ContactForm = ({
   handleClose,
-  changeField,
+  putDateInContactState,
   changeFieldContact,
   firstname,
   lastname,
   email,
   phone,
+  firstnameContact,
+  lastnameContact,
+  phoneContact,
+  emailContact,
   date,
   message,
   sendFeedback,
 }) => {
-  const handleSubmit = (evt) => {
-    //evt.preventDefault();
+  useEffect(() => {
+    putDateInContactState(firstname, lastname, email, phone);
+  }, []);
+
+  const handleSubmit = () => {
     const templateId = 'template_cyvMytvr';
-    sendFeedback(templateId, { message_html: message, from_name: lastname, reply_to: email });
+    sendFeedback(templateId, {
+      message_html: message,
+      from_name: lastnameContact,
+      from_firstname: firstnameContact,
+      reply_to: emailContact,
+      phone_contact: phoneContact,
+      date_event: date,
+    });
     handleClose();
+  };
+  const handleChange = (evt) => {
+    changeFieldContact(evt.target.value, evt.currentTarget.name);
   };
   return (
     <Form>
@@ -27,21 +44,21 @@ const ContactForm = ({
         <Form.Group md="6" controlId="validationCustom01" className="formContactPrestaInput">
           <Form.Label>Nom</Form.Label>
           <Form.Control
+            readOnly
             required
             type="text"
             placeholder="Votre nom"
-            onChange={changeField}
-            value={lastname}
+            value={lastnameContact}
           />
         </Form.Group>
         <Form.Group md="6" controlId="validationCustom02" className="formContactPrestaInput">
           <Form.Label>Prénom</Form.Label>
           <Form.Control
+            readOnly
             required
             type="text"
             placeholder="Votre prénom"
-            onChange={changeField}
-            value={firstname}
+            value={firstnameContact}
           />
         </Form.Group>
       </Form.Row>
@@ -52,8 +69,9 @@ const ContactForm = ({
             required
             type="email"
             placeholder="Votre adresse mail"
-            onChange={changeFieldContact}
-            value={email}
+            onChange={handleChange}
+            value={emailContact}
+            name="email"
           />
         </Form.Group>
         <Form.Group md="6" controlId="validationCustom04" className="formContactPrestaInput">
@@ -62,8 +80,9 @@ const ContactForm = ({
             pattern="[0-9]{10}"
             type="text"
             placeholder="Votre numéro de téléphone"
-            onChange={changeFieldContact}
-            value={phone}
+            onChange={handleChange}
+            value={phoneContact}
+            name="phone"
           />
         </Form.Group>
       </Form.Row>
@@ -72,8 +91,9 @@ const ContactForm = ({
         <Form.Control
           required
           type="date"
-          onChange={changeFieldContact}
+          onChange={handleChange}
           value={date}
+          name="date"
         />
       </Form.Group>
       <Form.Group md="12" controlId="validationCustom06">
@@ -81,8 +101,9 @@ const ContactForm = ({
         <Form.Control
           required
           type="textarea"
-          onChange={changeFieldContact}
+          onChange={handleChange}
           value={message}
+          name="message"
         />
       </Form.Group>
       <Button className="buttonInFormValid" onClick={handleSubmit}>
@@ -94,7 +115,7 @@ const ContactForm = ({
 
 ContactForm.propTypes = {
   handleClose: PropTypes.func.isRequired,
-  changeField: PropTypes.func.isRequired,
+  putDateInContactState: PropTypes.func.isRequired,
   changeFieldContact: PropTypes.func.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
@@ -103,6 +124,10 @@ ContactForm.propTypes = {
   date: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   sendFeedback: PropTypes.func.isRequired,
+  firstnameContact: PropTypes.string.isRequired,
+  lastnameContact: PropTypes.string.isRequired,
+  phoneContact: PropTypes.string.isRequired,
+  emailContact: PropTypes.string.isRequired,
 };
 
 export default ContactForm;

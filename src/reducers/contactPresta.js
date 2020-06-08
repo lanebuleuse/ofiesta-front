@@ -1,9 +1,12 @@
 import {
   CHANGE_FIELD_CONTACT,
+  PUT_DATA_IN_CONTACT_STATE,
 } from 'src/actions/contactPresta';
 
 const initialState = {
   // ici l'état initial
+  firstname: '',
+  lastname: '',
   phone: '',
   email: '',
   message: '',
@@ -17,6 +20,16 @@ const contactPrestaReducer = (state = initialState, action = {}) => {
         ...state,
         [action.identifier]: action.newValue,
       };
+
+    case PUT_DATA_IN_CONTACT_STATE:
+      return {
+        ...state,
+        phone: action.phone,
+        email: action.email,
+        firstname: action.firstname,
+        lastname: action.lastname,
+      };
+
     default: return state;
   }
 };

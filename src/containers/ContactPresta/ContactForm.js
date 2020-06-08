@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 import ContactForm from 'src/components/ContactPresta/ContactForm';
 
 import { changeField } from 'src/actions/user';
-import { changeFieldContact } from 'src/actions/contactPresta';
+import { changeFieldContact, putDateInContactState } from 'src/actions/contactPresta';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
   firstname: state.user.firstname,
   lastname: state.user.lastname,
-  phone: state.contactPresta.phone,
-  email: state.contactPresta.email,
+  phone: state.user.phone,
+  email: state.user.email,
+  firstnameContact: state.contactPresta.firstname,
+  lastnameContact: state.contactPresta.lastname,
+  phoneContact: state.contactPresta.phone,
+  emailContact: state.contactPresta.email,
   date: state.contactPresta.date,
   message: state.contactPresta.message,
 });
@@ -21,16 +25,19 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(changeField(value, name));
   },
 
+  putDateInContactState: (firstname, lastname, email, phone) => {
+    dispatch(putDateInContactState(firstname, lastname, email, phone));
+  },
+
   changeFieldContact: (value, name) => {
     dispatch(changeFieldContact(value, name));
   },
 
   sendFeedback: (templateId, variables) => {
-    console.log(variables);
     window.emailjs.send(
       'gmail', templateId,
       variables,
-    ).then((res) => {
+    ).then(() => {
       console.log('Email successfully sent!');
     })
       // Handle errors here however you like, or use a React error boundary
