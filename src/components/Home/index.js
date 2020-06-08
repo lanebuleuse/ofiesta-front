@@ -9,7 +9,13 @@ import { Pagination } from 'semantic-ui-react';
 
 import './home.scss';
 
-const Home = ({ services, actualPage, numberOPage, changePageService, fetchServices }) => {
+const Home = ({
+  services,
+  actualPage,
+  numberOPage,
+  changePageService,
+  fetchServices,
+}) => {
   const { pageId } = useParams();
   console.log(`Je suis sur l'URL ${pageId}`);
 

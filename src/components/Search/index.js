@@ -30,6 +30,8 @@ const Search = ({
 
   const options = [];
 
+  console.log(serviceListName);
+
   serviceListName.map((currentService) => options.push({
     key: currentService.name,
     id: currentService.name,

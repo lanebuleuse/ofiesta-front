@@ -8,7 +8,6 @@ const mapStateToProps = (state) => ({
   services: state.services.listServices,
   actualPage: state.services.actualPage,
   numberOPage: state.services.numberOPage,
-
 });
 
 const mapDispatchToProps = (dispatch) => ({
