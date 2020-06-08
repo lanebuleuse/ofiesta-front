@@ -13,8 +13,6 @@ const mapStateToProps = (state) => ({
   cp: state.user.cp,
   city: state.user.city,
   email: state.user.email,
-  // roles: state.user.roles,
-  isLogged: state.user.password,
 });
 
 const mapDispatchToProps = (dispatch) => ({

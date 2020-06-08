@@ -23,6 +23,7 @@ import Loader from 'src/components/Loader';
 import Disconnect from 'src/containers/Disconnect';
 import Page404 from 'src/components/Page404';
 import PrestaArea from 'src/containers/PrestaArea';
+import UpdateMemberPro from 'src/containers/UpdateMemberPro';
 
 // == Composant
 const Ofiesta = ({
@@ -57,9 +58,8 @@ const Ofiesta = ({
             <Route path="/se-connecter">
               <ConnectMembers />
             </Route>
-            <Route path="/mon-compte-pro">
-              <PrestaArea />
-            </Route>
+            <PrivateRoute exact path="/mon-compte-pro" component={PrestaArea} userRole="ROLE_USER" />
+            <PrivateRoute exact path="/mon-compte-pro/modifier" component={UpdateMemberPro} userRole="ROLE_USER" />
             <Route path="/inscription">
               <NewMember />
             </Route>

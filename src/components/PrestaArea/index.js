@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -24,7 +25,7 @@ const PrestaArea = ({
     <div className="infos">
       <div className="info-mesinfos">
         <h2 className="info-subTitle">Mes infos</h2>
-        <a className="info-modifier">Modifier</a>
+        <Link to="/mon-compte-pro/modifier" className="prestaArea-modifier">Modifier</Link>
         <p className="info-detail"><i className="fa fa-user" aria-hidden="true" />{firstname} {lastname}</p>
         <p className="info-detail"><i className="fa fa-home" aria-hidden="true" /> {postalCode} , {address} {city}</p>
         <p className="info-detail"><i className="fa fa-mobile" aria-hidden="true" />{phone}</p>
@@ -45,10 +46,6 @@ PrestaArea.propTypes = {
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   fetchProInformation: PropTypes.func.isRequired,
-  // roles: PropTypes.string.isRequired,
-  // isLogged: PropTypes.bool.isRequired,
-  // changeField: PropTypes.func.isRequired,
-  // handleLogin: PropTypes.func.isRequired,
 };
 
 
