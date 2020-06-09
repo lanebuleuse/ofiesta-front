@@ -24,10 +24,8 @@ const NewUserPro = ({
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('je suis ici 2 ');
     createUserPro();
   };
-  console.log('je suis ici ');
 
   return (
     <div className="newPresta">
@@ -106,7 +104,7 @@ const NewUserPro = ({
           value={password}
         />
         <Field
-          name="checkpassword"
+          name="passwordbis"
           type="password"
           styles="field-input"
           placeholder="Vérification du mot de passe"

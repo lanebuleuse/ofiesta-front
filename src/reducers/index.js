@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 /* import administrationReducer from './administration'; */
 import userReducer from './user';
 import newUserReducer from './newUser';
-import newPrestaReducer from './newPresta';
+import newUserProReducer from './newUserPro';
 import servicesReducer from './services';
 import searchReducer from './search';
 import authReducer from './auth';
@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
   contactPresta: contactPrestaReducer,
   user: userReducer,
   newUser: newUserReducer,
-  newPresta: newPrestaReducer,
+  newUserPro: newUserProReducer,
   services: servicesReducer,
   search: searchReducer,
 });

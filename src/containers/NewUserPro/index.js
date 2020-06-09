@@ -6,17 +6,17 @@ import { changeField, createUserPro } from 'src/actions/newUserPro';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
-  firstname: state.newPresta.firstname,
-  lastname: state.newPresta.lastname,
-  company: state.newPresta.company,
-  siret: state.newPresta.siret,
-  address: state.newPresta.address,
-  postalCode: state.newPresta.postalCode,
-  city: state.newPresta.city,
-  email: state.newPresta.email,
-  phone: state.newPresta.phone,
-  password: state.newPresta.password,
-  passwordbis: state.newPresta.passwordbis,
+  firstname: state.newUserPro.firstname,
+  lastname: state.newUserPro.lastname,
+  company: state.newUserPro.company,
+  siret: state.newUserPro.siret,
+  address: state.newUserPro.address,
+  postalCode: state.newUserPro.postalCode,
+  city: state.newUserPro.city,
+  email: state.newUserPro.email,
+  phone: state.newUserPro.phone,
+  password: state.newUserPro.password,
+  passwordbis: state.newUserPro.passwordbis,
 });
 
 const mapDispatchToProps = (dispatch) => ({

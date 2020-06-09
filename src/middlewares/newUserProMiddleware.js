@@ -5,7 +5,6 @@ import { CREATE_USER_PRO } from 'src/actions/newUserPro';
 const newUserProMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case CREATE_USER_PRO: {
-      console.log('Middleware');
       const {
         firstname,
         lastname,

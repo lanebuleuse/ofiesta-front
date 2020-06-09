@@ -34,7 +34,6 @@ const Ofiesta = ({
   loading,
   actualPage,
 }) => {
-
   useEffect(() => {
     checkUserConnected();
   }, []);
