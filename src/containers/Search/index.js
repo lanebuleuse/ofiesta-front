@@ -7,8 +7,6 @@ import {
   addDepartement,
   removeDepartment,
   listOfServiceToSearch,
-  addServiceToSearch,
-  removeServiceToSearch,
   handleSearch,
 } from 'src/actions/search';
 
@@ -31,14 +29,6 @@ const mapDispatchToProps = (dispatch) => ({
 
   listOfServiceToSearch: (data) => {
     dispatch(listOfServiceToSearch(data));
-  },
-
-  addServiceToSearch: (service) => {
-    dispatch(addServiceToSearch(service));
-  },
-
-  removeServiceToSearch: (listService) => {
-    dispatch(removeServiceToSearch(listService));
   },
 
   addDepartement: (department, departmentName) => {

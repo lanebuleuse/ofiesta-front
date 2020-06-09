@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Form } from 'semantic-ui-react';
-import surligne from 'src/utils/surligne';
+import { Form, Label, Message } from 'semantic-ui-react';
+
 import {
   verifField,
   verifEmail,
@@ -57,10 +57,25 @@ const NewMember = ({
     const passwordOk = verifPassword(document.querySelector('#password'), document.querySelector('#passwordbis'));
 
     if (lastnameOk && firstnameOk && emailOk && addressOk && postalCodeOk && cityOk && passwordOk) {
+      document.querySelector('#errorMessage').style.display = 'none';
+      document.querySelector('#errorPassword').style.display = 'none';
+      document.querySelector('#errorMail').style.display = 'none';
       createUser();
     }
     else {
-      alert("Veuillez remplir correctement tous les champs");
+      if (!passwordOk) {
+        document.querySelector('#errorPassword').style.display = 'block';
+      }
+      else {
+        document.querySelector('#errorPassword').style.display = 'none';
+      }
+      if (!emailOk) {
+        document.querySelector('#errorMail').style.display = 'block';
+      }
+      else {
+        document.querySelector('#errorMail').style.display = 'none';
+      }
+      document.querySelector('#errorMessage').style.display = 'block';
       return false;
     }
   };
@@ -128,6 +143,9 @@ const NewMember = ({
                 value={email}
                 onBlur={handleBlurEmail}
               />
+              <Label id="errorMail" basic color="red" pointing>
+                8 caractères, minuscule, majuscule, chiffre et lettre ainsi qu'un caractère suivant !@#%&*
+              </Label>
             </Form.Field>
             <Form.Field required>
               <label>Votre mot de passe</label>
@@ -141,6 +159,9 @@ const NewMember = ({
                 value={password}
                 onBlur={handleBlurPassword}
               />
+              <Label id="errorPassword" basic color="red" pointing>
+                8 caractères, minuscule, majuscule, chiffre et lettre ainsi qu'un caractère suivant !@#%&*
+              </Label>
             </Form.Field>
             <Form.Field required>
               <label>Resaisir votre mot de passe</label>
@@ -197,6 +218,9 @@ const NewMember = ({
             <button type="submit" className="adminConnect-submit">M'inscrire</button>
             <p className="connectMembers-linkAccount"><a href="/se-connecter">Vous avez déjà un compte</a></p>
           </Form>
+          <Message negative hidden id="errorMessage">
+            <Message.Header>Veuillez remplir les champs requis</Message.Header>
+          </Message>
         </div>
       )}
     </>

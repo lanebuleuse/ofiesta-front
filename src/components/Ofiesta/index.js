@@ -58,8 +58,8 @@ const Ofiesta = ({
             <Route path="/mon-compte-pro/inscription">
               <NewUserPro />
             </Route>
-            <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
-            <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_USER" />
+            <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_MEMBER" />
+            <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_MEMBER" />
             <Route path="/se-connecter">
               <ConnectMembers />
             </Route>

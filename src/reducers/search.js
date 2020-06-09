@@ -1,7 +1,6 @@
 import {
   CHANGE_FIELD,
-  ADD_SERVICE_TO_SEARCH,
-  REMOVE_SERVICE_TO_SEARCH,
+
   SAVE_DEPARTMENT,
   LIST_SERVICE_TO_SEARCH,
   ADD_DEPARTMENT,
@@ -31,18 +30,6 @@ const searchReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         serviceIdToSearch: action.data,
-      };
-
-    case ADD_SERVICE_TO_SEARCH:
-      return {
-        ...state,
-        serviceToSearch: [...state.serviceToSearch, action.service],
-      };
-
-    case REMOVE_SERVICE_TO_SEARCH:
-      return {
-        ...state,
-        serviceToSearch: action.listService,
       };
 
     case SAVE_NAME_SERVICE:

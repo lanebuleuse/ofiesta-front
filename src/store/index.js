@@ -1,14 +1,13 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
+import servicesMiddleware from 'src/middlewares/servicesMiddleware';
 import userMiddleware from 'src/middlewares/userMiddleware';
 import newUserMiddleware from 'src/middlewares/newUserMiddleware';
 import newUserProMiddleware from 'src/middlewares/newUserProMiddleware';
-import servicesMiddleware from 'src/middlewares/servicesMiddleware';
 import authMiddleware from 'src/middlewares/authMiddleware';
 import authPrestaMiddleware from 'src/middlewares/authPrestaMiddleware';
 import searchMiddleware from 'src/middlewares/searchMiddleware';
-import proMiddleware from 'src/middlewares/proMiddleware';
 
 import reducer from 'src/reducers/';
 
@@ -16,14 +15,12 @@ import reducer from 'src/reducers/';
 const enhancers = composeWithDevTools(
   applyMiddleware(
     servicesMiddleware,
-    authMiddleware,
-    authPrestaMiddleware,
     userMiddleware,
-    proMiddleware,
     newUserMiddleware,
     newUserProMiddleware,
+    authMiddleware,
+    authPrestaMiddleware,
     searchMiddleware,
-    // ... d'autres middlewares
   ),
 );
 

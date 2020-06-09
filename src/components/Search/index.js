@@ -21,15 +21,11 @@ const Search = ({
   removeDepartment,
   serviceListName,
   listOfServiceToSearch,
-  addServiceToSearch,
-  removeServiceToSearch,
-  serviceToSearch,
 }) => {
   const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
   const handleOpen = () => setmodalOpen(true);
 
-  console.log(serviceListName);
   const options = [];
 
   serviceListName.map((currentService) => options.push({
@@ -41,7 +37,6 @@ const Search = ({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('Handle submit');
 
     handleSearch();
   };
@@ -65,19 +60,7 @@ const Search = ({
   };
 
   const handleChangeService = (evt, data) => {
-    console.log(data.value);
     listOfServiceToSearch(data.value);
-/*     if (evt.currentTarget.id) {
-      serviceToSearch(evt.currentTarget.id);
-    }
-    else {
-      const dataToRemove = evt.currentTarget.parentElement.textContent;
-      let searchArray = '';
-      searchArray = serviceToSearch.filter((currentService) => (
-        currentService !== dataToRemove
-      ));
-      removeServiceToSearch(searchArray);
-    } */
   };
 
   return (
@@ -152,8 +135,6 @@ const Search = ({
 };
 
 Search.propTypes = {
-  addServiceToSearch: PropTypes.func.isRequired,
-  removeServiceToSearch: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
   departmentCodeToSearch: PropTypes.array.isRequired,
   departmentName: PropTypes.array.isRequired,
@@ -161,7 +142,6 @@ Search.propTypes = {
   addDepartement: PropTypes.func.isRequired,
   removeDepartment: PropTypes.func.isRequired,
   serviceListName: PropTypes.array.isRequired,
-  serviceToSearch: PropTypes.array.isRequired,
   listOfServiceToSearch: PropTypes.func.isRequired,
 };
 

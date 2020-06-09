@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import PrestaArea from 'src/components/PrestaArea';
 
-import { fetchProInformation } from 'src/actions/pro';
+import { fetchProInformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration

@@ -8,7 +8,7 @@ import {
   HANDLE_SEARCH,
 } from 'src/actions/search';
 
-import { saveSearch } from 'src/actions/services';
+import { saveServices } from 'src/actions/services';
 
 const searchMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -36,7 +36,6 @@ const searchMiddleware = (store) => (next) => (action) => {
         url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/servicelist',
       })
         .then((response) => {
-          console.log(response);
           store.dispatch(saveNameService(response.data));
         })
         .catch((error) => {
@@ -64,8 +63,8 @@ const searchMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
-          /* store.dispatch(saveNameService(response.data)); */
+          console.log(response.data);
+          store.dispatch(saveServices(response.data));
         })
         .catch((error) => {
           if (error) {

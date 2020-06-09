@@ -3,6 +3,7 @@ import {
   SAVE_MEMBER,
   CHANGE_FIELD,
   DISCONNECT_USER,
+  SAVE_PRO,
 } from 'src/actions/user';
 
 
@@ -20,9 +21,9 @@ const initialState = {
   role: [],
   password: '',
   isLogged: false,
-  date: '',
-  message: '',
+
   loading: true,
+  serviceList: [],
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -47,6 +48,21 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
+        loading: false,
+        isLogged: true,
+      };
+
+    case SAVE_PRO:
+      return {
+        ...state,
+        firstname: action.data.firstName,
+        lastname: action.data.name,
+        phone: action.data.phone,
+        email: action.data.email,
+        address: action.data.address,
+        postalCode: action.data.postalCode,
+        city: action.data.city,
+        serviceList: action.serviceList,
         loading: false,
         isLogged: true,
       };

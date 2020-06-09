@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import './navBar.scss';
 
-const NavBar = ({ isLogged }) => (
+const NavBar = ({ isLogged, roles }) => (
   <header>
     <nav className="navbar">
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
@@ -30,9 +30,16 @@ const NavBar = ({ isLogged }) => (
         )}
         {(isLogged) && (
           <>
-            <li>
-              <Link to="/mon-compte" className="nav-links">Mon compte</Link>
-            </li>
+            {roles.includes('ROLE_MEMBER') && (
+              <li>
+                <Link to="/mon-compte" className="nav-links">Mon compte</Link>
+              </li>
+            )}
+            {roles.includes('ROLE_PROVIDER') && (
+              <li>
+                <Link to="/mon-compte-pro" className="nav-links">Mon compte pro</Link>
+              </li>
+            )}
             <li>
               <Link to="/deconnection" className="nav-links">Se déconnecter</Link>
             </li>
@@ -45,6 +52,7 @@ const NavBar = ({ isLogged }) => (
 
 NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
+  roles: PropTypes.array.isRequired,
 };
 
 export default NavBar;

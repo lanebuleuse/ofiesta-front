@@ -1,4 +1,4 @@
-import { CHANGE_INPUT_VALUE } from 'src/actions/newPresta';
+import { CHANGE_NEW_USERPRO_VALUE } from 'src/actions/newUserPro';
 
 
 const initialState = {
@@ -19,7 +19,7 @@ const initialState = {
 
 const newUserProReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CHANGE_INPUT_VALUE:
+    case CHANGE_NEW_USERPRO_VALUE:
       return {
         ...state,
         [action.name]: action.value,
