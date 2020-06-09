@@ -38,6 +38,15 @@ const newUserReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         accountCreated: false,
+        firstname: '',
+        lastname: '',
+        city: '',
+        address: '',
+        postalCode: '',
+        email: '',
+        phone: '',
+        password: '',
+        passwordbis: '',
       };
 
     case CHANGE_NEW_USER_VALUE:

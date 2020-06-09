@@ -16,6 +16,7 @@ import './prestataire.scss';
 
 const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
   const { id } = useParams();
+  console.log(id);
   useEffect(() => {
     fetchServiceInformation(id);
   }, []);
