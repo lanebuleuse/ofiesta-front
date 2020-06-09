@@ -2,12 +2,11 @@
 
 .search{
   background-image: url(../../assets/images/concert.jpg);
-  /* background-size: cover; */
   background-size: cover;
   background-position: 100%;
   width: 100%;
   height: 260px;
-  padding: 1em;
+  padding: 0.8em;
   color: #fff;
 
   @media only screen and (min-width: $breakMini) {
@@ -27,134 +26,75 @@
       /* tablets and desktop */
       width: 70%;
       max-width: 600px;
-      margin: 3rem auto 0;
+      margin: 1.5rem auto 0;
     }
 
     @media only screen and (min-width: $breakMedium) {
       /* desktop */
       width: 50%;
       max-width: 700px;
-      margin-top: 8rem;
+      margin-top: 3rem;
     }
   }
 
-  &--title{
-    font-size:2em;
-     
-  }
   &--subtitle{
     font-size: 1.5em;
     margin-bottom: 1em;
   }
 
-  &__form{
-    text-align: center;
+  .search--form {
+    
+    .search__form--button {
+      margin-top: 1rem;
     width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: $colorAlt;
+    height: 2.5remem;
 
-    &--input{
-      width: 100%;
-      display: inline-block;
-      margin-bottom: 0.5em;
-      height: 2em;
-      border: none;
-      border-radius: 5px;
-      padding: 1em;      
-
-      @media only screen and (min-width: $breakMini) {
-        /* tablets and desktop */
-        width: 50%;
-        margin-bottom: 1em;
-        
-        &:nth-child(1){
-          border-radius: 5px 0 0 5px;
-          border-right: 1px solid #BC8B75;
-        }
-        &:nth-child(2){
-          border-radius: 0 5px 5px 0;
-        }
-      }
-
-      @media only screen and (min-width: $breakMedium) {
-        /* desktop */
-        width: 40%;
-
-        &:nth-child(1){
-          border-radius: 5px 0 0 5px;
-          border-right: 1px solid #BC8B75;
-        }
-        &:nth-child(2){
-          border-radius: 0;
-        }
-      }
+    &:hover {
+      background-color: $colorOther;
+      color: #fff;
+    }
     }
 
-    &--button{
-      width: 80%;
-      border: none;
-      border-radius: 5px;
-      background-color: $colorAlt;
-      height: 2em;
-
-      @media only screen and (min-width: $breakMini) {
-        /* tablets */
-        width: 100%;
-      }
-
-      @media only screen and (min-width: $breakMedium) {
-        /* desktop */
-        width: 20%;
-        border-radius: 0 5px 5px 0;
-      }
-
-      &:hover{
-        background-color: $colorOther;
-        color: #fff;
-      }
-    }
-    
     
   }
-  
 }
 
-.modal-dialog {
+// stop the default comportement of semantic with this king of field
+.ui.form .fields {
+  margin: 0 0 1rem;
+}
+
+.modals.dimmer .ui.scrolling.modal {
+  margin: 20px 4%;
+  width: 90%;
+  height: 95%;
+
   @media only screen and (min-width: $breakMini) {
-    /* tablets */
-    width: 90%;
-    max-height: 50vh;
-    max-width: 900px;
+    /* tablets and desktop */
+    max-width: 1000px;
   }
 
-  @media only screen and (min-width: $breakMedium) {
-    /* tablets */
-    width: 90%;
-    max-height: 50vh;
-    max-width: 1200px;
+  .actions {
+    height: 75px;
   }
 }
-.modal_departments {
+
+.ui.modal .scrolling.content {
+  max-height: calc(100% - 152px);
   display: flex;
   flex-wrap: wrap;
-/*   flex-direction: column;
-  max-height: 90vh;
-  max-height: 130vh; */ 
+  justify-content: space-around;
 
   .department {
-    font-size: 0.8rem;
-    width: 50%;
+    width: 45%;
+
     @media only screen and (min-width: $breakMini) {
-      /* tablets */
+      /* tablets and desktop */
       width: 25%;
+      height: 3rem;
     }
-
-    .form-group {
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  .form-check-label {
-    line-height: 1.5rem;
   }
 }
-
-

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import './navBar.scss';
 
-const NavBar = ({ isLogged, handleLogout }) => (
+const NavBar = ({ isLogged }) => (
   <header>
     <nav className="navbar">
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
@@ -30,7 +30,6 @@ const NavBar = ({ isLogged, handleLogout }) => (
         )}
         {(isLogged) && (
           <>
-            
             <li>
               <Link to="/mon-compte" className="nav-links">Mon compte</Link>
             </li>
@@ -46,7 +45,6 @@ const NavBar = ({ isLogged, handleLogout }) => (
 
 NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
-  handleLogout: PropTypes.func.isRequired,
 };
 
 export default NavBar;

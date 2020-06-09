@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 
 import { useParams } from 'react-router-dom';
 
-import { Badge } from 'react-bootstrap';
-
 import CarouselItem from 'src/components/Prestataire/CarouselItem';
 import ContactPresta from 'src/containers/ContactPresta';
 import GoogleMap from 'src/containers/GoogleMap';
@@ -24,7 +22,7 @@ const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
 
   const handleClick = () => {
   };
-  
+
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < currentService.note) {

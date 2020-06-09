@@ -5,30 +5,43 @@ import Search from 'src/components/Search';
 import {
   changeField,
   addDepartement,
-  search,
   removeDepartment,
+  addServiceToSearch,
+  removeServiceToSearch,
+  handleSearch,
 } from 'src/actions/search';
 
 const mapStateToProps = (state) => ({
-  service: state.search.service,
+  serviceListName: state.search.serviceListName,
   departmentName: state.search.departmentName,
   departmentList: state.search.departmentList,
-  departmentCode: state.search.departmentCode,
+  departmentCodeToSearch: state.search.departmentCodeToSearch,
+  serviceToSearch: state.search.serviceToSearch,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeField: (value, name) => {
     dispatch(changeField(value, name));
   },
+
   handleSearch: () => {
-    dispatch(search());
+    dispatch(handleSearch());
   },
+
+  addServiceToSearch: (service) => {
+    dispatch(addServiceToSearch(service));
+  },
+
+  removeServiceToSearch: (listService) => {
+    dispatch(removeServiceToSearch(listService));
+  },
+
   addDepartement: (department, departmentName) => {
     dispatch(addDepartement(department, departmentName));
   },
 
   removeDepartment: (depCode, depName) => {
-    dispatch(removeDepartment(depCode, depName ));
+    dispatch(removeDepartment(depCode, depName));
   },
 });
 

@@ -1,33 +1,50 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Modal, Button } from 'react-bootstrap';
+/* import { Form, Modal, Button } from 'react-bootstrap'; */
+
+import {
+  Form,
+  Modal,
+  Button,
+  Icon,
+  Dropdown,
+} from 'semantic-ui-react';
 
 import './search.scss';
 
 const Search = ({
   handleSearch,
-  service,
   departmentName,
-  departmentCode,
+  departmentCodeToSearch,
   departmentList,
   addDepartement,
   removeDepartment,
+  serviceListName,
+  addServiceToSearch,
+  removeServiceToSearch,
+  serviceToSearch,
 }) => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [modalOpen, setmodalOpen] = useState(false);
+  const handleClose = () => setmodalOpen(false);
+  const handleOpen = () => setmodalOpen(true);
+
+  const options = [];
+
+  serviceListName.map((currentService) => options.push({
+    key: currentService.name,
+    id: currentService.name,
+    text: currentService.name,
+    value: currentService.name,
+  }));
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log('Handle submit');
+
     handleSearch();
   };
 
-  const handleChange = () => {
-
-  };
-
   const handleChangeDepartment = (evt) => {
-
     const targetStatus = evt.target.checked;
     if (targetStatus) {
       addDepartement(evt.target.value, evt.target.id);
@@ -38,93 +55,109 @@ const Search = ({
       depName = departmentName.filter((dep) => (
         dep !== evt.target.id
       ));
-      depCode = departmentCode.filter((dep) => (
+      depCode = departmentCodeToSearch.filter((dep) => (
         dep !== evt.target.value
       ));
       removeDepartment(depCode, depName);
     }
   };
 
+  const handleChangeService = (evt) => {
+    if (evt.currentTarget.id) {
+      addServiceToSearch(evt.currentTarget.id);
+    }
+    else {
+      const dataToRemove = evt.currentTarget.parentElement.textContent;
+      let searchArray = '';
+      searchArray = serviceToSearch.filter((currentService) => (
+        currentService !== dataToRemove
+      ));
+      removeServiceToSearch(searchArray);
+    }
+  };
+
   return (
     <div className="search">
       <div className="search--content">
-        <h1 className="search--title">OFIESTA</h1>
         <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
-        <form className="search__form" onSubmit={handleSubmit}>
-          <input
-            className="search__form--input"
-            type="search"
-            placeholder="Quel prestataire?"
-            name="service"
-            onChange={handleChange}
-            value={service}
-          />
-          <input
-            className="search__form--input"
-            type="search"
-            placeholder="Département rechercher"
-            id="department"
-            name="department"
-            onClick={handleShow}
-            value={departmentName}
-            readOnly=" readonly"
-          />
-          <button className="search__form--button" type="submit">Rechercher</button>
+        <Form className="search--form" onSubmit={handleSubmit}>
+          <Form.Group widths="equal">
+            <Dropdown
+              placeholder="Que cherchez vous ?"
+              fluid
+              multiple
+              selection
+              options={options}
+              onChange={handleChangeService}
+            />
+          </Form.Group>
           <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
+            trigger={<input onClick={handleOpen} placeholder="Où ça ?" value={departmentName} readOnly />}
+            open={modalOpen}
+            onClose={handleClose}
+            size="small"
+            className="search--modal"
+            closeIcon
           >
-            <Modal.Header closeButton>
-              <Modal.Title>Séléctionner les départements</Modal.Title>
+            <Modal.Header>
+              <Icon disabled name="browser" />Choississez vos lieux de recherche
+              <span>
+                <Icon link name="close" onClick={handleClose} />
+              </span>
             </Modal.Header>
-            <Modal.Body className="modal_departments">
+            <Modal.Content scrolling>
               {departmentList.map((currentDepartment) => (
                 <div className="department" key={currentDepartment.code}>
-                  <Form.Group controlId={currentDepartment.nom}>
-                    {(departmentCode.includes(currentDepartment.code)) && (
-                      <Form.Check
-                        type="checkbox"
-                        value={currentDepartment.code}
-                        label={currentDepartment.nom}
-                        onChange={handleChangeDepartment}
-                        checked
-                      />
-                    )}
-                    {(!departmentCode.includes(currentDepartment.code)) && (
-                      <Form.Check
-                        type="checkbox"
-                        value={currentDepartment.code}
-                        label={currentDepartment.nom}
-                        onChange={handleChangeDepartment}
-                      />
-                    )}
-                  </Form.Group>
+                  {(departmentCodeToSearch.includes(currentDepartment.code)) && (
+                    <Form.Field
+                      label={currentDepartment.nom}
+                      id={currentDepartment.nom}
+                      control="input"
+                      type="checkbox"
+                      name="htmlRadios"
+                      value={currentDepartment.code}
+                      onChange={handleChangeDepartment}
+                      checked
+                    />
+                  )}
+                  {(!departmentCodeToSearch.includes(currentDepartment.code)) && (
+                    <Form.Field
+                      label={currentDepartment.nom}
+                      id={currentDepartment.nom}
+                      control="input"
+                      type="checkbox"
+                      name="htmlRadios"
+                      value={currentDepartment.code}
+                      onChange={handleChangeDepartment}
+                    />
+                  )}
                 </div>
               ))}
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Annuler
+            </Modal.Content>
+            <Modal.Actions>
+              <Button onClick={handleClose}>
+                <Icon name="checkmark" /> Valider
               </Button>
-              <Button variant="primary">Valider</Button>
-            </Modal.Footer>
+            </Modal.Actions>
           </Modal>
-        </form>
+          <Button type="submit" content="Chercher" className="search__form--button" />
+        </Form>
       </div>
     </div>
   );
 };
 
 Search.propTypes = {
+  addServiceToSearch: PropTypes.func.isRequired,
+  removeServiceToSearch: PropTypes.func.isRequired,
   handleSearch: PropTypes.func.isRequired,
-  service: PropTypes.string.isRequired,
-  departmentCode: PropTypes.array.isRequired,
+  departmentCodeToSearch: PropTypes.array.isRequired,
   departmentName: PropTypes.array.isRequired,
   departmentList: PropTypes.array.isRequired,
   addDepartement: PropTypes.func.isRequired,
   removeDepartment: PropTypes.func.isRequired,
+  serviceListName: PropTypes.array.isRequired,
+  serviceToSearch: PropTypes.array.isRequired,
 };
 
 export default Search;

@@ -15,8 +15,13 @@
   @media only screen and (min-width: $breakMedium) {
     max-width: 1300px;
   }
+}
+.home-pagination {
+  margin-bottom: 1rem!important;
+  display: flex;
+  justify-content: center;
 
-  .pagination {
-    margin-bottom: 2rem;
+  .ui.secondary.pointing.menu{
+    border-bottom: none;
   }
 }
