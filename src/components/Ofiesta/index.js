@@ -18,7 +18,7 @@ import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
 import ConnectPresta from 'src/containers/ConnectPresta';
-import NewPresta from 'src/containers/NewPresta';
+import NewUserPro from 'src/containers/NewUserPro';
 import Loader from 'src/components/Loader';
 import Disconnect from 'src/containers/Disconnect';
 import Page404 from 'src/components/Page404';
@@ -57,7 +57,7 @@ const Ofiesta = ({
               <ConnectPresta />
             </Route>
             <Route path="/mon-compte-pro/inscription">
-              <NewPresta />
+              <NewUserPro />
             </Route>
             <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_USER" />
             <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_USER" />

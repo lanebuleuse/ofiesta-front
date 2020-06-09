@@ -20,16 +20,19 @@ const NewUserPro = ({
   password,
   passwordbis,
   changeField,
+  createUserPro,
 }) => {
-  const handlecreatePresta = (evt) => {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
+    console.log('je suis ici 2 ');
     createUserPro();
   };
+  console.log('je suis ici ');
 
   return (
     <div className="newPresta">
       <h1 className="newPresta-title">Créer votre espace Pro</h1>
-      <form className="newPresta-form" onSubmit={handlecreatePresta}>
+      <form className="newPresta-form" onSubmit={handleSubmit}>
         <Field
           name="lastname"
           styles="field-input"
@@ -130,6 +133,7 @@ NewUserPro.propTypes = {
   password: PropTypes.string.isRequired,
   passwordbis: PropTypes.string.isRequired,
   changeField: PropTypes.func.isRequired,
+  createUserPro: PropTypes.func.isRequired,
 };
 
 export default NewUserPro;

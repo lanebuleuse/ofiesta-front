@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import NewUserPro from 'src/components/NewUserPro';
 
-import { changeField, createUserPro } from 'src/actions/NewUserPro';
+import { changeField, createUserPro } from 'src/actions/newUserPro';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
