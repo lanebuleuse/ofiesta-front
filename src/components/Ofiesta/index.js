@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect, useParams } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -30,16 +30,22 @@ const Ofiesta = ({
   fetchServices,
   fetchDepartment,
   checkUserConnected,
-
+  fetchNameService,
   loading,
+  actualPage,
 }) => {
+
   useEffect(() => {
     checkUserConnected();
-    fetchServices();
   }, []);
   useEffect(() => {
+    fetchServices();
+  }, [actualPage]);
+  useEffect(() => {
+    fetchNameService();
     fetchDepartment();
   }, []);
+
   return (
     <div className="ofiesta">
       {loading && <Loader />}
@@ -97,7 +103,10 @@ Ofiesta.propTypes = {
   checkUserConnected: PropTypes.func.isRequired,
   fetchServices: PropTypes.func.isRequired,
   fetchDepartment: PropTypes.func.isRequired,
+  fetchNameService: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  actualPage: PropTypes.number.isRequired,
+
 };
 
 // == Export

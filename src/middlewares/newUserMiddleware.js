@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CREATE_NEW_USER } from 'src/actions/newUser';
+import { CREATE_NEW_USER, validateAccount } from 'src/actions/newUser';
 
 const newUserMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -15,26 +15,33 @@ const newUserMiddleware = (store) => (next) => (action) => {
         email,
         phone,
         password,
-        passwordbis,
       } = store.getState().newUser;
-/*       axios({
+      axios({
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
         method: 'post',
-        url: 'http://localhost:3001/login',
+        responseType: 'json',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/register/user ',
         data: {
+          firstName: firstname,
+          name: lastname,
+          address,
+          postalCode,
+          city,
           email,
-          // strictement équivalent à :
-          // email: email,
+          phone,
           password,
         },
-        withCredentials: true,
       })
         .then((response) => {
           console.log(response);
-          store.dispatch(loggingUser(response.data));
+          store.dispatch(validateAccount());
         })
         .catch((error) => {
           console.log(error);
-        }); */
+        });
       next(action);
       break;
     }

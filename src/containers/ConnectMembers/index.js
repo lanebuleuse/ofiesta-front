@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import ConnectMembers from 'src/components/ConnectMembers';
 
 import { changeField, connectUser } from 'src/actions/auth';
+import { resetNewMember } from 'src/actions/newUser';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
   email: state.auth.email,
   password: state.auth.password,
   isLogged: state.user.isLogged,
+  accountCreated: state.newUser.accountCreated,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -19,6 +21,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   handleLogin: () => {
     dispatch(connectUser());
+  },
+
+  resetNewMember: () => {
+    dispatch(resetNewMember());
   },
 
 });
