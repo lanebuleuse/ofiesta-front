@@ -6,6 +6,7 @@ import {
   changeField,
   addDepartement,
   removeDepartment,
+  listOfServiceToSearch,
   addServiceToSearch,
   removeServiceToSearch,
   handleSearch,
@@ -26,6 +27,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   handleSearch: () => {
     dispatch(handleSearch());
+  },
+
+  listOfServiceToSearch: (data) => {
+    dispatch(listOfServiceToSearch(data));
   },
 
   addServiceToSearch: (service) => {

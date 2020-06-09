@@ -23,7 +23,7 @@ const newUserMiddleware = (store) => (next) => (action) => {
         },
         method: 'post',
         responseType: 'json',
-        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/register/user ',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/register/user',
         data: {
           firstName: firstname,
           name: lastname,

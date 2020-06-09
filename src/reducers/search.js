@@ -3,6 +3,7 @@ import {
   ADD_SERVICE_TO_SEARCH,
   REMOVE_SERVICE_TO_SEARCH,
   SAVE_DEPARTMENT,
+  LIST_SERVICE_TO_SEARCH,
   ADD_DEPARTMENT,
   REMOVE_DEPARTMENT,
   SAVE_NAME_SERVICE,
@@ -10,11 +11,12 @@ import {
   from '../actions/search';
 
 const initialState = {
-  departmentName: [], /* Content for search department input  */
-  departmentCodeToSearch: [], /* List of department number we want to search  */
   departmentList: [], /* List of all department */
   serviceListName: [], /* List of name for all services */
-  serviceToSearch: [], /* List of service we want to search */
+  departmentName: [], /* Content for search department input  */
+  departmentCodeToSearch: [], /* List of department number we want to search  */
+  serviceIdToSearch: [], /* List of service we want to search  */
+  serviceName: [], /* List of service we want to search */
 };
 
 const searchReducer = (state = initialState, action = {}) => {
@@ -23,6 +25,12 @@ const searchReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.identifier]: action.newValue,
+      };
+
+    case LIST_SERVICE_TO_SEARCH:
+      return {
+        ...state,
+        serviceIdToSearch: action.data,
       };
 
     case ADD_SERVICE_TO_SEARCH:

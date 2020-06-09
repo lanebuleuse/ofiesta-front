@@ -20,6 +20,7 @@ const Search = ({
   addDepartement,
   removeDepartment,
   serviceListName,
+  listOfServiceToSearch,
   addServiceToSearch,
   removeServiceToSearch,
   serviceToSearch,
@@ -28,13 +29,14 @@ const Search = ({
   const handleClose = () => setmodalOpen(false);
   const handleOpen = () => setmodalOpen(true);
 
+  console.log(serviceListName);
   const options = [];
 
   serviceListName.map((currentService) => options.push({
     key: currentService.name,
-    id: currentService.name,
+    id: currentService.id,
     text: currentService.name,
-    value: currentService.name,
+    value: currentService.id,
   }));
 
   const handleSubmit = (evt) => {
@@ -62,9 +64,11 @@ const Search = ({
     }
   };
 
-  const handleChangeService = (evt) => {
-    if (evt.currentTarget.id) {
-      addServiceToSearch(evt.currentTarget.id);
+  const handleChangeService = (evt, data) => {
+    console.log(data.value);
+    listOfServiceToSearch(data.value);
+/*     if (evt.currentTarget.id) {
+      serviceToSearch(evt.currentTarget.id);
     }
     else {
       const dataToRemove = evt.currentTarget.parentElement.textContent;
@@ -73,7 +77,7 @@ const Search = ({
         currentService !== dataToRemove
       ));
       removeServiceToSearch(searchArray);
-    }
+    } */
   };
 
   return (
@@ -158,6 +162,7 @@ Search.propTypes = {
   removeDepartment: PropTypes.func.isRequired,
   serviceListName: PropTypes.array.isRequired,
   serviceToSearch: PropTypes.array.isRequired,
+  listOfServiceToSearch: PropTypes.func.isRequired,
 };
 
 export default Search;
