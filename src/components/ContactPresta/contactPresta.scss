@@ -1,4 +1,4 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
 .button-contact {
   border: none;
@@ -13,10 +13,10 @@
   &:hover {
     background-color: $colorOther;
     color: #fff;
-  } 
+  }
 }
 
-.buttonInForm{
+.buttonInForm {
   border: none;
   color: #000;
   border-radius: 5px;
@@ -31,9 +31,9 @@
   &:hover {
     background-color: $colorOther;
     color: #fff;
-  } 
+  }
 }
-.buttonInFormValid{
+.buttonInFormValid {
   border: none;
   color: #000;
   border-radius: 5px;
@@ -48,20 +48,32 @@
   &:hover {
     background-color: $colorOther;
     color: #fff;
-  } 
+  }
 }
 
-.contactPresta{
+.contactPresta {
   width: 100%;
   margin: auto;
 }
 
-.modal--form{
-  width: 50%;
-  margin-left: 25%;
+.modal--form {
+  width: 90%;
+  margin-left: 5%;
+
+  @media only screen and (min-width: $breakMini) {
+    /* tablets */
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  @media only screen and (min-width: $breakMedium) {
+    /* tablets */
+    width: 50%;
+    margin-left: 25%;
+  }
 }
 
-.formContactPrestaInput{
+.formContactPrestaInput {
   width: 100%;
 
   @media only screen and (min-width: $breakMedium) {
