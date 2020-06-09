@@ -10,6 +10,11 @@ import {
   verifEmail,
   verifPostalCode,
   verifPassword,
+  handleBlurField,
+  handleBlurPostalCode,
+  handleBlurEmail,
+  handleBlurPassword,
+  handleBlurPasswordBis,
 } from 'src/utils/verifForm';
 
 import PropTypes from 'prop-types';
@@ -35,61 +40,9 @@ const NewMember = ({
     resetNewMember();
   }, []);
 
-/*   const lastname = false; */
-
-  let arrayError = [];
-
   const handleChange = (evt) => {
     const { name } = evt.target;
     onChange(evt.target.value, name);
-  };
-
-  const handleBlurField = (evt) => {
-    if (evt.currentTarget.value.length < 2) {
-      surligne(evt.currentTarget, true);
-      return false;
-    }
-    surligne(evt.currentTarget, false);
-    return true;
-  };
-
-  const handleBlurPostalCode = (evt) => {
-    const codeInt = parseInt(evt.currentTarget.value);
-
-    if ((evt.currentTarget.value.length == 5) && Number.isInteger(codeInt)) {
-      surligne(evt.currentTarget, false);
-      return true;
-    }
-    surligne(evt.currentTarget, true);
-    return false;
-    
-  };
-
-  const handleBlurEmail = (evt) => {
-    const regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-    if (!regex.test(evt.currentTarget.value)) {
-      surligne(evt.currentTarget, true);
-      return false;
-    }
-    surligne(evt.currentTarget, false);
-    return true;
-  };
-
-  const verifPassword = (password, passwordbis) => {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-  /* 
-    console.log(password.value);
-    console.log(passwordbis.value); */
-    if (regex.test(password.value) && (password.value === passwordbis.value)) {
-      console.log('Pass Ok');
-      surligne(evt.currentTarget, false);
-      return true;
-      
-    }
-    console.log('Pass Ko');
-    surligne(evt.currentTarget, true);
-    return false;
-    
   };
 
   const handleCreateUser = (evt) => {
@@ -103,23 +56,13 @@ const NewMember = ({
     const emailOk = verifEmail(document.querySelector('#email'));
     const passwordOk = verifPassword(document.querySelector('#password'), document.querySelector('#passwordbis'));
 
-    console.log(lastnameOk);
-    console.log(firstnameOk);
-    console.log(emailOk);
-    console.log(addressOk);
-    console.log(postalCodeOk);
-    console.log(cityOk);
-    console.log(passwordOk);
-
-    if (lastnameOk && firstnameOk && emailOk) {
-      console.log('ok');
+    if (lastnameOk && firstnameOk && emailOk && addressOk && postalCodeOk && cityOk && passwordOk) {
+      createUser();
     }
     else {
       alert("Veuillez remplir correctement tous les champs");
       return false;
     }
-
-    /* createUser(); */
   };
 
   return (
@@ -196,7 +139,7 @@ const NewMember = ({
                 name="password"
                 onChange={handleChange}
                 value={password}
-                onBlur={handleBlurField}
+                onBlur={handleBlurPassword}
               />
             </Form.Field>
             <Form.Field required>
@@ -209,7 +152,7 @@ const NewMember = ({
                 name="passwordbis"
                 onChange={handleChange}
                 value={passwordbis}
-                onBlur={handleBlurField}
+                onBlur={handleBlurPasswordBis}
               />
             </Form.Field>
             <Form.Field required>

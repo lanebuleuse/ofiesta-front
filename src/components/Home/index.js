@@ -24,22 +24,26 @@ const Home = ({
   };
 
   return (
-    <div className="home">
-      {servicesList.map((service) => {
-        return (
-          <Card key={service.id} {...service} />
-        );
-      })}
-      <Pagination
-        defaultActivePage={actualPage}
-        firstItem={null}
-        lastItem={null}
-        pointing
-        secondary
-        totalPages={numberOPage}
-        onPageChange={handleClick}
-      />
-    </div>
+    <>
+      <div className="home">
+        {servicesList.map((service) => {
+          return (
+            <Card key={service.id} {...service} />
+          );
+        })}
+      </div>
+      <div className="home-pagination">
+        <Pagination
+          defaultActivePage={actualPage}
+          firstItem={null}
+          lastItem={null}
+          pointing
+          secondary
+          totalPages={numberOPage}
+          onPageChange={handleClick}
+        />
+      </div>
+    </>
   );
 };
 
