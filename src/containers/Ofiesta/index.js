@@ -4,7 +4,7 @@ import Ofiesta from 'src/components/Ofiesta';
 
 import { fetchServices } from 'src/actions/services';
 import { fetchDepartment, fetchNameService } from 'src/actions/search';
-import { fetchMemberinformation } from 'src/actions/user';
+import { fetchMemberinformation, fetchProInformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   loading: state.services.loading,
@@ -27,8 +27,13 @@ const mapDispatchToProps = (dispatch) => ({
 
   checkUserConnected: () => {
     const authToken = localStorage.getItem('JWT_token');
-    if (authToken) {
+    const roles = localStorage.getItem('ROLES');
+    console.log(roles);
+    if (authToken && roles.includes('ROLE_MEMBER')) {
       dispatch(fetchMemberinformation());
+    }
+    if (authToken && roles.includes('ROLE_PROVIDER')) {
+      dispatch(fetchProInformation());
     }
   },
 });

@@ -25,24 +25,31 @@ const Home = ({
 
   return (
     <>
-      <div className="home">
-        {servicesList.map((service) => {
-          return (
-            <Card key={service.id} {...service} />
-          );
-        })}
-      </div>
-      <div className="home-pagination">
-        <Pagination
-          defaultActivePage={actualPage}
-          firstItem={null}
-          lastItem={null}
-          pointing
-          secondary
-          totalPages={numberOPage}
-          onPageChange={handleClick}
-        />
-      </div>
+      {(servicesList.length === 0) && (
+        <div className="noResult">Il n'y a aucun résultat à votre recherche</div>
+      )}
+      {(servicesList.length > 0) && (
+        <>
+          <div className="home">
+            {servicesList.map((service) => {
+              return (
+                <Card key={service.id} {...service} />
+              );
+            })}
+          </div>
+          <div className="home-pagination">
+            <Pagination
+              defaultActivePage={actualPage}
+              firstItem={null}
+              lastItem={null}
+              pointing
+              secondary
+              totalPages={numberOPage}
+              onPageChange={handleClick}
+            />
+          </div>
+        </>
+      )}
     </>
   );
 };

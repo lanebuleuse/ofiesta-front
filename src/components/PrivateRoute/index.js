@@ -6,15 +6,24 @@ import PropTypes from 'prop-types';
 
 const PrivateRoute = ({
   fetchMemberinformation,
+  fetchProInformation,
   component: Component,
   role,
   userRole,
   isLogged,
   ...rest
 }) => {
+  const roles = localStorage.getItem('ROLES');
   useEffect(() => {
-    fetchMemberinformation();
+    console.log(roles);
+    if (roles.includes('ROLE_MEMBER')) {
+      fetchMemberinformation();
+    }
+    if (roles.includes('ROLE_PROVIDER')) {
+      fetchProInformation();
+    }
   }, []);
+  console.log(roles.includes('ROLE_PROVIDER'));
   return (
     <Route
       {...rest}
@@ -32,6 +41,7 @@ const PrivateRoute = ({
 
 PrivateRoute.propTypes = {
   fetchMemberinformation: PropTypes.func.isRequired,
+  fetchProInformation: PropTypes.func.isRequired,
   userRole: PropTypes.string.isRequired,
   component: PropTypes.object.isRequired,
   isLogged: PropTypes.bool.isRequired,
