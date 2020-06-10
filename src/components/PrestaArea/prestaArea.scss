@@ -1,4 +1,4 @@
-@import 'src/styles/vars';
+@import "src/styles/vars";
 
 .infos {
   margin: 1rem auto;
@@ -15,15 +15,17 @@
     padding: 0.5rem 0 1.5rem;
   }
 
-  .info-favori, .info-mesinfos{
+  .info-favori,
+  .info-mesinfos {
     position: relative;
     margin: 2rem 0;
     border: 1px solid $colorOther;
-    box-shadow: 0 0 5px  rgba(165, 165, 165, 0.5);
+    box-shadow: 0 0 5px rgba(165, 165, 165, 0.5);
     border-radius: 0.2rem;
     padding: 0.5rem;
 
-    & p, a {
+    & p,
+    a {
       font-size: 0.9rem;
     }
   }
@@ -61,5 +63,21 @@
     font-size: 1.4rem;
     width: 40px;
     padding: 0rem;
+  }
+}
+
+.gestionPrestations {
+  &--title {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+  }
+}
+
+.detail-presta {
+  margin-bottom: 0.5em;
+
+  & span {
+    font-weight: bold;
   }
 }
