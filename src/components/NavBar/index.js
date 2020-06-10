@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import './navBar.scss';
 
 const NavBar = ({ isLogged, roles }) => {
-  console.log(roles);
   return(
   <header>
     <nav className="navbar">

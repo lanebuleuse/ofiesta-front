@@ -24,7 +24,7 @@ const userMiddleware = (store) => (next) => (action) => {
         url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/profile',
       })
         .then((response) => {
-          console.log(response);
+/*           console.log(response); */
           store.dispatch(saveMemberInformation(response.data));
         })
         .catch((error) => {
@@ -47,8 +47,7 @@ const userMiddleware = (store) => (next) => (action) => {
         url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/pro/profile',
       })
         .then((response) => {
-          console.log(response);
-          console.log(response);
+/*           console.log(response); */
           // je voudrais enregistrer response.data dans le state=> nouvelle action
           store.dispatch(saveProInformation(response.data[0], response.data[1]));
         })

@@ -28,7 +28,6 @@ const mapDispatchToProps = (dispatch) => ({
   checkUserConnected: () => {
     const authToken = localStorage.getItem('JWT_token');
     const roles = localStorage.getItem('ROLES');
-    console.log(roles);
     if (authToken && roles.includes('ROLE_MEMBER')) {
       dispatch(fetchMemberinformation());
     }
