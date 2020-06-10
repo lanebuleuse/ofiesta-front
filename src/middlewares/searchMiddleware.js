@@ -63,7 +63,6 @@ const searchMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveServices(response.data));
         })
         .catch((error) => {

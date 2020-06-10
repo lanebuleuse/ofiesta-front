@@ -19,8 +19,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchMemberinformation: (userId, token) => {
-    dispatch(fetchMemberinformation(userId, token));
+  fetchMemberinformation: () => {
+    dispatch(fetchMemberinformation());
   },
   changeField: (value, name) => {
     dispatch(changeField(value, name));

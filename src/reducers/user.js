@@ -21,7 +21,6 @@ const initialState = {
   role: [],
   password: '',
   isLogged: false,
-
   loading: true,
   serviceList: [],
 };
@@ -55,6 +54,7 @@ const userReducer = (state = initialState, action = {}) => {
     case SAVE_PRO:
       return {
         ...state,
+        role: action.data.roles,
         firstname: action.data.firstName,
         lastname: action.data.name,
         phone: action.data.phone,

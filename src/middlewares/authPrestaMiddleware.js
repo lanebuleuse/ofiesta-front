@@ -26,6 +26,7 @@ const authPrestaMiddleware = (store) => (next) => (action) => {
           if (response.data.token) {
             console.log(response.data);
             localStorage.setItem('JWT_token', (response.data.token));
+            localStorage.setItem('ROLES', [(response.data.data.roles)]);
             localStorage.setItem('USER_ID', (response.data.data.userid));
             store.dispatch(saveConnectionInfo(response.data.data.roles, response.data.data.userid));
           }

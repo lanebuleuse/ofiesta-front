@@ -3,7 +3,7 @@ import { CHANGE_INPUT_VALUE } from 'src/actions/auth';
 
 const initialState = {
   // ici l'état initial
-  email: 'test@test.test',
+  email: 'fschmitt@ifrance.com',
   password: '147258',
 };
 

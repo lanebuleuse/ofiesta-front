@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -17,7 +18,7 @@ const UpdateMember = ({
   handleUpdateMember,
 }) => {
   useEffect(() => {
-    fetchMemberinformation(localStorage.getItem('USER_ID'), localStorage.getItem('JWT_token'));
+    fetchMemberinformation();
   }, []);
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -124,7 +125,7 @@ const UpdateMember = ({
               value={email}
             />
           </label>
-          <button className="updateMemberForm--button updateMemberForm--button-cancel" type="submit">Annuler</button>
+          <Link to="/mon-compte" className="updateMemberForm--button updateMemberForm--button-cancel" type="submit">Annuler</Link>
           <button className="updateMemberForm--button" type="submit">Valider</button>
         </form>
       </div>

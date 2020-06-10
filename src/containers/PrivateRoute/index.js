@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import PrivateRoute from 'src/components/PrivateRoute';
 
-import { fetchMemberinformation } from 'src/actions/user';
+import { fetchMemberinformation, fetchProInformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
 
@@ -14,6 +14,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchMemberinformation: () => {
     dispatch(fetchMemberinformation());
+  },
+
+  fetchProInformation: () => {
+    dispatch(fetchProInformation());
   },
 });
 

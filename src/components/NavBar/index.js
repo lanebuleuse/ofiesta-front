@@ -6,7 +6,9 @@ import PropTypes from 'prop-types';
 
 import './navBar.scss';
 
-const NavBar = ({ isLogged, roles }) => (
+const NavBar = ({ isLogged, roles }) => {
+  console.log(roles);
+  return(
   <header>
     <nav className="navbar">
       <label className="navbar-toggle" id="js-navbar-toggle" htmlFor="chkToggle">
@@ -49,6 +51,7 @@ const NavBar = ({ isLogged, roles }) => (
     </nav>
   </header>
 );
+            };
 
 NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
