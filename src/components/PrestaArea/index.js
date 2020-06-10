@@ -26,7 +26,7 @@ const PrestaArea = ({
           <h2 className="info-subTitle">Mes infos</h2>
           <Link to="/mon-compte-pro/modifier" className="prestaArea-modifier">Modifier</Link>
           <p className="info-detail"><i className="fa fa-user" aria-hidden="true" />{firstname} {lastname}</p>
-          <p className="info-detail"><i className="fa fa-home" aria-hidden="true" /> {postalCode} , {address} {city}</p>
+          <p className="info-detail"><i className="fa fa-home" aria-hidden="true" /> {address} {postalCode} {city}</p>
           <p className="info-detail"><i className="fa fa-mobile" aria-hidden="true" />{phone}</p>
           <p className="info-detail"><i className="fa fa-envelope-o" aria-hidden="true" />{email}</p>
         </div>
