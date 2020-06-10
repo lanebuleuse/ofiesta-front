@@ -39,17 +39,19 @@ const Card = ({
         <p className="card__content--text">
           {liteDescription}
         </p>
-        <ul className="card__content__list">
-          <li className="card__content__list--item">
-            <span>
-              {stars}
-            </span>
-          </li>
-          <li className="card__content__list--item">
-            <span>Tarif à partir de</span>
-            {price}€
-          </li>
-        </ul>
+        <div className="test">
+          <ul className="card__content__list">
+            <li className="card__content__list--item">
+              <span>
+                {stars}
+              </span>
+            </li>
+            <li className="card__content__list--item">
+              <span>Tarif à partir de</span>
+              {price}€
+            </li>
+          </ul>
+        </div>
       </div>
       <Link
         to={`/prestataire/${id}`}

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { useParams } from 'react-router-dom';
 
-import CarouselItem from 'src/components/Prestataire/CarouselItem';
+import CarouselItem from 'src/containers/Prestataire/CarouselItem';
 import ContactPresta from 'src/containers/ContactPresta';
 import GoogleMap from 'src/containers/GoogleMap';
 import Loader from 'src/components/Loader';
@@ -16,7 +16,8 @@ import './prestataire.scss';
 
 const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
   const { id } = useParams();
-  console.log(id);
+  console.log(currentService);
+  console.log(loading);
   useEffect(() => {
     fetchServiceInformation(id);
   }, []);
@@ -35,42 +36,46 @@ const Prestataire = ({ currentService, loading, fetchServiceInformation }) => {
   }
   return (
     <>
-      <section className="prestataire">
-        <div className="prestataire__top">
-          <h4 className="prestataire__top--title">
-            {currentService.title}
-          </h4>
-          <div className="prestataire__top--grades">
-            {stars}
-          </div>
-          <div className="prestataire__top__buttons">
-            <ContactPresta />
-            <i className="fa fa-heart-o" aria-hidden="true" onClick={handleClick} />
-          </div>
-        </div>
-        <div className="prestataire__intro">
-          <CarouselItem />
-          <div className="prestataire__intro__infos">
-            <h5 className="prestataire__intro__infos--title">Infos</h5>
-            <p className="prestataire__intro__infos--label">Adresse :</p>
-            <p className="prestataire__intro__infos--content">{currentService.address} {currentService.postalCode} {currentService.city}</p>
-            <p className="prestataire__intro__infos--label">Prix :</p>
-            <p className="prestataire__intro__infos--content">Tarif à partir de {currentService.price}€</p>
-            <p className="prestataire__intro__infos--label">Minimun invités :</p>
-            <p className="prestataire__intro__infos--content">{currentService.minGuest}</p>
-            <p className="prestataire__intro__infos--label">Maximun invités :</p>
-            <p className="prestataire__intro__infos--content">{currentService.maxGuest}</p>
-          </div>
-        </div>
-        <div className="prestataire__details">
-          <h5 className="prestataire__intro__infos--title">Description {currentService.title}</h5>
-          <p className="prestataire__details--description">
-            {currentService.description}
-          </p>
-        </div>
-      </section>
+      {!loading && (
+        <>
+          <section className="prestataire">
+            <div className="prestataire__top">
+              <h4 className="prestataire__top--title">
+                {currentService.title}
+              </h4>
+              <div className="prestataire__top--grades">
+                {stars}
+              </div>
+              <div className="prestataire__top__buttons">
+                <ContactPresta />
+                <i className="fa fa-heart-o" aria-hidden="true" onClick={handleClick} />
+              </div>
+            </div>
+            <div className="prestataire__intro">
+              <CarouselItem />
+              <div className="prestataire__intro__infos">
+                <h5 className="prestataire__intro__infos--title">Infos</h5>
+                <p className="prestataire__intro__infos--label">Adresse :</p>
+                <p className="prestataire__intro__infos--content">{currentService.address} {currentService.postalCode} {currentService.city}</p>
+                <p className="prestataire__intro__infos--label">Prix :</p>
+                <p className="prestataire__intro__infos--content">Tarif à partir de {currentService.price}€</p>
+                <p className="prestataire__intro__infos--label">Minimun invités :</p>
+                <p className="prestataire__intro__infos--content">{currentService.minGuest}</p>
+                <p className="prestataire__intro__infos--label">Maximun invités :</p>
+                <p className="prestataire__intro__infos--content">{currentService.maxGuest}</p>
+              </div>
+            </div>
+            <div className="prestataire__details">
+              <h5 className="prestataire__intro__infos--title">Description {currentService.title}</h5>
+              <p className="prestataire__details--description">
+                {currentService.description}
+              </p>
+            </div>
+          </section>
+          <GoogleMap />
+        </>
+      )}
       {loading && <Loader />}
-      {!loading && <GoogleMap />}
     </>
   );
 };

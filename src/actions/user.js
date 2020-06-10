@@ -13,6 +13,8 @@ export const CHECK_USER_CONNECT = 'CHECK_USER_CONNECT';
 export const CONNECT_USER = 'CONNECT_USER';
 export const DISCONNECT_USER = 'DISCONNECT_USER';
 
+export const UPDATE_OK = 'UPDATE_OK';
+
 
 export const saveConnectionInfo = (role, userid) => ({
   type: SAVE_CONNECTION_INFO,
@@ -61,4 +63,8 @@ export const saveProInformation = (data, serviceList) => ({
   type: SAVE_PRO,
   data,
   serviceList,
+});
+
+export const updateOk= () => ({
+  type: UPDATE_OK,
 });

@@ -24,6 +24,7 @@ const MemberArea = ({
     fetchMemberinformation();
   }, []);
   console.log(favorites);
+  
   return (
     <>
       {loading && <Loader />}
