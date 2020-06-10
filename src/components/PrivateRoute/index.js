@@ -15,7 +15,6 @@ const PrivateRoute = ({
 }) => {
   const roles = localStorage.getItem('ROLES');
   useEffect(() => {
-    console.log(roles);
     if (roles.includes('ROLE_MEMBER')) {
       fetchMemberinformation();
     }
@@ -23,7 +22,6 @@ const PrivateRoute = ({
       fetchProInformation();
     }
   }, []);
-  console.log(roles.includes('ROLE_PROVIDER'));
   return (
     <Route
       {...rest}

@@ -15,8 +15,9 @@ const mapStateToProps = (state) => ({
   city: state.user.city,
   email: state.user.email,
   roles: state.user.roles,
+  favorites: state.user.favorites,
   isLogged: state.user.isLogged,
-  loadding: state.user.loadding,
+  loading: state.user.loading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -22,6 +22,7 @@ const initialState = {
   password: '',
   isLogged: false,
   loading: true,
+  favorites: [],
   serviceList: [],
 };
 
@@ -47,6 +48,7 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
+        favorites: action.data.favorites,
         loading: false,
         isLogged: true,
       };
