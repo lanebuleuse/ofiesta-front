@@ -1,4 +1,4 @@
-import { CREATE_NEW_PRESTA, CHANGE_INPUT_VALUE } from 'src/actions/newPresta';
+import { CHANGE_NEW_USERPRO_VALUE } from 'src/actions/newUserPro';
 
 
 const initialState = {
@@ -14,17 +14,12 @@ const initialState = {
   phone: '',
   password: '',
   passwordbis: '',
+  accountCreated: false,
 };
 
-const newPrestaReducer = (state = initialState, action = {}) => {
+const newUserProReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case CREATE_NEW_PRESTA:
-
-      return {
-        ...state,
-      };
-
-    case CHANGE_INPUT_VALUE:
+    case CHANGE_NEW_USERPRO_VALUE:
       return {
         ...state,
         [action.name]: action.value,
@@ -34,4 +29,4 @@ const newPrestaReducer = (state = initialState, action = {}) => {
   }
 };
 
-export default newPrestaReducer;
+export default newUserProReducer;

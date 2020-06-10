@@ -8,7 +8,7 @@ import {
   HANDLE_SEARCH,
 } from 'src/actions/search';
 
-import { saveSearch } from 'src/actions/services';
+import { saveServices } from 'src/actions/services';
 
 const searchMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -48,30 +48,28 @@ const searchMiddleware = (store) => (next) => (action) => {
     }
 
     case HANDLE_SEARCH: {
-      const { serviceToSearch, departmentCodeToSearch } = store.getState().search;
-/*       axios({
+      const { serviceIdToSearch, departmentCodeToSearch } = store.getState().search;
+      axios({
         headers: {
           'Content-type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
         method: 'post',
         responseType: 'json',
-        url: '',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/search',
         data: {
-          service: serviceToSearch,
+          service: serviceIdToSearch,
           department: departmentCodeToSearch,
         },
       })
         .then((response) => {
-          if (response.data.token) {
-            store.dispatch(saveSearch(response.data));
-          }
+          store.dispatch(saveServices(response.data));
         })
         .catch((error) => {
-          console.log(error);
-          // console.log(error.response.status);
-          // on pourrait différencier le message d'erreur selon le code d'erreur
-        }); */
+          if (error) {
+            console.log(error);
+          }
+        });
       next(action);
       break;
     }

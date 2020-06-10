@@ -1,28 +1,25 @@
 import { combineReducers } from 'redux';
 
 // We import the different Reducer
-/* import administrationReducer from './administration'; */
-import userReducer from './user';
-import newUserReducer from './newUser';
-import newPrestaReducer from './newPresta';
-import servicesReducer from './services';
-import searchReducer from './search';
+
 import authReducer from './auth';
 import authPrestaReducer from './authPresta';
 import contactPrestaReducer from './contactPresta';
-import proReducer from './pro';
+import userReducer from './user';
+import newUserReducer from './newUser';
+import newUserProReducer from './newUserPro';
+import servicesReducer from './services';
+import searchReducer from './search';
 
 // on définit le reducer principal, qui combine les autres
 const rootReducer = combineReducers({
-  pro: proReducer,
 
-  /* administration: administrationReducer, */
   auth: authReducer,
   authPresta: authPrestaReducer,
   contactPresta: contactPrestaReducer,
   user: userReducer,
   newUser: newUserReducer,
-  newPresta: newPrestaReducer,
+  newUserPro: newUserProReducer,
   services: servicesReducer,
   search: searchReducer,
 });

@@ -17,8 +17,9 @@ const UpdateMemberPro = ({
   handleUpdateMemberPro,
 }) => {
   useEffect(() => {
-    fetchMemberinformation(localStorage.getItem('USER_ID'), localStorage.getItem('JWT_token'));
+    fetchMemberinformation();
   }, []);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleUpdateMemberPro();
