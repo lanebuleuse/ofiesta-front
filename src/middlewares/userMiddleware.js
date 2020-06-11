@@ -4,6 +4,9 @@ import {
   FETCH_MEMBER,
   FETCH_PRO,
   UPDATE_MEMBER,
+  UPDATE_FAVORITES,
+  DELETE_FAVORITES,
+  fetchMemberinformation,
   saveMemberInformation,
   saveProInformation,
   updateOk,
@@ -92,6 +95,58 @@ const userMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(updateOk());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+
+    case UPDATE_FAVORITES: {
+      console.log(action.serviceId);
+      axios({
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          Authorization: `Bearer ${authToken}`,
+        },
+        method: 'post',
+        responseType: 'json',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/favorites',
+        data: {
+          service: action.serviceId,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(fetchMemberinformation());
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      next(action);
+      break;
+    }
+
+    case DELETE_FAVORITES: {
+      console.log(action.serviceId);
+      axios({
+        headers: {
+          'Content-type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          Authorization: `Bearer ${authToken}`,
+        },
+        method: 'delete',
+        responseType: 'json',
+        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/secure/users/favorites',
+        data: {
+          service: action.serviceId,
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          store.dispatch(fetchMemberinformation());
         })
         .catch((error) => {
           console.log(error);
