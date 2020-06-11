@@ -14,6 +14,8 @@ const Card = ({
   id,
   description,
   department,
+  isLogged,
+  favorites,
 }) => {
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
@@ -26,6 +28,23 @@ const Card = ({
   }
   const liteDescription = description.slice(0, 180);
 
+  const handleHeartClick = (evt) => {
+    if (isLogged) {
+
+    }
+    console.log(evt.currentTarget.id);
+  };
+
+  console.log(isLogged);
+  console.log(favorites);
+
+  const checkFavorites = () => {
+    if (favorites.includes(id)) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div className="card">
       <img
@@ -34,7 +53,19 @@ const Card = ({
         alt=""
       />
       <div className="card__content">
-        <h3 className="card__content--title">{title} <span className="card__content--dep">({department})</span></h3>
+        <h3 className="card__content--title">
+{/*           {checkFavorites && (
+
+          )} */}
+          <i
+            className="heartIcon fa fa-heart-o"
+            aria-hidden="true"
+            id={id}
+            onClick={handleHeartClick}
+          />
+          {title} 
+          <span className="card__content--dep">({department})</span>
+        </h3>
         <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
         <p className="card__content--text">
           {liteDescription}
@@ -71,6 +102,8 @@ Card.propTypes = {
   id: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
   department: PropTypes.string.isRequired,
+  isLogged: PropTypes.bool.isRequired,
+  favorites: PropTypes.array.isRequired,
 };
 
 export default Card;

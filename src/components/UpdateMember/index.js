@@ -33,7 +33,7 @@ const UpdateMember = ({
   return (
     <div className="memberArea">
       {updateInfo && (
-        <div>Vos modifications ont été prises en compte</div>
+        <div className="memberArea-validateMessage">Vos modifications ont été prises en compte</div>
       )}
       <div className="memberArea-mesinfos">
         <h2 className="memberArea-subTitle">Modifier mes infos</h2>
@@ -142,7 +142,7 @@ UpdateMember.propTypes = {
   lastname: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
-  postalCode: PropTypes.number.isRequired,
+  postalCode: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   fetchMemberinformation: PropTypes.func.isRequired,

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from 'src/components/Loader';
 
-import Card from 'src/components/Card';
+import Card from 'src/containers/Card';
 
 import PropTypes from 'prop-types';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import Card from 'src/components/Card';
+import Card from 'src/containers/Card';
 import { Pagination } from 'semantic-ui-react';
 
 import './home.scss';
