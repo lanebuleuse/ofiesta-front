@@ -18,7 +18,6 @@ const initialState = {
   postalCode: '',
   city: '',
   email: '',
-  favori: [],
   role: [],
   password: '',
   isLogged: false,

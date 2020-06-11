@@ -21,8 +21,14 @@
       font-weight: bold;
       margin-bottom: 0.5em;
 
-      .heartIcon {
+      .fav {
         margin-right: 1rem;
+        cursor: pointer;
+        
+      }
+
+      .favTrue {
+        color: red;
       }
     }
 

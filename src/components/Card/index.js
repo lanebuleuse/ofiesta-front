@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-
+import classNames from 'classnames';
+import { Icon } from 'semantic-ui-react';
 import { Badge } from 'react-bootstrap';
 
 import './card.scss';
@@ -16,6 +17,7 @@ const Card = ({
   department,
   isLogged,
   favorites,
+  media,
 }) => {
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
@@ -35,31 +37,26 @@ const Card = ({
     console.log(evt.currentTarget.id);
   };
 
-  console.log(isLogged);
-  console.log(favorites);
+  const arrayFavoris = [];
+  favorites.map((currentFavoris) => {
+    const currentFavorisId = currentFavoris.id;
+    arrayFavoris.push(currentFavorisId);
+  });
 
-  const checkFavorites = () => {
-    if (favorites.includes(id)) {
-      return true;
-    }
-    return false;
-  };
+  const cssClass = classNames('fav', { 'favTrue': (arrayFavoris.includes(id)) });
 
   return (
     <div className="card">
       <img
-        src="https://source.unsplash.com/800x600/?dj"
+        src={media[0].path}
         className="card--image"
         alt=""
       />
       <div className="card__content">
         <h3 className="card__content--title">
-{/*           {checkFavorites && (
-
-          )} */}
-          <i
-            className="heartIcon fa fa-heart-o"
-            aria-hidden="true"
+          <Icon
+            className={cssClass}
+            name="heart"
             id={id}
             onClick={handleHeartClick}
           />
@@ -104,6 +101,7 @@ Card.propTypes = {
   department: PropTypes.string.isRequired,
   isLogged: PropTypes.bool.isRequired,
   favorites: PropTypes.array.isRequired,
+  media: PropTypes.array.isRequired,
 };
 
 export default Card;

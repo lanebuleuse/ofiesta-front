@@ -23,7 +23,7 @@ const MemberArea = ({
   useEffect(() => {
     fetchMemberinformation();
   }, []);
-  console.log(favorites);
+/*   console.log(favorites); */
   
   return (
     <>
