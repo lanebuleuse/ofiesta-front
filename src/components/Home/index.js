@@ -32,7 +32,6 @@ const Home = ({
         <>
           <div className="home">
             {servicesList.map((service) => {
-              console.log(service);
               return (
                 <Card key={service.id} {...service} />
               );

@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Icon } from 'semantic-ui-react';
@@ -18,7 +18,14 @@ const Card = ({
   isLogged,
   favorites,
   media,
+  updateFavorites,
+  deleteFavorites,
 }) => {
+
+  const [modalOpen, setmodalOpen] = useState(false);
+  const handleClose = () => setmodalOpen(false);
+  const handleOpen = () => setmodalOpen(true);
+
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
     if (i < note) {
@@ -30,18 +37,28 @@ const Card = ({
   }
   const liteDescription = description.slice(0, 180);
 
+  const arrayFavoris = [];
+  console.log(favorites.length);
+  if (favorites.length > 0) {
+    favorites.map((currentFavoris) => {
+      const currentFavorisId = currentFavoris.id;
+      arrayFavoris.push(currentFavorisId);
+    });
+  }
+
   const handleHeartClick = (evt) => {
     if (isLogged) {
-
+      if (arrayFavoris.includes(id)) {
+        deleteFavorites(id);
+      }
+      else {
+        updateFavorites(id);
+      }
     }
-    console.log(evt.currentTarget.id);
+    else {
+      console.log('Là');
+    }
   };
-
-  const arrayFavoris = [];
-  favorites.map((currentFavoris) => {
-    const currentFavorisId = currentFavoris.id;
-    arrayFavoris.push(currentFavorisId);
-  });
 
   const cssClass = classNames('fav', { 'favTrue': (arrayFavoris.includes(id)) });
 
@@ -100,8 +117,17 @@ Card.propTypes = {
   description: PropTypes.string.isRequired,
   department: PropTypes.string.isRequired,
   isLogged: PropTypes.bool.isRequired,
-  favorites: PropTypes.array.isRequired,
+  favorites: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]).isRequired,
   media: PropTypes.array.isRequired,
+  updateFavorites: PropTypes.func.isRequired,
+  deleteFavorites: PropTypes.func.isRequired,
 };
+
+/* Card.defaultProps = {
+  favorites: [],
+}; */
 
 export default Card;
