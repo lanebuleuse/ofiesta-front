@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
   emailContact: state.contactPresta.email,
   date: state.contactPresta.date,
   message: state.contactPresta.message,
+  messageSend: state.contactPresta.messageSend,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -37,8 +38,8 @@ const mapDispatchToProps = (dispatch) => ({
     window.emailjs.send(
       'gmail', templateId,
       variables,
-    ).then((resp) => {
-      console.log(resp);
+    ).then(() => {
+      console.log('Email successfully sent!');
     })
       // Handle errors here however you like, or use a React error boundary
       .catch((err) => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err));
