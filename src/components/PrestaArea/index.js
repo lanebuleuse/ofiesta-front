@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
-import Prestation from 'src/components/PrestaArea/Prestation';
 
 import './prestaArea.scss';
 
@@ -16,6 +15,7 @@ const PrestaArea = ({
   postalCode,
   email,
   fetchProInformation,
+  services,
 }) => {
   useEffect(() => {
     fetchProInformation();
@@ -31,9 +31,21 @@ const PrestaArea = ({
         <p className="info-detail"><i className="fa fa-envelope-o" aria-hidden="true" />{email}</p>
       </div>
       <h2 className="gestionPrestations--title">Mes Prestations</h2>
-      <Prestation />
-      <Prestation />
-      <Prestation />
+      {services.map((service) => {
+        const serviceList = service.ServiceList;
+        return (
+          <div className="info-mesinfos" key={service.id}>
+            <h2 className="info-subTitle">{service.title}</h2>
+            <Link to="/mon-compte-pro/modifier-prestation" className="prestaArea-modifier">Gerer</Link>
+            <p className="info-detail detail-presta"><span>Localisation : </span>{service.city} ({service.department})</p>
+            <p className="info-detail detail-presta"><span>Services : </span>{serviceList.name}</p>
+            <p className="info-detail detail-presta"><span>Prix (à partir de) : </span>{service.price}€</p>
+            <p className="info-detail detail-presta"><span>Nombre d'invités minimum : </span>{service.minGuest}</p>
+            <p className="info-detail detail-presta"><span>Nombre d'invités minimum : </span>{service.maxGuest}</p>
+            <p className="info-detail detail-presta"><span>Decription : </span>{service.description}</p>
+          </div>
+        );
+      })}
     </div>
   );
 };
