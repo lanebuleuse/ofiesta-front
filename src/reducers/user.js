@@ -72,7 +72,7 @@ const userReducer = (state = initialState, action = {}) => {
         address: action.data.address,
         postalCode: action.data.postalCode,
         city: action.data.city,
-        serviceList: action.serviceList,
+        serviceList: action.data.company.service,
         loading: false,
         isLogged: true,
       };

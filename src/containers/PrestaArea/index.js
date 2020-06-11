@@ -13,6 +13,7 @@ const mapStateToProps = (state) => ({
   postalCode: state.user.postalCode,
   city: state.user.city,
   email: state.user.email,
+  services: state.user.serviceList,
 });
 
 const mapDispatchToProps = (dispatch) => ({
