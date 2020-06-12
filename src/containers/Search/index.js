@@ -8,6 +8,7 @@ import {
   removeDepartment,
   listOfServiceToSearch,
   handleSearch,
+  cleanDataToSearch,
 } from 'src/actions/search';
 
 const mapStateToProps = (state) => ({
@@ -37,6 +38,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   removeDepartment: (depCode, depName) => {
     dispatch(removeDepartment(depCode, depName));
+  },
+
+  cleanDataToSearch: () => {
+    dispatch(cleanDataToSearch());
   },
 });
 

@@ -216,7 +216,7 @@ const NewMember = ({
               />
             </Form.Field>
             <button type="submit" className="adminConnect-submit">M'inscrire</button>
-            <p className="connectMembers-linkAccount"><a href="/se-connecter">Vous avez déjà un compte</a></p>
+            <p className="connectMembers-linkAccount"><Link to="/se-connecter">Vous avez déjà un compte</Link></p>
           </Form>
           <Message negative hidden id="errorMessage">
             <Message.Header>Veuillez remplir les champs requis</Message.Header>

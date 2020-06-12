@@ -7,7 +7,12 @@ import PropTypes from 'prop-types';
 
 import './navBar.scss';
 
-const NavBar = ({ isLogged, roles }) => {
+const NavBar = ({ isLogged, roles, fetchServices }) => {
+
+  const handleClick = () => {
+    fetchServices();
+  };
+
   return(
     <header>
       <nav className="navbar">
@@ -20,7 +25,12 @@ const NavBar = ({ isLogged, roles }) => {
         <input type="checkbox" id="chkToggle" />
         <ul className="main-nav" id="js-menu">
           <li>
-            <Link to="/" className="nav-links">Accueil</Link>
+            <Link
+              to="/"
+              /* onClick={handleClick} */
+              className="nav-links"
+            >Accueil
+            </Link>
           </li>
           {(!isLogged) && (
             <>
@@ -58,6 +68,7 @@ const NavBar = ({ isLogged, roles }) => {
 NavBar.propTypes = {
   isLogged: PropTypes.bool.isRequired,
   roles: PropTypes.array.isRequired,
+  fetchServices: PropTypes.func.isRequired,
 };
 
 export default NavBar;

@@ -24,7 +24,7 @@ const searchMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           if (error) {
             console.log(error);
-          };
+          }
         });
       next(action);
       break;
@@ -48,6 +48,7 @@ const searchMiddleware = (store) => (next) => (action) => {
     }
 
     case HANDLE_SEARCH: {
+      const { actualPage } = store.getState().services;
       const { serviceIdToSearch, departmentCodeToSearch } = store.getState().search;
       axios({
         headers: {
@@ -56,13 +57,14 @@ const searchMiddleware = (store) => (next) => (action) => {
         },
         method: 'post',
         responseType: 'json',
-        url: 'http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/search',
+        url: `http://ec2-100-26-156-71.compute-1.amazonaws.com/api/v1/public/search?page=${actualPage}`,
         data: {
           service: serviceIdToSearch,
           department: departmentCodeToSearch,
         },
       })
         .then((response) => {
+/*           console.log(response); */
           store.dispatch(saveServices(response.data));
         })
         .catch((error) => {

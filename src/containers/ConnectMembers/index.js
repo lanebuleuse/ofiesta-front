@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
+ import { connect } from 'react-redux';
 
 import ConnectMembers from 'src/components/ConnectMembers';
 
-import { changeField, connectUser } from 'src/actions/auth';
+import { changeField, connectUser, resetAuthForm } from 'src/actions/auth';
 import { resetNewMember } from 'src/actions/newUser';
 
 const mapStateToProps = (state) => ({
@@ -25,6 +25,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   resetNewMember: () => {
     dispatch(resetNewMember());
+  },
+
+  resetAuthForm: () => {
+    dispatch(resetAuthForm());
   },
 
 });

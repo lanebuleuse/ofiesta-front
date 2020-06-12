@@ -6,6 +6,7 @@ import {
   ADD_DEPARTMENT,
   REMOVE_DEPARTMENT,
   SAVE_NAME_SERVICE,
+  CLEAN_DATA_TO_SEARCH,
 }
   from '../actions/search';
 
@@ -56,6 +57,15 @@ const searchReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         departmentList: action.department,
+      };
+
+    case CLEAN_DATA_TO_SEARCH:
+      console.log('Reducer');
+      return {
+        ...state,
+        departmentCodeToSearch: [],
+        serviceIdToSearch: [],
+        departmentName: [],
       };
 
     default: return state;

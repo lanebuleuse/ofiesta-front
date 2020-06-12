@@ -13,13 +13,18 @@ const Home = ({
   numberOPage,
   changePageService,
   clearCurrentService,
+  fetchServices,
+  serviceIdToSearch,
 }) => {
   useEffect(() => {
     clearCurrentService();
   }, []);
+
   const servicesList = services.results;
 
   const handleClick = (evt, data) => {
+
+    console.log(data.activePage);
 
     if (data.activePage !== actualPage) {
 
@@ -60,10 +65,15 @@ const Home = ({
 
 Home.propTypes = {
   services: PropTypes.object.isRequired,
-  actualPage: PropTypes.number.isRequired,
+  actualPage: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   numberOPage: PropTypes.number.isRequired,
   changePageService: PropTypes.func.isRequired,
   clearCurrentService: PropTypes.func.isRequired,
+  fetchServices: PropTypes.func.isRequired,
+  serviceIdToSearch: PropTypes.array.isRequired,
 };
 
 export default Home;

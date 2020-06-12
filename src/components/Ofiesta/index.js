@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { Route, Switch, Redirect, useParams } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -30,19 +30,24 @@ import Mentions from 'src/components/Mentions';
 
 // == Composant
 const Ofiesta = ({
-  fetchServices,
   fetchDepartment,
   checkUserConnected,
   fetchNameService,
   loading,
   actualPage,
+  serviceIdToSearch,
+  departmentCodeToSearch,
+  handleSearch,
+
 }) => {
   useEffect(() => {
     checkUserConnected();
   }, []);
+
   useEffect(() => {
-    fetchServices();
-  }, [actualPage]);
+    handleSearch();
+  }, [serviceIdToSearch, departmentCodeToSearch, actualPage]);
+
   useEffect(() => {
     fetchNameService();
     fetchDepartment();
@@ -111,12 +116,16 @@ const Ofiesta = ({
 
 Ofiesta.propTypes = {
   checkUserConnected: PropTypes.func.isRequired,
-  fetchServices: PropTypes.func.isRequired,
   fetchDepartment: PropTypes.func.isRequired,
   fetchNameService: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  actualPage: PropTypes.number.isRequired,
-
+  actualPage: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  serviceIdToSearch: PropTypes.array.isRequired,
+  departmentCodeToSearch: PropTypes.array.isRequired,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 // == Export

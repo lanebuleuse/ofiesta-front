@@ -3,12 +3,19 @@ import { connect } from 'react-redux';
 import Ofiesta from 'src/components/Ofiesta';
 
 import { fetchServices } from 'src/actions/services';
-import { fetchDepartment, fetchNameService } from 'src/actions/search';
+import {
+  fetchDepartment,
+  fetchNameService,
+  handleSearch,
+  cleanDataToSearch,
+} from 'src/actions/search';
 import { fetchMemberinformation, fetchProInformation } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({
   loading: state.services.loading,
   actualPage: state.services.actualPage,
+  serviceIdToSearch: state.search.serviceIdToSearch,
+  departmentCodeToSearch: state.search.departmentCodeToSearch,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -23,6 +30,14 @@ const mapDispatchToProps = (dispatch) => ({
 
   fetchNameService: () => {
     dispatch(fetchNameService());
+  },
+
+  handleSearch: () => {
+    dispatch(handleSearch());
+  },
+
+  cleanDataToSearch: () => {
+    dispatch(cleanDataToSearch());
   },
 
   checkUserConnected: () => {

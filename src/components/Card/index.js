@@ -37,7 +37,7 @@ const Card = ({
   const liteDescription = description.slice(0, 180);
 
   const arrayFavoris = [];
-  console.log(favorites.length);
+
   if (favorites.length > 0) {
     favorites.map((currentFavoris) => {
       const currentFavorisId = currentFavoris.id;

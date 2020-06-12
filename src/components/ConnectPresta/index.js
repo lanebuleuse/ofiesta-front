@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
@@ -13,8 +13,12 @@ const ConnectPresta = ({
   isLogged,
   handleLogin,
   roles,
+  resetAuthForm,
 }) => {
-  console.log(isLogged);
+  useEffect(() => {
+    resetAuthForm();
+  }, []);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
@@ -57,6 +61,7 @@ ConnectPresta.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   roles: PropTypes.array.isRequired,
+  resetAuthForm: PropTypes.func.isRequired,
 };
 
 ConnectPresta.defaultProps = {

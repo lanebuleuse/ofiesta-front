@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
@@ -14,8 +14,12 @@ const ConnectMembers = ({
   isLogged,
   handleLogin,
   accountCreated,
-
+  resetAuthForm,
 }) => {
+
+  useEffect(() => {
+    resetAuthForm();
+  }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -47,7 +51,7 @@ const ConnectMembers = ({
             value={password}
           />
           <button type="submit" className="adminConnect-submit">Se connecter</button>
-          <p className="connectMembers-linkAccount"><a href="/inscription">Vous n'avez pas encore de compte</a></p>
+          <p className="connectMembers-linkAccount"><Link to="/inscription">Vous n'avez pas encore de compte</Link></p>
         </form>
       </div>
     </>
@@ -61,6 +65,7 @@ ConnectMembers.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   accountCreated: PropTypes.bool.isRequired,
+  resetAuthForm: PropTypes.func.isRequired,
 };
 
 ConnectMembers.defaultProps = {

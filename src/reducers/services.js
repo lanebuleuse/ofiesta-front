@@ -77,6 +77,7 @@ const servicesReducer = (state = initialState, action = {}) => {
       };
 
     case CHANGE_PAGE_SERVICE:
+      console.log(action.page);
       return {
         ...state,
         actualPage: action.page,

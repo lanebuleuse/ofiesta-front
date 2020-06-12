@@ -28,6 +28,7 @@
       padding: 0.7rem 1rem;
       border-radius: 0.5rem;
       display: none;
+      z-index: 10;
       
       .heart-popupClose {
         color: white;
@@ -36,7 +37,6 @@
           color: $colorAlt;
         }
       }
-      
     }
     .visible {
       display: block;
