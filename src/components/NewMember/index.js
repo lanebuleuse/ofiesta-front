@@ -82,13 +82,13 @@ const NewMember = ({
 
   return (
     <>
-      {accountCreated && (
-        <>
-          <div>Votre compte à bien été créé</div>
-          <Link to="/se-connecter">Se connecter</Link>
-        </>
-      )}
       {!accountCreated && (
+        <div className="createSuccess">
+          <h2 className="createSuccess--text">Votre compte à bien été créé</h2>
+          <Link className="createSuccess--button" to="/se-connecter">Se connecter</Link>
+        </div>
+      )}
+      {accountCreated && (
         <div className="newMembers">
           <h1 className="newMembers-title">Créer votre espace Membre</h1>
           <Form className="newMembers-form" onSubmit={handleCreateUser}>

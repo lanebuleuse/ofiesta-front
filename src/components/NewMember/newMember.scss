@@ -93,3 +93,38 @@
     }
   }
 }
+
+.createSuccess {
+  height: 80vh;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5em;
+  background-image: url(../../assets/images/concert.jpg);
+
+  &--text {
+    width: 100%;
+    background-color: rgba(50,205,50, .1);
+    border-radius: 15px;
+    margin: 0 auto 2em;
+    padding: 1em;
+
+    @media only screen and (min-width: $breakMini) {
+      /* tablets and desktop */
+      width: 30%;
+    }
+  }
+
+  &--button {
+    background-color: $colorAlt;
+    padding: 0.5em;
+    width: 80%;
+    margin: 0 auto;
+    border: none;
+    border-radius: 5px;
+    &:hover {
+      background-color: $colorOther;
+      color: #fff;
+    }
+  }
+}
