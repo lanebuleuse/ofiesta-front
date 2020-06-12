@@ -26,6 +26,7 @@ import Page404 from 'src/components/Page404';
 import PrestaArea from 'src/containers/PrestaArea';
 import UpdateMemberPro from 'src/containers/UpdateMemberPro';
 import UpdatePresta from 'src/components/UpdatePresta';
+import Mentions from 'src/components/Mentions';
 
 // == Composant
 const Ofiesta = ({
@@ -82,6 +83,9 @@ const Ofiesta = ({
             <Route path="/presentationTeam">
               <Search />
               <PresentationTeam />
+            </Route>
+            <Route path="/Mention-legales">
+              <Mentions />
             </Route>
             <Route path="/401">
               <Page401 />
