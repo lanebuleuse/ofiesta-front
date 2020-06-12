@@ -9,7 +9,7 @@ const Footer = () => (
     <section className="footer__links">
       <ul>
         <li><Link to="/mon-compte-pro/se-connecter">Espace pro</Link></li>
-        <li><a href="#">Qui-sommes-nous?</a></li>
+        <li><Link to="/presentation">Qui-sommes-nous?</Link></li>
         <li><a href="#">Mentions légales</a></li>
         <li><a href="#">Contactez-nous</a></li>
       </ul>
