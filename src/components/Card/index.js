@@ -100,7 +100,7 @@ const Card = ({
             onClick={handleHeartClick}
           />
           {title}
-          <span className="card__content--dep">({department})</span>
+          <span className="card__content--dep"> ({department})</span>
         </h3>
         <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
         <p className="card__content--text">
