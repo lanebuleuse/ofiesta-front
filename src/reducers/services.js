@@ -3,6 +3,7 @@ import {
   SAVE_SERVICE_INFO,
   SAVE_SEARCH,
   CHANGE_PAGE_SERVICE,
+  CLEAR_CURRENT_SERVICE,
 } from 'src/actions/services';
 
 
@@ -46,6 +47,7 @@ const servicesReducer = (state = initialState, action = {}) => {
         actualPage: action.services.current_page,
         numberOPage: action.services.count_pages,
         loading: false,
+
       };
 
     case SAVE_SERVICE_INFO:
@@ -85,6 +87,32 @@ const servicesReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         /* listServices: action.listOfResult, */
+      };
+
+    case CLEAR_CURRENT_SERVICE:
+      return {
+        ...state,
+        currentService: {
+          id: null,
+          title: '',
+          serviceList: null,
+          address: '',
+          postalCode: '',
+          city: '',
+          department: null,
+          description: '',
+          company: {},
+          minGuest: null,
+          maxGuest: null,
+          note: null,
+          price: null,
+          media: {},
+          center: {
+            lat: null,
+            lng: null,
+          },
+          loading: true,
+        },
       };
 
     default: return state;

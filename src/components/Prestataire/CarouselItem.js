@@ -6,22 +6,19 @@ const CarouselItem = ({ currentService }) => {
   const media = currentService.media;
   console.log(currentService.media);
   return (
+
     <Carousel className="prestataire__intro--carousel">
-      <>
-        {media.map((currentMedia) => {
-          console.log(currentMedia);
-          return (
-          <Carousel.Item key={currentMedia.id}>
-            <img
-              className="d-block w-100"
-              src={currentMedia.path}
-              alt="First slide"
-            />
-          </Carousel.Item>
-        
-        );
-          })}
-      </>
+      {media.map((currentMedia) => {
+        return (
+      <Carousel.Item key={currentMedia.id}>
+        <img
+          className="d-block w-100"
+          src={currentMedia.path}
+          alt="First slide"
+        />
+      </Carousel.Item>
+      );
+    })}
     </Carousel>
   );
 };

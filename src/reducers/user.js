@@ -80,17 +80,20 @@ const userReducer = (state = initialState, action = {}) => {
     case DISCONNECT_USER:
       return {
         ...state,
-        isLogged: false,
-        loading: true,
-        updateInfo: false,
-        role: [],
         firstname: '',
         lastname: '',
         phone: '',
-        email: '',
         address: '',
         postalCode: '',
         city: '',
+        email: '',
+        role: [],
+        password: '',
+        isLogged: false,
+        loading: true,
+        favorites: [],
+        serviceList: [],
+        updateInfo: false,
       };
 
     case CHANGE_FIELD:

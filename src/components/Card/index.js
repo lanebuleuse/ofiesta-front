@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes, { array } from 'prop-types';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Icon } from 'semantic-ui-react';
@@ -21,7 +21,6 @@ const Card = ({
   updateFavorites,
   deleteFavorites,
 }) => {
-
   const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
   const handleOpen = () => setmodalOpen(true);
@@ -56,11 +55,20 @@ const Card = ({
       }
     }
     else {
-      console.log('Là');
+      const selectedPopup = document.querySelector(`#heartPopup${ServiceList.id}`);
+      selectedPopup.classList.add('visible');
+      setTimeout(() => {
+        selectedPopup.classList.remove('visible');
+      }, 5000);
     }
   };
 
-  const cssClass = classNames('fav', { 'favTrue': (arrayFavoris.includes(id)) });
+  const handleClosePopup = () => {
+    const selectedPopup = document.querySelector(`#heartPopup${ServiceList.id}`);
+    selectedPopup.classList.remove('visible');
+  };
+
+  const cssClass = classNames('fav', { favTrue: (arrayFavoris.includes(id)) });
 
   return (
     <div className="card">
@@ -71,13 +79,26 @@ const Card = ({
       />
       <div className="card__content">
         <h3 className="card__content--title">
+          <div className="heart-popup" id={`heartPopup${ServiceList.id}`}>
+            <span>
+              <Icon
+                className="heart-popupClose"
+                link
+                name="close"
+                onClick={handleClosePopup}
+              />
+            </span>
+            <Link className="heart-link" to="/se-connecter">
+              Vous devez être connecté pour ajouter des favoris
+            </Link>
+          </div>
           <Icon
             className={cssClass}
             name="heart"
             id={id}
             onClick={handleHeartClick}
           />
-          {title} 
+          {title}
           <span className="card__content--dep">({department})</span>
         </h3>
         <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>

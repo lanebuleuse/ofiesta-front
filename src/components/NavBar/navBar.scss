@@ -1,11 +1,20 @@
 @import 'src/styles/vars';
 
+.header {
+  height: 80px;
+  background-color: $colorMain;
+}
+
 .navbar {
   font-size: 0.8rem;
   background-color: $colorMain;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 5px;
   display: block;
+
+  .navbar-logo {
+    width: 250px;
+    height: 80px;
+  }
 }
 
 .main-nav {
