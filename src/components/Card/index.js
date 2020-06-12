@@ -21,8 +21,6 @@ const Card = ({
   updateFavorites,
   deleteFavorites,
 }) => {
-
-  const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
   const handleOpen = () => setmodalOpen(true);
 
