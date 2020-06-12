@@ -55,7 +55,8 @@ const Card = ({
       }
     }
     else {
-      const selectedPopup = document.querySelector(`#heartPopup${ServiceList.id}`);
+      const selectedPopup = document.querySelector(`#heartPopup${id}`);
+      console.log(selectedPopup);
       selectedPopup.classList.add('visible');
       setTimeout(() => {
         selectedPopup.classList.remove('visible');
@@ -64,7 +65,7 @@ const Card = ({
   };
 
   const handleClosePopup = () => {
-    const selectedPopup = document.querySelector(`#heartPopup${ServiceList.id}`);
+    const selectedPopup = document.querySelector(`#heartPopup${id}`);
     selectedPopup.classList.remove('visible');
   };
 
@@ -79,7 +80,7 @@ const Card = ({
       />
       <div className="card__content">
         <h3 className="card__content--title">
-          <div className="heart-popup" id={`heartPopup${ServiceList.id}`}>
+          <div className="heart-popup" id={`heartPopup${id}`}>
             <span>
               <Icon
                 className="heart-popupClose"
