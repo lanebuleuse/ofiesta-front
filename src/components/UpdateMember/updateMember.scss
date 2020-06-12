@@ -4,9 +4,17 @@
   margin: 1rem auto;
   width: 90%;
 
-  @media only screen and (min-width: $breakMedium) {
+  @media only screen and (min-width: $breakMini) {
     /* tablets */
     max-width: 700px;
+  }
+
+  &-validateMessage {
+    text-align: center;
+    margin: 2rem 0;
+    color: $colorAlt;
+    font-weight: bold;
+    font-size: 1.2rem;
   }
 
   .memberArea-subTitle {
@@ -15,10 +23,9 @@
     padding: 0.5rem 0 1.5rem;
   }
 
-  .memberArea-favori,
   .memberArea-mesinfos {
     position: relative;
-    margin: 2rem 0;
+    margin: 2rem auto;
     border: 1px solid $colorOther;
     box-shadow: 0 0 5px rgba(165, 165, 165, 0.5);
     border-radius: 0.2rem;

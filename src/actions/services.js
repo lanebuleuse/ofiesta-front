@@ -10,6 +10,8 @@ export const SAVE_SEARCH = 'SAVE_SEARCH';
 
 export const CHANGE_PAGE_SERVICE = 'CHANGE_PAGE_SERVICE';
 
+export const CLEAR_CURRENT_SERVICE = 'CLEAR_CURRENT_SERVICE';
+
 export const fetchServices = () => ({
   type: FETCH_SERVICES,
 });
@@ -42,4 +44,8 @@ export const saveSearch = (listOfResult) => ({
 export const changePageService = (page) => ({
   type: CHANGE_PAGE_SERVICE,
   page,
+});
+
+export const clearCurrentService = () => ({
+  type: CLEAR_CURRENT_SERVICE,
 });

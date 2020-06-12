@@ -17,6 +17,7 @@ import Home from 'src/containers/Home';
 import Page401 from 'src/components/Page401';
 import Prestataire from 'src/containers/Prestataire';
 import Presentation from 'src/components/Presentation';
+import PresentationTeam from 'src/components/PresentationTeam';
 import ConnectPresta from 'src/containers/ConnectPresta';
 import NewUserPro from 'src/containers/NewUserPro';
 import Loader from 'src/components/Loader';
@@ -77,6 +78,10 @@ const Ofiesta = ({
             <Route path="/presentation">
               <Search />
               <Presentation />
+            </Route>
+            <Route path="/presentationTeam">
+              <Search />
+              <PresentationTeam />
             </Route>
             <Route path="/401">
               <Page401 />

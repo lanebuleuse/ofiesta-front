@@ -4,6 +4,7 @@ import {
   CHANGE_FIELD,
   DISCONNECT_USER,
   SAVE_PRO,
+  UPDATE_OK,
 } from 'src/actions/user';
 
 
@@ -17,13 +18,13 @@ const initialState = {
   postalCode: '',
   city: '',
   email: '',
-  favori: [],
   role: [],
   password: '',
   isLogged: false,
   loading: true,
   favorites: [],
   serviceList: [],
+  updateInfo: false,
 };
 
 const userReducer = (state = initialState, action = {}) => {
@@ -35,6 +36,12 @@ const userReducer = (state = initialState, action = {}) => {
         userid: action.userid,
         isLogged: true,
         loading: false,
+      };
+
+    case UPDATE_OK:
+      return {
+        ...state,
+        updateInfo: true,
       };
 
     case SAVE_MEMBER:
@@ -51,6 +58,7 @@ const userReducer = (state = initialState, action = {}) => {
         favorites: action.data.favorites,
         loading: false,
         isLogged: true,
+        updateInfo: false,
       };
 
     case SAVE_PRO:
@@ -72,16 +80,20 @@ const userReducer = (state = initialState, action = {}) => {
     case DISCONNECT_USER:
       return {
         ...state,
-        isLogged: false,
-        loading: true,
-        role: [],
         firstname: '',
         lastname: '',
         phone: '',
-        email: '',
         address: '',
         postalCode: '',
         city: '',
+        email: '',
+        role: [],
+        password: '',
+        isLogged: false,
+        loading: true,
+        favorites: [],
+        serviceList: [],
+        updateInfo: false,
       };
 
     case CHANGE_FIELD:

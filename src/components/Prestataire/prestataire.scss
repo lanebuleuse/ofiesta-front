@@ -8,24 +8,68 @@
   }
 
   &__top {
+    position: relative;
     margin-bottom: 1em;
 
     @media only screen and (min-width: $breakMini) {
       display: flex;
     }
 
+    
+    .heart-popup {
+      position: absolute;
+      width: 300px;
+      top: 40px;
+      left: -7px;
+      font-size: 0.8rem;
+      line-height: 1rem;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+      color: white;
+      padding: 0.7rem 1rem;
+      border-radius: 0.5rem;
+      display: none;
+      
+      .heart-popupClose {
+        color: white;
+
+        &:hover {
+          color: $colorAlt;
+        }
+      }
+      
+    }
+    .visible {
+      display: block;
+    }
+
+    .heart-popup::after{
+      content:""; 
+      border-left:10px solid transparent;
+      border-right:10px solid transparent;
+      border-bottom: 10px solid rgba($color: #000000, $alpha: 0.8);
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
+
+    .heart-link {
+      text-decoration: none;
+
+      &:hover {
+        color: $colorAlt;
+      }
+    }
+
     &--title {
       width: 100%;
       font-size: 2em;
       font-weight: bold;
-      margin-bottom: 0.5rem;
     }
 
     &--grades {
       width: 200px;
       color: $colorAlt;
       line-height: 2.5rem;
-      margin-bottom: 0.3em;
     }
 
     &__buttons {
@@ -35,29 +79,16 @@
       @media only screen and (min-width: $breakMini) {
         justify-content: space-around;
       }
+    }
 
-      &--contact {
-        width: 40%;
-        border: none;
-        border-radius: 5px;
-        background-color: $colorAlt;
-        height: 2em;
-        font-size: 0.8em;
+    .fav {
+      line-height: 2.7rem;
+      margin-right: 1rem;
+      cursor: pointer;
+    }
 
-        &:hover {
-          background-color: $colorOther;
-          color: #fff;
-        }       
-      }
-
-      .fa-heart-o {
-        font-size: 1.5rem;
-        line-height: 2rem;
-
-        &:hover {
-          color: red;
-        }
-      }
+    .favTrue {
+      color: red;
     }
   }
 

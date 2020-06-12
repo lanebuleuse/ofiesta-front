@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
-import Card from 'src/components/Card';
+import Card from 'src/containers/Card';
 import { Pagination } from 'semantic-ui-react';
 
 import './home.scss';
@@ -12,7 +12,11 @@ const Home = ({
   actualPage,
   numberOPage,
   changePageService,
+  clearCurrentService,
 }) => {
+  useEffect(() => {
+    clearCurrentService();
+  }, []);
   const servicesList = services.results;
 
   const handleClick = (evt, data) => {
@@ -59,6 +63,7 @@ Home.propTypes = {
   actualPage: PropTypes.number.isRequired,
   numberOPage: PropTypes.number.isRequired,
   changePageService: PropTypes.func.isRequired,
+  clearCurrentService: PropTypes.func.isRequired,
 };
 
 export default Home;

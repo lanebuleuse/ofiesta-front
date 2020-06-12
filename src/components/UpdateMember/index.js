@@ -16,6 +16,7 @@ const UpdateMember = ({
   fetchMemberinformation,
   changeField,
   handleUpdateMember,
+  updateInfo,
 }) => {
   useEffect(() => {
     fetchMemberinformation();
@@ -31,6 +32,9 @@ const UpdateMember = ({
   };
   return (
     <div className="memberArea">
+      {updateInfo && (
+        <div className="memberArea-validateMessage">Vos modifications ont été prises en compte</div>
+      )}
       <div className="memberArea-mesinfos">
         <h2 className="memberArea-subTitle">Modifier mes infos</h2>
         <form className="updateMemberForm" onSubmit={handleSubmit}>
@@ -138,12 +142,13 @@ UpdateMember.propTypes = {
   lastname: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
-  postalCode: PropTypes.number.isRequired,
+  postalCode: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
   fetchMemberinformation: PropTypes.func.isRequired,
   changeField: PropTypes.func.isRequired,
   handleUpdateMember: PropTypes.func.isRequired,
+  updateInfo: PropTypes.bool.isRequired,
 };
 
 export default UpdateMember;
