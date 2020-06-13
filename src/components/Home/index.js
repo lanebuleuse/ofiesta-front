@@ -48,7 +48,7 @@ const Home = ({
           </div>
           <div className="home-pagination">
             <Pagination
-              defaultActivePage={actualPage}
+              activePage={actualPage}
               firstItem={null}
               lastItem={null}
               pointing

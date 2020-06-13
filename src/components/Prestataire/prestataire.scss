@@ -1,24 +1,93 @@
 @import "src/styles/vars";
 
 .prestataire {
-  padding: 1rem 2rem;
+  padding: 1rem 0.8rem;
+
+  @media only screen and (min-width: $breakMini) {
+    padding: 1rem 2rem;
+  }
+
   @media only screen and (min-width: $breakMedium) {
     width: 80%;
     margin: 0 auto;
+    padding: 1rem 2rem;
+  }
+
+  &__back {
+    margin-bottom: 1rem;
+  }
+
+  .prestataire__back__link:hover {
+    text-decoration: none;
+    color: $colorMain;
   }
 
   &__top {
     position: relative;
     margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     @media only screen and (min-width: $breakMini) {
+/*       width: 700px; */
+      justify-content: flex-start;
+    }
+
+    &--title {
+      width: 100%;
+      font-size: 2em;
+      font-weight: bold;
+      
+      @media only screen and (min-width: $breakMini) {
+        width: 80%;
+      }
+    }
+
+    &__tag {
+      height: 27px;
+      background-color: $colorMain!important;
+      color: white!important;
+      font-size: 0.8rem!important;
+    }
+
+    .prestataire__top__gradesandbuttons {
       display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0.5rem 0 1.4rem 0;
+
+      @media only screen and (min-width: $breakMini) {
+        flex-wrap: nowrap;
+        width: 100%;
+      }
+    }
+
+    &--grades {
+      width: 100%;
+      color: $colorAlt;
+      line-height: 2rem;
+/*       margin-bottom: 1.3rem; */
+      @media only screen and (min-width: $breakMini) {
+        width: 20%;
+      }
+    }
+
+    &__buttons {
+      width: 45%;
+/*       display: flex;
+      justify-content: space-between; */
+
+      @media only screen and (min-width: $breakMini) {
+        justify-content: space-around;
+      }
     }
 
     
     .heart-popup {
       position: absolute;
-      width: 300px;
+      width: 50%;
+      max-width: 400px;
       top: 40px;
       left: -7px;
       font-size: 0.8rem;
@@ -29,61 +98,57 @@
       border-radius: 0.5rem;
       display: none;
       z-index: 10;
+
+      .heart-popup__content {
+        display: flex;
+        flex-wrap: wrap;
+      }
       
+      &::after{
+        content:" "; 
+        border-left:10px solid transparent;
+        border-right:10px solid transparent;
+        border-bottom: 10px solid rgba($color: #000000, $alpha: 0.8);
+        position: absolute;
+        top: -10px;
+        left: 10px;
+      }
+
       .heart-popupClose {
+        text-align: right;
         color: white;
+
 
         &:hover {
           color: $colorAlt;
         }
       }
+
+      .heart-link {
+        display: block;
+        width: 100%;
+        padding-left: 0.1rem;
+        margin-top: 0.4rem;
+        text-decoration: none;
+  
+        &:hover {
+          color: $colorAlt;
+        }
+      }
     }
+    
     .visible {
       display: block;
     }
 
-    .heart-popup::after{
-      content:""; 
-      border-left:10px solid transparent;
-      border-right:10px solid transparent;
-      border-bottom: 10px solid rgba($color: #000000, $alpha: 0.8);
-      position: absolute;
-      top: -10px;
-      left: 10px;
-    }
-
-    .heart-link {
-      text-decoration: none;
-
-      &:hover {
-        color: $colorAlt;
-      }
-    }
-
-    &--title {
-      width: 100%;
-      font-size: 2em;
-      font-weight: bold;
-    }
-
-    &--grades {
-      width: 200px;
-      color: $colorAlt;
-      line-height: 2.5rem;
-    }
-
-    &__buttons {
-      display: flex;
-      justify-content: space-between;
-
-      @media only screen and (min-width: $breakMini) {
-        justify-content: space-around;
-      }
-    }
-
     .fav {
-      line-height: 2.7rem;
-      margin-right: 1rem;
+      width: 7%;
+
+      text-align: left;
+      line-height: 1rem;
+/*       margin-right: 0.5rem; */
+      margin-bottom: 1rem;
+      padding-top: 0.2rem;
       cursor: pointer;
     }
 
@@ -111,6 +176,17 @@
         width: 50%;
         margin: 0 5rem 0.5rem 0;
       }
+
+/*       @media only screen and (min-width: $breakMedium) {
+        width: 60%;
+        height: auto;
+        max-width: 700px;
+        margin: 0 5rem 0.5rem 0;
+      } */
+
+/*       .carousel-item {
+        height: 350px;
+      } */
     }
 
     &__infos {

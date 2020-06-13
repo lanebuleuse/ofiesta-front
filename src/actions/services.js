@@ -12,6 +12,8 @@ export const CHANGE_PAGE_SERVICE = 'CHANGE_PAGE_SERVICE';
 
 export const CLEAR_CURRENT_SERVICE = 'CLEAR_CURRENT_SERVICE';
 
+export const RESET_ACTUAL_PAGE = 'RESET_ACTUAL_PAGE';
+
 export const fetchServices = () => ({
   type: FETCH_SERVICES,
 });
@@ -49,3 +51,7 @@ export const changePageService = (page) => ({
 export const clearCurrentService = () => ({
   type: CLEAR_CURRENT_SERVICE,
 });
+
+export const resetActualPage = () => ({
+  type: RESET_ACTUAL_PAGE,
+})

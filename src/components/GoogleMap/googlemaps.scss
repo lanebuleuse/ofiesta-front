@@ -2,6 +2,19 @@
 
 .googlemaps {
   margin: 1rem auto;
-  width: 90%;
-  height: 100vh;
+  padding: 0 0.8rem;
+  height: 400px;
+
+  @media only screen and (min-width: $breakMini) {
+    /* tablets */
+    padding: 0 2rem;
+    height: 600px;
+  }
+
+  @media only screen and (min-width: $breakMedium) {
+    /* tablets */
+    width: 80%;
+    padding: 0 2rem;
+    height: 600px;
+  }
 }

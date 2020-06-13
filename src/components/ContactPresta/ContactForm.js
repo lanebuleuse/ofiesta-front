@@ -100,7 +100,8 @@ const ContactForm = ({
         <Form.Label>Votre message</Form.Label>
         <Form.Control
           required
-          type="textarea"
+          as="textarea"
+          rows="4"
           onChange={handleChange}
           value={message}
           name="message"

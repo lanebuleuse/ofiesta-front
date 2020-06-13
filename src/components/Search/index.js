@@ -24,6 +24,7 @@ const Search = ({
   serviceListName,
   listOfServiceToSearch,
   cleanDataToSearch,
+  resetActualPage,
 }) => {
   useEffect(() => {
     cleanDataToSearch();
@@ -50,6 +51,7 @@ const Search = ({
   const handleChangeDepartment = (evt) => {
     const targetStatus = evt.target.checked;
     if (targetStatus) {
+      resetActualPage();
       addDepartement(evt.target.value, evt.target.id);
     }
     else {
@@ -61,12 +63,15 @@ const Search = ({
       depCode = departmentCodeToSearch.filter((dep) => (
         dep !== evt.target.value
       ));
+      resetActualPage();
       removeDepartment(depCode, depName);
     }
   };
 
   const handleChangeService = (evt, data) => {
+    
     listOfServiceToSearch(data.value);
+    resetActualPage();
   };
 
   return (
@@ -157,6 +162,7 @@ Search.propTypes = {
   serviceListName: PropTypes.array.isRequired,
   listOfServiceToSearch: PropTypes.func.isRequired,
   cleanDataToSearch: PropTypes.func.isRequired,
+  resetActualPage: PropTypes.func.isRequired,
 };
 
 export default Search;

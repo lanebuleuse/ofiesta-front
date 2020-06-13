@@ -10,15 +10,15 @@ const CarouselItem = ({ currentService }) => {
     <Carousel className="prestataire__intro--carousel">
       {media.map((currentMedia) => {
         return (
-      <Carousel.Item key={currentMedia.id}>
-        <img
-          className="d-block w-100"
-          src={currentMedia.path}
-          alt="First slide"
-        />
-      </Carousel.Item>
-      );
-    })}
+          <Carousel.Item key={currentMedia.id}>
+            <img
+              className="d-block w-100 carousel-image"
+              src={currentMedia.path}
+              alt="First slide"
+            />
+          </Carousel.Item>
+        );
+      })}
     </Carousel>
   );
 };

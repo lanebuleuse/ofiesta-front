@@ -10,6 +10,8 @@ import {
   handleSearch,
   cleanDataToSearch,
 } from 'src/actions/search';
+import { resetActualPage } from 'src/actions/services';
+
 
 const mapStateToProps = (state) => ({
   serviceListName: state.search.serviceListName,
@@ -43,6 +45,11 @@ const mapDispatchToProps = (dispatch) => ({
   cleanDataToSearch: () => {
     dispatch(cleanDataToSearch());
   },
+
+  resetActualPage: () => {
+    dispatch(resetActualPage());
+  },
+
 });
 
 export default connect(
