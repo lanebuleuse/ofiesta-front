@@ -53,6 +53,8 @@ const Ofiesta = ({
     fetchDepartment();
   }, []);
 
+  const searchButtonActive = false;
+
   return (
     <div className="ofiesta">
       {loading && <Loader />}
@@ -99,7 +101,7 @@ const Ofiesta = ({
               <Disconnect />
             </Route>
             <Route path="/" exact>
-              <Search />
+              <Search searchButton={searchButtonActive} />
               <Home />
             </Route>
             <Route>

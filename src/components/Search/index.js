@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 /* import { Form, Modal, Button } from 'react-bootstrap'; */
 
@@ -25,10 +25,13 @@ const Search = ({
   listOfServiceToSearch,
   cleanDataToSearch,
   resetActualPage,
+  searchButton,
 }) => {
   useEffect(() => {
     cleanDataToSearch();
   }, []);
+
+  console.log(searchButton);
 
   const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
@@ -69,9 +72,9 @@ const Search = ({
   };
 
   const handleChangeService = (evt, data) => {
-    
     listOfServiceToSearch(data.value);
     resetActualPage();
+/*     return (<Redirect to="/" />); */
   };
 
   return (
@@ -146,7 +149,8 @@ const Search = ({
           </Modal>
           {/* <Button type="submit" content="Chercher" className="search__form--button" /> */}
         </Form>
-        <Link className="search__form--button" to="/">Rechercher</Link>
+        {searchButton !== false && <Link className="search__form--button" to="/">Rechercher</Link>
+        }
       </div>
     </div>
   );

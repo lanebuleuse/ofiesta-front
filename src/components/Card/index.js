@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { Icon } from 'semantic-ui-react';
-import { Badge } from 'react-bootstrap';
+import { Icon, Label } from 'semantic-ui-react';
 
 import './card.scss';
 
@@ -102,7 +101,10 @@ const Card = ({
           {title}
           <span className="card__content--dep"> ({department})</span>
         </h3>
-        <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
+        <Label className="card__content--badge" key={ServiceList.id}>
+          {ServiceList.name}
+        </Label>
+{/*         <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge> */}
         <p className="card__content--text">
           {liteDescription}
         </p>

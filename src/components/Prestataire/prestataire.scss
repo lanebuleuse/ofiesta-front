@@ -32,6 +32,14 @@
     @media only screen and (min-width: $breakMini) {
 /*       width: 700px; */
       justify-content: flex-start;
+
+      &__tag {
+        height: 27px;
+        border-radius: 3px!important;
+        background-color: $colorAlt!important;
+        color: white!important;
+        font-size: 0.8rem!important;
+      }
     }
 
     &--title {
@@ -44,12 +52,7 @@
       }
     }
 
-    &__tag {
-      height: 27px;
-      background-color: $colorMain!important;
-      color: white!important;
-      font-size: 0.8rem!important;
-    }
+    
 
     .prestataire__top__gradesandbuttons {
       display: flex;
@@ -65,9 +68,9 @@
 
     &--grades {
       width: 100%;
-      color: $colorAlt;
+      color: $colorMain;
       line-height: 2rem;
-/*       margin-bottom: 1.3rem; */
+
       @media only screen and (min-width: $breakMini) {
         width: 20%;
       }
@@ -75,8 +78,6 @@
 
     &__buttons {
       width: 45%;
-/*       display: flex;
-      justify-content: space-between; */
 
       @media only screen and (min-width: $breakMini) {
         justify-content: space-around;
@@ -143,17 +144,15 @@
 
     .fav {
       width: 7%;
-
       text-align: left;
       line-height: 1rem;
-/*       margin-right: 0.5rem; */
       margin-bottom: 1rem;
       padding-top: 0.2rem;
       cursor: pointer;
     }
 
     .favTrue {
-      color: red;
+      color: $colorMain;
     }
   }
 

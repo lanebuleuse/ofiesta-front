@@ -3,14 +3,14 @@
 .button-contact {
   border: none;
   color: white!important;
-  border-radius: 5px;
-  background-color: $colorAlt;
+  border-radius: 3px;
+  background-color: $colorOther;
   padding: 0.6rem 1rem;
   font-size: 0.8em;
   cursor: pointer;
   
   &:hover {
-    background-color: $colorOther;
+    background-color: $colorAlt;
     color: #fff;
   }
 }

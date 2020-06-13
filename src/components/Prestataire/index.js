@@ -105,7 +105,6 @@ const Prestataire = ({
                   </Link>
                 </div>
               </div>
-              
               <Icon
                 className={cssClass}
                 name="heart"
@@ -116,10 +115,6 @@ const Prestataire = ({
               <Label className="prestataire__top__tag">
                 <Icon name="tag" /> {currentService.serviceList.name}
               </Label>
-              
-              
-              
-              {/* <Badge className="card__content--badge" variant="secondary"></Badge> */}
               <div className="prestataire__top__gradesandbuttons">
                 <h4 className="prestataire__top--title">
                   {currentService.title}
