@@ -61,7 +61,6 @@ const searchReducer = (state = initialState, action = {}) => {
       };
 
     case CLEAN_DATA_TO_SEARCH:
-      console.log('Reducer');
       return {
         ...state,
         departmentCodeToSearch: [],

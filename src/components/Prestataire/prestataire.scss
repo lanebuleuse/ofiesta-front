@@ -32,14 +32,14 @@
     @media only screen and (min-width: $breakMini) {
 /*       width: 700px; */
       justify-content: flex-start;
+    }
 
-      &__tag {
-        height: 27px;
-        border-radius: 3px!important;
-        background-color: $colorAlt!important;
-        color: white!important;
-        font-size: 0.8rem!important;
-      }
+    &__tag {
+      height: 27px;
+      border-radius: 3px!important;
+      background-color: $colorAlt!important;
+      color: white!important;
+      font-size: 0.8rem!important;
     }
 
     &--title {

@@ -32,8 +32,6 @@ const Search = ({
     cleanDataToSearch();
   }, []);
 
-  console.log(searchButton);
-
   const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
   const handleOpen = () => setmodalOpen(true);
@@ -79,8 +77,6 @@ const Search = ({
 
   const handleDelete = () => {
     const inputDep = document.querySelector('#inputDep');
-    console.log(inputDep);
-    console.log(inputDep.value);
     inputDep.value = '';
     deleteInputValue();
   };
