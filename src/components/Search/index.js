@@ -25,6 +25,7 @@ const Search = ({
   listOfServiceToSearch,
   cleanDataToSearch,
   resetActualPage,
+  deleteInputValue,
   searchButton,
 }) => {
   useEffect(() => {
@@ -74,7 +75,14 @@ const Search = ({
   const handleChangeService = (evt, data) => {
     listOfServiceToSearch(data.value);
     resetActualPage();
-/*     return (<Redirect to="/" />); */
+  };
+
+  const handleDelete = () => {
+    const inputDep = document.querySelector('#inputDep');
+    console.log(inputDep);
+    console.log(inputDep.value);
+    inputDep.value = '';
+    deleteInputValue();
   };
 
   return (
@@ -84,6 +92,7 @@ const Search = ({
         <Form className="search--form" onSubmit={handleSubmit}>
           <Form.Group widths="equal">
             <Dropdown
+              className="search--form-field"
               placeholder="Que cherchez vous ?"
               fluid
               multiple
@@ -94,7 +103,11 @@ const Search = ({
           </Form.Group>
           <Modal
             trigger={(
-              <input
+              <Input
+                id="inputDep"
+                label={<a onClick={handleDelete}><Icon name="close" /></a>}
+                labelPosition="right"
+                className="search--form-field--dep"
                 onClick={handleOpen}
                 placeholder="Où ça ?"
                 value={departmentName}
@@ -149,7 +162,7 @@ const Search = ({
           </Modal>
           {/* <Button type="submit" content="Chercher" className="search__form--button" /> */}
         </Form>
-        {searchButton !== false && <Link className="search__form--button" to="/">Rechercher</Link>
+        {searchButton !== false && <Link className="search__form--button" to="/">Lancer une nouvelle recherche</Link>
         }
       </div>
     </div>
@@ -167,6 +180,7 @@ Search.propTypes = {
   listOfServiceToSearch: PropTypes.func.isRequired,
   cleanDataToSearch: PropTypes.func.isRequired,
   resetActualPage: PropTypes.func.isRequired,
+  deleteInputValue: PropTypes.func.isRequired,
 };
 
 export default Search;

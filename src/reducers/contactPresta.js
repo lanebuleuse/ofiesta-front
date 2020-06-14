@@ -11,6 +11,7 @@ const initialState = {
   email: '',
   message: '',
   date: '',
+  messageSend: false,
 };
 
 const contactPrestaReducer = (state = initialState, action = {}) => {

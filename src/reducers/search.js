@@ -7,6 +7,7 @@ import {
   REMOVE_DEPARTMENT,
   SAVE_NAME_SERVICE,
   CLEAN_DATA_TO_SEARCH,
+  DELETE_INPUT_VALUE,
 }
   from '../actions/search';
 
@@ -66,6 +67,13 @@ const searchReducer = (state = initialState, action = {}) => {
         departmentCodeToSearch: [],
         serviceIdToSearch: [],
         departmentName: [],
+      };
+
+    case DELETE_INPUT_VALUE:
+      return {
+        ...state,
+        departmentName: [], /* Content for search department input  */
+        departmentCodeToSearch: [], /* List of department number we want to search  */
       };
 
     default: return state;

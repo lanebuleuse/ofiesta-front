@@ -36,7 +36,7 @@ const initialState = {
     },
     loading: true,
   },
-  zoom: 11,
+  zoom: 13,
   loading: true,
 };
 

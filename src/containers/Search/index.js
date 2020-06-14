@@ -9,6 +9,7 @@ import {
   listOfServiceToSearch,
   handleSearch,
   cleanDataToSearch,
+  deleteInputValue,
 } from 'src/actions/search';
 import { resetActualPage } from 'src/actions/services';
 
@@ -48,6 +49,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   resetActualPage: () => {
     dispatch(resetActualPage());
+  },
+
+  deleteInputValue: () => {
+    dispatch(deleteInputValue());
   },
 
 });
