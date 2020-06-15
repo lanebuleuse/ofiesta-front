@@ -1,10 +1,10 @@
-import { CHANGE_INPUT_VALUE } from 'src/actions/auth';
+import { CHANGE_INPUT_VALUE, RESET_AUTH_FORM } from 'src/actions/auth';
 
 
 const initialState = {
   // ici l'état initial
-  email: 'fschmitt@ifrance.com',
-  password: '147258',
+  email: '',
+  password: '',
 };
 
 const authReducer = (state = initialState, action = {}) => {
@@ -13,6 +13,13 @@ const authReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+
+    case RESET_AUTH_FORM:
+      return {
+        ...state,
+        email: '',
+        password: '',
       };
 
     default: return state;

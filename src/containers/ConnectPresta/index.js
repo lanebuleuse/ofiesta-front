@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import ConnectPresta from 'src/components/ConnectPresta';
 
-import { changeField, connectPresta } from 'src/actions/authPresta';
+import { changeField, connectPresta, resetAuthProForm } from 'src/actions/authPresta';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -20,6 +20,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   handleLogin: () => {
     dispatch(connectPresta());
+  },
+
+  resetAuthForm: () => {
+    dispatch(resetAuthProForm());
   },
 
 });

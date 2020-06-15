@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import { Icon } from 'semantic-ui-react';
-import { Badge } from 'react-bootstrap';
+import { Icon, Label, Image } from 'semantic-ui-react';
 
 import './card.scss';
 
@@ -21,9 +20,6 @@ const Card = ({
   updateFavorites,
   deleteFavorites,
 }) => {
-  const [modalOpen, setmodalOpen] = useState(false);
-  const handleClose = () => setmodalOpen(false);
-  const handleOpen = () => setmodalOpen(true);
 
   const stars = [];
   for (let i = 0; i < 5; i += 1) {
@@ -37,7 +33,7 @@ const Card = ({
   const liteDescription = description.slice(0, 180);
 
   const arrayFavoris = [];
-  console.log(favorites.length);
+
   if (favorites.length > 0) {
     favorites.map((currentFavoris) => {
       const currentFavorisId = currentFavoris.id;
@@ -102,7 +98,9 @@ const Card = ({
           {title}
           <span className="card__content--dep"> ({department})</span>
         </h3>
-        <Badge className="card__content--badge" key={ServiceList.id} variant="secondary">{ServiceList.name}</Badge>
+        <Label className="card__content--badge" key={ServiceList.id}>
+          {ServiceList.name}
+        </Label>
         <p className="card__content--text">
           {liteDescription}
         </p>

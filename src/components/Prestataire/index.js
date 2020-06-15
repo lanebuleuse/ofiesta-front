@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { useParams, Link } from 'react-router-dom';
 
-import { Icon } from 'semantic-ui-react';
+import { Icon, Label } from 'semantic-ui-react';
 
 import CarouselItem from 'src/containers/Prestataire/CarouselItem';
 import ContactPresta from 'src/containers/ContactPresta';
@@ -66,7 +66,7 @@ const Prestataire = ({
       selectedPopup.classList.add('visible');
       setTimeout(() => {
         selectedPopup.classList.remove('visible');
-      }, 20000);
+      }, 5000);
     }
   };
 
@@ -76,25 +76,34 @@ const Prestataire = ({
   };
 
   const cssClass = classNames('fav', { 'favTrue': (arrayFavoris.includes(currentService.id)) });
+  console.log(currentService);
+  /* console.log(currentService.serviceList.name); */
 
   return (
     <>
       {!loading && (
         <>
           <section className="prestataire">
+            <div className="prestataire__back">
+              <Link to="/" className="prestataire__back__link">
+                <Icon name="chevron left" /> Retour
+              </Link>
+            </div>
             <div className="prestataire__top">
               <div className="heart-popup" id={`heartPopup${id}`}>
-                <span>
-                  <Icon
-                    className="heart-popupClose"
-                    link
-                    name="close"
-                    onClick={handleClosePopup}
-                  />
-                </span>
-                <Link className="heart-link" to="/se-connecter">
-                  Vous devez être connecté pour ajouter des favoris
-                </Link>
+                <div className="heart-popup__content">
+                  <span>
+                    <Icon
+                      className="heart-popupClose"
+                      link
+                      name="close"
+                      onClick={handleClosePopup}
+                    />
+                  </span>
+                  <Link className="heart-link" to="/se-connecter">
+                    Pour vous connecter et ajouter un favori, cliquez ici.
+                  </Link>
+                </div>
               </div>
               <Icon
                 className={cssClass}
@@ -103,19 +112,31 @@ const Prestataire = ({
                 onClick={handleHeartClick}
                 size="large"
               />
-              <h4 className="prestataire__top--title">
-                {currentService.title}
-              </h4>
-              <div className="prestataire__top--grades">
-                {stars}
+              <Label className="prestataire__top__tag">
+                <Icon name="tag" /> {currentService.serviceList.name}
+              </Label>
+              <div className="prestataire__top__gradesandbuttons">
+                <h4 className="prestataire__top--title">
+                  {currentService.title}
+                </h4>
+                <div className="prestataire__top--grades">
+                  {stars}
+                </div>
+                
               </div>
               <div className="prestataire__top__buttons">
-                <ContactPresta />
-              </div>
+                  <ContactPresta />
+                </div>
+              
+              
+              
+              
+              
             </div>
             <div className="prestataire__intro">
               <CarouselItem />
               <div className="prestataire__intro__infos">
+                
                 <h5 className="prestataire__intro__infos--title">Infos</h5>
                 <p className="prestataire__intro__infos--label">Adresse :</p>
                 <p className="prestataire__intro__infos--content">{currentService.address} {currentService.postalCode} {currentService.city}</p>

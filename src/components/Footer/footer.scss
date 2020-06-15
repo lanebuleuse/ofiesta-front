@@ -1,15 +1,18 @@
 @import "src/styles/vars";
 .footer {
+  
   bottom: 0;
   background-color: $colorMain;
-  margin: 0 auto;
+  margin: 2rem auto 0;
   padding: 0.5rem 0 1rem;
 
   @media only screen and (min-width: $breakMini) {
     /* tablets */
     display: flex;
     padding: 0 3em;
+    height: 70px;
   }
+
   & section {
     //width: 100%;
     //margin: 1rem auto;

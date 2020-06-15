@@ -4,8 +4,10 @@ import {
   SAVE_SEARCH,
   CHANGE_PAGE_SERVICE,
   CLEAR_CURRENT_SERVICE,
+  RESET_ACTUAL_PAGE,
 } from 'src/actions/services';
 
+import { LIST_SERVICE_TO_SEARCH } from 'src/actions/search';
 
 const initialState = {
   // Initial State
@@ -34,7 +36,7 @@ const initialState = {
     },
     loading: true,
   },
-  zoom: 11,
+  zoom: 13,
   loading: true,
 };
 
@@ -77,6 +79,7 @@ const servicesReducer = (state = initialState, action = {}) => {
       };
 
     case CHANGE_PAGE_SERVICE:
+      console.log(action.page);
       return {
         ...state,
         actualPage: action.page,
@@ -113,6 +116,12 @@ const servicesReducer = (state = initialState, action = {}) => {
           },
           loading: true,
         },
+      };
+
+    case RESET_ACTUAL_PAGE:
+      return {
+        ...state,
+        actualPage: 1,
       };
 
     default: return state;

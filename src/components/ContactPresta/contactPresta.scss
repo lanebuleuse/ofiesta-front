@@ -2,17 +2,15 @@
 
 .button-contact {
   border: none;
-  color: #000;
-  border-radius: 5px;
-  background-color: $colorAlt;
-  
-  line-height: 2rem;
+  color: white!important;
+  border-radius: 3px;
+  background-color: $colorOther;
+  padding: 0.6rem 1rem;
   font-size: 0.8em;
-  width: 9em;
-  margin-right: 1em;
-
+  cursor: pointer;
+  
   &:hover {
-    background-color: $colorOther;
+    background-color: $colorAlt;
     color: #fff;
   }
 }
@@ -27,7 +25,6 @@
   width: 7em;
   padding: 0.5em;
   text-align: center;
-  // margin-right: 1em;
 
   &:hover {
     background-color: $colorOther;
@@ -41,10 +38,6 @@
   background-color: $colorAlt;
   height: 2em;
   font-size: 0.8em;
-  //width: 7em;
-  // padding: 0.5em;
-  // text-align: center;
-  // margin-right: 1em;
 
   &:hover {
     background-color: $colorOther;
@@ -68,8 +61,13 @@
 
   @media only screen and (min-width: $breakMedium) {
     /* tablets */
-    width: 50%;
-    margin-left: 25%;
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .modal-dialog {
+    width: 70%;
+    max-width: 700px;
   }
 }
 
@@ -78,6 +76,6 @@
 
   @media only screen and (min-width: $breakMedium) {
     /* tablets */
-    width: 50%;
+    width: 60%;
   }
 }
