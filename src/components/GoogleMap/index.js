@@ -16,7 +16,6 @@ const GoogleMap = ({ center, zoom }) => (
       <div
         lat={center.lat}
         lng={center.lng}
-        text="ici"
         className="markerGoogleMap"
       >
         <i className="fa fa-dot-circle-o" aria-hidden="true" />

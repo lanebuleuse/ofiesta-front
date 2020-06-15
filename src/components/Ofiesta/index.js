@@ -63,20 +63,24 @@ const Ofiesta = ({
           <NavBar />
           <Switch>
             <Route path="/mon-compte-pro/se-connecter">
+              <Search noSearch={searchButtonActive} />
               <ConnectPresta />
             </Route>
             <Route path="/mon-compte-pro/inscription">
+              <Search noSearch={searchButtonActive} />
               <NewUserPro />
             </Route>
             <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_MEMBER" />
             <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_MEMBER" />
             <Route path="/se-connecter">
+              <Search noSearch={searchButtonActive} />
               <ConnectMembers />
             </Route>
             <PrivateRoute exact path="/mon-compte-pro" component={PrestaArea} userRole="ROLE_USER" />
             <PrivateRoute exact path="/mon-compte-pro/modifier" component={UpdateMemberPro} userRole="ROLE_USER" />
             <PrivateRoute exact path="/mon-compte-pro/modifier-prestation" component={UpdatePresta} userRole="ROLE_USER" />
             <Route path="/inscription">
+              <Search noSearch={searchButtonActive} />
               <NewMember />
             </Route>
             <Route exact path="/prestataire/:id">

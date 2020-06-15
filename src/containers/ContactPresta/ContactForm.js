@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ContactForm from 'src/components/ContactPresta/ContactForm';
 
 import { changeField } from 'src/actions/user';
-import { changeFieldContact, putDateInContactState } from 'src/actions/contactPresta';
+import { changeFieldContact, putDateInContactState, sendEmailSucces } from 'src/actions/contactPresta';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -40,6 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
       variables,
     ).then(() => {
       console.log('Email successfully sent!');
+      dispatch(sendEmailSucces());
     })
       // Handle errors here however you like, or use a React error boundary
       .catch((err) => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err));

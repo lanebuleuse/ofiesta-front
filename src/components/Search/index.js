@@ -27,6 +27,7 @@ const Search = ({
   resetActualPage,
   deleteInputValue,
   searchButton,
+  noSearch,
 }) => {
   useEffect(() => {
     cleanDataToSearch();
@@ -80,6 +81,16 @@ const Search = ({
     inputDep.value = '';
     deleteInputValue();
   };
+
+  if(!noSearch) {
+    return (
+      <div className="search">
+        <div className="search--content">
+          <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
+        </div>
+    </div>
+    )
+  }
 
   return (
     <div className="search">
@@ -156,7 +167,6 @@ const Search = ({
               </Button>
             </Modal.Actions>
           </Modal>
-          {/* <Button type="submit" content="Chercher" className="search__form--button" /> */}
         </Form>
         {searchButton !== false && <Link className="search__form--button" to="/">Lancer une nouvelle recherche</Link>
         }
@@ -177,6 +187,11 @@ Search.propTypes = {
   cleanDataToSearch: PropTypes.func.isRequired,
   resetActualPage: PropTypes.func.isRequired,
   deleteInputValue: PropTypes.func.isRequired,
+  noSearch: PropTypes.bool,
+};
+
+Search.defaultProps = {
+  noSearch: true,
 };
 
 export default Search;

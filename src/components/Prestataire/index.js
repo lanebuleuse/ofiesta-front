@@ -25,7 +25,8 @@ const Prestataire = ({
   favorites,
   deleteFavorites,
   updateFavorites,
-
+  messageSend,
+  removeEmailMessage,
 }) => {
   const { id } = useParams();
 
@@ -50,7 +51,6 @@ const Prestataire = ({
       arrayFavoris.push(currentFavorisId);
     });
   }
-  console.log(arrayFavoris);
 
   const handleHeartClick = (evt) => {
     if (isLogged) {
@@ -75,15 +75,30 @@ const Prestataire = ({
     selectedPopup.classList.remove('visible');
   };
 
+  const handleCloseMessage = () => {
+    removeEmailMessage();
+  };
+
+  if (messageSend) {
+    setTimeout(() => {
+      removeEmailMessage();
+    }, 5000);
+  }
+
   const cssClass = classNames('fav', { 'favTrue': (arrayFavoris.includes(currentService.id)) });
-  console.log(currentService);
-  /* console.log(currentService.serviceList.name); */
 
   return (
     <>
       {!loading && (
         <>
           <section className="prestataire">
+            {messageSend && (
+              <div className="prestataire--messageSend">
+                <div className="prestataire--messageSend--content">
+                  <Icon link name="close" onClick={handleCloseMessage} />Votre message à bien été envoyé
+                </div>
+              </div>
+            )}
             <div className="prestataire__back">
               <Link to="/" className="prestataire__back__link">
                 <Icon name="chevron left" /> Retour
@@ -122,21 +137,14 @@ const Prestataire = ({
                 <div className="prestataire__top--grades">
                   {stars}
                 </div>
-                
               </div>
               <div className="prestataire__top__buttons">
-                  <ContactPresta />
-                </div>
-              
-              
-              
-              
-              
+                <ContactPresta />
+              </div>
             </div>
             <div className="prestataire__intro">
               <CarouselItem />
               <div className="prestataire__intro__infos">
-                
                 <h5 className="prestataire__intro__infos--title">Infos</h5>
                 <p className="prestataire__intro__infos--label">Adresse :</p>
                 <p className="prestataire__intro__infos--content">{currentService.address} {currentService.postalCode} {currentService.city}</p>
@@ -174,6 +182,8 @@ Prestataire.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]).isRequired,
+  messageSend: PropTypes.bool.isRequired,
+  removeEmailMessage: PropTypes.func.isRequired,
 };
 
 export default Prestataire;

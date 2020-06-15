@@ -4,7 +4,6 @@ import { Carousel } from 'react-bootstrap';
 
 const CarouselItem = ({ currentService }) => {
   const media = currentService.media;
-  console.log(currentService.media);
   return (
 
     <Carousel className="prestataire__intro--carousel">

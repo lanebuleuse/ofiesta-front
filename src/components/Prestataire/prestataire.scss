@@ -2,6 +2,7 @@
 
 .prestataire {
   padding: 1rem 0.8rem;
+  position: relative;
 
   @media only screen and (min-width: $breakMini) {
     padding: 1rem 2rem;
@@ -11,6 +12,36 @@
     width: 80%;
     margin: 0 auto;
     padding: 1rem 2rem;
+  }
+
+  .prestataire--messageSend {
+    position: absolute;
+    width: 200px;
+    top: -20px;
+    left: calc(50%-100px);
+    
+    padding: 1rem 0.5rem;
+    background-color: #38a81cc4;
+    border-radius: 3px;
+    z-index: 10;
+
+    @media only screen and (min-width: $breakMini) {
+      /*       width: 700px; */
+      width: 300px;
+      top: 0;
+      left: calc(50%-150px);
+    }
+
+    &--content {
+      padding-top: 0.8rem;
+      text-align: center;
+
+      i.link.icon {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+      }
+    }
   }
 
   &__back {
