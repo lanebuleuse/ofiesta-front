@@ -9,13 +9,16 @@ header {
   min-height: 80px;
   font-size: 0.8rem;
   background-color: white;
-  padding-bottom: 5px;
+  padding: 0.5rem 4rem 5px 0.5rem;
+  margin-bottom: 0.5rem;
+  /* padding-bottom: 5px; */
   display: block;
 
   .navbar-logo {
     img {
-      width: 170px;
-      height: 70px;
+      padding-left: 4rem;
+      max-width: 100%;
+      height: 80px;
     }
   }
 }
@@ -24,12 +27,6 @@ header {
   list-style-type: none;
   display: none;
 }
-/* 
-.nav-links,
-.logo {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-} */
 
 .main-nav li {
   font-size: 1.1rem;

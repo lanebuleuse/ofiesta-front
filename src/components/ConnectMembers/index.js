@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 
 import { Redirect, Link } from 'react-router-dom';
 
+import { Icon } from 'semantic-ui-react';
+
 import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
 
@@ -15,6 +17,7 @@ const ConnectMembers = ({
   handleLogin,
   accountCreated,
   resetAuthForm,
+  removeAccountMessage,
 }) => {
 
   useEffect(() => {
@@ -26,12 +29,26 @@ const ConnectMembers = ({
     handleLogin();
   };
 
+  const handleCloseMessage = () => {
+    removeAccountMessage();
+  };
+
+  if (removeAccountMessage) {
+    setTimeout(() => {
+      removeAccountMessage();
+    }, 5000);
+  }
+
   return (
     <>
       {(isLogged) && <Redirect to="/mon-compte" />}
       <div className="connectMembers">
         {(accountCreated) && (
-          <div>Votre compte a été créé avec succès!</div>
+          <div className="prestataire--messageSend">
+            <div className="prestataire--messageSend--content">
+              <Icon link name="close" onClick={handleCloseMessage} />Votre compte à bien été créé
+            </div>
+          </div>
         )}
         <form className="connectMembers-form" onSubmit={handleSubmit}>
           <h1 className="connectMembers-title">Se connecter à votre espace</h1>
@@ -66,6 +83,7 @@ ConnectMembers.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   accountCreated: PropTypes.bool.isRequired,
   resetAuthForm: PropTypes.func.isRequired,
+  removeAccountMessage: PropTypes.func.isRequired,
 };
 
 ConnectMembers.defaultProps = {

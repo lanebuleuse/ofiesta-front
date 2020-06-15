@@ -82,20 +82,21 @@ const Search = ({
     deleteInputValue();
   };
 
-  if(!noSearch) {
+  if (!noSearch) {
     return (
       <div className="search">
         <div className="search--content">
-          <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
+          <h4 className="search--subtitle">Organisez votre fête en quelques clics</h4>
         </div>
-    </div>
-    )
+      </div>
+    );
   }
 
   return (
     <div className="search">
       <div className="search--content">
-        <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
+        <h4 className="search--subtitle">Organisez votre fête</h4>
+        <h4 className="search--subtitle">en quelques clics</h4>
         <Form className="search--form" onSubmit={handleSubmit}>
           <Form.Group widths="equal">
             <Dropdown

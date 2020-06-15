@@ -151,7 +151,7 @@ const NewUserPro = ({
             onBlur={handleBlurEmail}
           />
           <Label id="errorMail" basic color="red" pointing>
-            Votre email doit être de la forme suivante : ___@___.__
+            Votre adresse mail doit être de la forme suivante _____@___.___
           </Label>
         </Form.Field>
         <Form.Field>

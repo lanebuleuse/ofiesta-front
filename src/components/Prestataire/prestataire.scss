@@ -19,11 +19,11 @@
     width: 200px;
     top: -20px;
     left: calc(50%-100px);
-    
     padding: 1rem 0.5rem;
-    background-color: #38a81cc4;
+    background-color: #345b78bd;
     border-radius: 3px;
     z-index: 10;
+    color: white;
 
     @media only screen and (min-width: $breakMini) {
       /*       width: 700px; */
@@ -40,6 +40,7 @@
         position: absolute;
         top: 5px;
         left: 5px;
+        color: white;
       }
     }
   }

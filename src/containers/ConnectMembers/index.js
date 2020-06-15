@@ -3,7 +3,7 @@
 import ConnectMembers from 'src/components/ConnectMembers';
 
 import { changeField, connectUser, resetAuthForm } from 'src/actions/auth';
-import { resetNewMember } from 'src/actions/newUser';
+import { resetNewMember, removeAccountMessage } from 'src/actions/newUser';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -29,6 +29,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   resetAuthForm: () => {
     dispatch(resetAuthForm());
+  },
+
+  removeAccountMessage: () => {
+    dispatch(removeAccountMessage());
   },
 
 });
