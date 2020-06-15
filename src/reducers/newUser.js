@@ -17,7 +17,7 @@ const initialState = {
   phone: '',
   password: '',
   passwordbis: '',
-  accountCreated: true,
+  accountCreated: false,
 };
 
 const newUserReducer = (state = initialState, action = {}) => {
