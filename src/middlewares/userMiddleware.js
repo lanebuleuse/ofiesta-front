@@ -10,6 +10,7 @@ import {
   saveMemberInformation,
   saveProInformation,
   updateOk,
+  disconnectUser,
 } from 'src/actions/user';
 
 const userMiddleware = (store) => (next) => (action) => {
@@ -33,7 +34,7 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           localStorage.clear();
-          console.warn(error);
+          store.dispatch(disconnectUser());
         });
 
       next(action);

@@ -23,7 +23,6 @@ const GoogleMap = ({ center, zoom }) => (
       defaultCenter={{ lat: center.lat, lng: center.lng }}
       defaultZoom={zoom}
     >
-
       <AnyReactComponent
         lat={center.lat}
         lng={center.lng}
