@@ -9,8 +9,20 @@
   @media only screen and (min-width: $breakMini) {
     /* tablets */
     display: flex;
-    padding: 0 3em;
+    padding: 0 1em;
     height: 70px;
+  }
+
+  &__display {
+    @media only screen and (min-width: $breakMini) {
+      /* tablets */
+      display: flex;
+      padding: 0 1em;
+       width: 100%;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+
   }
 
   & section {
@@ -20,14 +32,15 @@
       margin: 1em;
       border-bottom: none;
       padding: 0 1em;
-      text-align: center;
     }
   }
   
   &__links {
+    color: white;
     @media only screen and (min-width: $breakMini) {
       /* tablets */
       width: 70%;
+      text-align: left;
     }
 
     & li {
@@ -45,19 +58,26 @@
 
       & a {
         &:hover {
-          background-color: $colorOther;
+          background-color: $colorMain;
           color: #fff;
         }
       }
     }
   }
   &__socials {
+    color: white;
     text-align: center;
 
     @media only screen and (min-width: $breakMini) {
       /* tablets */
       width: 30%;
     }
+
+    @media only screen and (min-width: $breakMedium) {
+      /* tablets */
+      width: 55%;
+    }
+
     .footer__contact__part__follow {
       margin-bottom: 0.6rem;
     }
