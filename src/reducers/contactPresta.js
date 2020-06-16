@@ -37,6 +37,12 @@ const contactPrestaReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         messageSend: true,
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        message: '',
+        date: '',
       };
 
     case REMOVE_EMAIL_MESSAGE:

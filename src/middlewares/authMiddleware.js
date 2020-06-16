@@ -1,7 +1,8 @@
 import axios from 'axios';
 
-import { CONNECT_USER } from 'src/actions/auth';
+import { CONNECT_USER, resetAuthForm } from 'src/actions/auth';
 import { saveConnectionInfo } from 'src/actions/user';
+
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware: ', action);
@@ -28,6 +29,7 @@ const authMiddleware = (store) => (next) => (action) => {
             localStorage.setItem('ROLES', (response.data.data.roles));
             localStorage.setItem('USER_ID', (response.data.data.userid));
             store.dispatch(saveConnectionInfo(response.data.data.roles, response.data.data.userid));
+            store.dispatch(resetAuthForm());
           }
         })
         .catch((error) => {

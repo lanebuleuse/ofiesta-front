@@ -4,6 +4,7 @@ export const CONNECT_USER = 'CONNECT_USER';
 export const CONNECT_PRESTA = 'CONNECT_PRESTA';
 export const SAVE_USER = 'SAVE_USER';
 export const RESET_AUTH_FORM = 'RESET_AUTH_FORM';
+export const DELETE_AUTH_INFORMATION = 'DELETE_AUTH_INFORMATION';
 
 
 // action creators

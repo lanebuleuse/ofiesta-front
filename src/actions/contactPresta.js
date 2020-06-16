@@ -23,4 +23,4 @@ export const sendEmailSucces = () => ({
 
 export const removeEmailMessage = () => ({
   type: REMOVE_EMAIL_MESSAGE,
-})
+});
