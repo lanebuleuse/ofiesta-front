@@ -1,10 +1,11 @@
-import { CHANGE_INPUT_VALUE, RESET_AUTH_FORM } from 'src/actions/auth';
+import { CHANGE_INPUT_VALUE, RESET_AUTH_FORM, SHOW_ERROR_CONNECTION_MESSAGE } from 'src/actions/auth';
 
 
 const initialState = {
   // ici l'état initial
   email: '',
   password: '',
+  authError: true,
 };
 
 const authReducer = (state = initialState, action = {}) => {
@@ -20,6 +21,12 @@ const authReducer = (state = initialState, action = {}) => {
         ...state,
         email: '',
         password: '',
+      };
+
+    case SHOW_ERROR_CONNECTION_MESSAGE:
+      return {
+        ...state,
+        authError: true,
       };
 
     default: return state;

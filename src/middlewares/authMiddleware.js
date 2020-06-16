@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CONNECT_USER, resetAuthForm } from 'src/actions/auth';
+import { CONNECT_USER, resetAuthForm, showErrorConnectionMessage } from 'src/actions/auth';
 import { saveConnectionInfo } from 'src/actions/user';
 
 
@@ -34,6 +34,7 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          store.dispatch(showErrorConnectionMessage());
           // console.log(error.response.status);
           // on pourrait différencier le message d'erreur selon le code d'erreur
         });

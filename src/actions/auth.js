@@ -5,6 +5,7 @@ export const CONNECT_PRESTA = 'CONNECT_PRESTA';
 export const SAVE_USER = 'SAVE_USER';
 export const RESET_AUTH_FORM = 'RESET_AUTH_FORM';
 export const DELETE_AUTH_INFORMATION = 'DELETE_AUTH_INFORMATION';
+export const SHOW_ERROR_CONNECTION_MESSAGE = 'SHOW_ERROR_CONNECTION_MESSAGE';
 
 
 // action creators
@@ -28,4 +29,8 @@ export const saveUser = () => ({
 
 export const resetAuthForm = () => ({
   type: RESET_AUTH_FORM,
+});
+
+export const showErrorConnectionMessage = () => ({
+  type: SHOW_ERROR_CONNECTION_MESSAGE,
 });

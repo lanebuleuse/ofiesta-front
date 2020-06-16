@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   password: state.auth.password,
   isLogged: state.user.isLogged,
   accountCreated: state.newUser.accountCreated,
+  authError: state.auth.authError,
 });
 
 const mapDispatchToProps = (dispatch) => ({
