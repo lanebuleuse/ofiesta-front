@@ -169,8 +169,7 @@ const Search = ({
             </Modal.Actions>
           </Modal>
         </Form>
-        {searchButton !== false && <Link className="search__form--button" to="/">Lancer une nouvelle recherche</Link>
-        }
+        {searchButton !== false && <Link className="search__form--button" to="/">Lancer une nouvelle recherche</Link>}
       </div>
     </div>
   );

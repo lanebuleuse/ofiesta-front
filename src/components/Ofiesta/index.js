@@ -96,6 +96,7 @@ const Ofiesta = ({
               <PresentationTeam />
             </Route>
             <Route path="/Mention-legales">
+              <Search />
               <Mentions />
             </Route>
             <Route path="/401">
