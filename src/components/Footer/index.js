@@ -12,7 +12,7 @@ const Footer = () => (
           <li><Link to="/mon-compte-pro/se-connecter">Espace pro</Link></li>
   {/*         <li><Link to="/presentation">Qui-sommes-nous?</Link></li> */}
           <li><Link to="/Mention-legales">Mentions légales</Link></li>
-          <li><a href="#">Contactez-nous</a></li>
+          {/* <li><a href="#">Contactez-nous</a></li> */}
         </ul>
       </section>
       <section className="footer__socials">
