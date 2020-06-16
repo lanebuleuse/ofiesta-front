@@ -19,6 +19,7 @@ const ConnectMembers = ({
   resetAuthForm,
   removeAccountMessage,
   authError,
+  removeErrorMessage,
 }) => {
 
   useEffect(() => {
@@ -40,20 +41,31 @@ const ConnectMembers = ({
     }, 5000);
   }
 
+  const handleCloseErrorMessage = () => {
+    removeErrorMessage();
+  };
+
+  if (authError) {
+    setTimeout(() => {
+      removeErrorMessage();
+    }, 5000);
+  }
+
   return (
     <>
       {(isLogged) && <Redirect to="/mon-compte" />}
-      {(authError) && (
-        <div>
-          <p>
-            Nous n'avons pas pu vous identifier
-          </p>
-          <p>
-            Veuillez recommmancer
-          </p>
-        </div>
-      )}
       <div className="connectMembers">
+        {(authError) && (
+          <div className="connectMembers--loginError">
+            <div className="connectMembers--accountCreated--content">
+              <Icon link name="close" onClick={handleCloseErrorMessage} />
+              Nous n'avons pas pu vous identifier
+              <p>
+                Veuillez recommencer
+              </p>
+            </div>
+          </div>
+        )}
         {(accountCreated) && (
           <div className="connectMembers--accountCreated">
             <div className="connectMembers--accountCreated--content">
@@ -96,6 +108,7 @@ ConnectMembers.propTypes = {
   resetAuthForm: PropTypes.func.isRequired,
   removeAccountMessage: PropTypes.func.isRequired,
   authError: PropTypes.bool.isRequired,
+  removeErrorMessage: PropTypes.func.isRequired,
 };
 
 ConnectMembers.defaultProps = {

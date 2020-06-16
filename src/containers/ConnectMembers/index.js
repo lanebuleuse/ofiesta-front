@@ -2,7 +2,7 @@
 
 import ConnectMembers from 'src/components/ConnectMembers';
 
-import { changeField, connectUser, resetAuthForm } from 'src/actions/auth';
+import { changeField, connectUser, resetAuthForm, removeErrorMessage } from 'src/actions/auth';
 import { resetNewMember, removeAccountMessage } from 'src/actions/newUser';
 
 const mapStateToProps = (state) => ({
@@ -34,6 +34,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   removeAccountMessage: () => {
     dispatch(removeAccountMessage());
+  },
+
+  removeErrorMessage: () => {
+    dispatch(removeErrorMessage());
   },
 
 });

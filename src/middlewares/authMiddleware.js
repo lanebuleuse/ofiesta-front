@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-import { CONNECT_USER, resetAuthForm, showErrorConnectionMessage } from 'src/actions/auth';
+import {
+  CONNECT_USER,
+  resetAuthForm,
+  showErrorConnectionMessage,
+} from 'src/actions/auth';
 import { saveConnectionInfo } from 'src/actions/user';
 
 

@@ -7,6 +7,8 @@ export const RESET_AUTH_FORM = 'RESET_AUTH_FORM';
 export const DELETE_AUTH_INFORMATION = 'DELETE_AUTH_INFORMATION';
 export const SHOW_ERROR_CONNECTION_MESSAGE = 'SHOW_ERROR_CONNECTION_MESSAGE';
 
+export const REMOVE_ERROR_MESSAGE = 'REMOVE_ERROR_MESSAGE';
+
 
 // action creators
 export const changeField = (value, name) => ({
@@ -34,3 +36,7 @@ export const resetAuthForm = () => ({
 export const showErrorConnectionMessage = () => ({
   type: SHOW_ERROR_CONNECTION_MESSAGE,
 });
+
+export const removeErrorMessage = () => ({
+  type: REMOVE_ERROR_MESSAGE,
+})
