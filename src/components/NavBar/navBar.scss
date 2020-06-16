@@ -1,19 +1,25 @@
 @import 'src/styles/vars';
 
-.header {
-  height: 80px;
+header {
+  /* height: 80px; */
   background-color: $colorMain;
 }
 
 .navbar {
+  min-height: 80px;
   font-size: 0.8rem;
-  background-color: $colorMain;
-  padding-bottom: 5px;
+  background-color: white;
+  padding: 0.5rem 4rem 5px 0.5rem;
+  margin-bottom: 0.5rem;
+  /* padding-bottom: 5px; */
   display: block;
 
   .navbar-logo {
-    width: 250px;
-    height: 80px;
+    img {
+      padding-left: 4rem;
+      max-width: 100%;
+      height: 80px;
+    }
   }
 }
 
@@ -22,16 +28,16 @@
   display: none;
 }
 
-.nav-links,
-.logo {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.7);
-}
-
 .main-nav li {
+  font-size: 1.1rem;
   text-align: left;
   margin: 15px auto;
   padding-left: 1em;
+
+  a:hover {
+    color: $colorMain!important;
+    text-decoration: none;
+  }
 }
 
 .logo {
@@ -43,11 +49,11 @@
 
 .navbar-toggle {
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 30px;
+  right: 30px;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 24px;
+  color: $colorMain;
+  font-size: 30px;
 }
 
 #chkToggle {
@@ -96,6 +102,7 @@
 
   .logo:hover,
   .nav-links:hover {
-    color: rgba(255, 255, 255, 1);
+    color: $colorMain;
+    text-decoration: none;
   }
 }

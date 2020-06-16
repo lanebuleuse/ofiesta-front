@@ -1,4 +1,4 @@
-import { CHANGE_NEW_USERPRO_VALUE } from 'src/actions/newUserPro';
+import { CHANGE_NEW_USERPRO_VALUE, RESET_NEW_PRO_MEMBER } from 'src/actions/newUserPro';
 
 
 const initialState = {
@@ -23,6 +23,23 @@ const newUserProReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+
+    case RESET_NEW_PRO_MEMBER:
+      return {
+        ...state,
+        firstname: '',
+        lastname: '',
+        company: '',
+        siret: '',
+        city: '',
+        address: '',
+        postalCode: '',
+        email: '',
+        phone: '',
+        password: '',
+        passwordbis: '',
+        accountCreated: false,
       };
 
     default: return state;

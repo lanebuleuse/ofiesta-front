@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
+ import { connect } from 'react-redux';
 
 import ConnectMembers from 'src/components/ConnectMembers';
 
-import { changeField, connectUser } from 'src/actions/auth';
-import { resetNewMember } from 'src/actions/newUser';
+import { changeField, connectUser, resetAuthForm, removeErrorMessage } from 'src/actions/auth';
+import { resetNewMember, removeAccountMessage } from 'src/actions/newUser';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   password: state.auth.password,
   isLogged: state.user.isLogged,
   accountCreated: state.newUser.accountCreated,
+  authError: state.auth.authError,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -25,6 +26,18 @@ const mapDispatchToProps = (dispatch) => ({
 
   resetNewMember: () => {
     dispatch(resetNewMember());
+  },
+
+  resetAuthForm: () => {
+    dispatch(resetAuthForm());
+  },
+
+  removeAccountMessage: () => {
+    dispatch(removeAccountMessage());
+  },
+
+  removeErrorMessage: () => {
+    dispatch(removeErrorMessage());
   },
 
 });

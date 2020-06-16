@@ -1,6 +1,6 @@
 // == Import npm
 import React, { useEffect } from 'react';
-import { Route, Switch, Redirect, useParams } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
@@ -26,26 +26,34 @@ import Page404 from 'src/components/Page404';
 import PrestaArea from 'src/containers/PrestaArea';
 import UpdateMemberPro from 'src/containers/UpdateMemberPro';
 import UpdatePresta from 'src/components/UpdatePresta';
+import Mentions from 'src/components/Mentions';
 
 // == Composant
 const Ofiesta = ({
-  fetchServices,
   fetchDepartment,
   checkUserConnected,
   fetchNameService,
   loading,
   actualPage,
+  serviceIdToSearch,
+  departmentCodeToSearch,
+  handleSearch,
+
 }) => {
   useEffect(() => {
     checkUserConnected();
   }, []);
+
   useEffect(() => {
-    fetchServices();
-  }, [actualPage]);
+    handleSearch();
+  }, [serviceIdToSearch, departmentCodeToSearch, actualPage]);
+
   useEffect(() => {
     fetchNameService();
     fetchDepartment();
   }, []);
+
+  const searchButtonActive = false;
 
   return (
     <div className="ofiesta">
@@ -55,20 +63,24 @@ const Ofiesta = ({
           <NavBar />
           <Switch>
             <Route path="/mon-compte-pro/se-connecter">
+              <Search noSearch={searchButtonActive} />
               <ConnectPresta />
             </Route>
             <Route path="/mon-compte-pro/inscription">
+              <Search noSearch={searchButtonActive} />
               <NewUserPro />
             </Route>
             <PrivateRoute exact path="/mon-compte" component={MemberArea} userRole="ROLE_MEMBER" />
             <PrivateRoute exact path="/mon-compte/modifier" component={UpdateMember} userRole="ROLE_MEMBER" />
             <Route path="/se-connecter">
+              <Search noSearch={searchButtonActive} />
               <ConnectMembers />
             </Route>
             <PrivateRoute exact path="/mon-compte-pro" component={PrestaArea} userRole="ROLE_USER" />
             <PrivateRoute exact path="/mon-compte-pro/modifier" component={UpdateMemberPro} userRole="ROLE_USER" />
             <PrivateRoute exact path="/mon-compte-pro/modifier-prestation" component={UpdatePresta} userRole="ROLE_USER" />
             <Route path="/inscription">
+              <Search noSearch={searchButtonActive} />
               <NewMember />
             </Route>
             <Route exact path="/prestataire/:id">
@@ -83,6 +95,10 @@ const Ofiesta = ({
               <Search />
               <PresentationTeam />
             </Route>
+            <Route path="/Mention-legales">
+              <Search />
+              <Mentions />
+            </Route>
             <Route path="/401">
               <Page401 />
             </Route>
@@ -90,7 +106,7 @@ const Ofiesta = ({
               <Disconnect />
             </Route>
             <Route path="/" exact>
-              <Search />
+              <Search searchButton={searchButtonActive} />
               <Home />
             </Route>
             <Route>
@@ -107,12 +123,16 @@ const Ofiesta = ({
 
 Ofiesta.propTypes = {
   checkUserConnected: PropTypes.func.isRequired,
-  fetchServices: PropTypes.func.isRequired,
   fetchDepartment: PropTypes.func.isRequired,
   fetchNameService: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  actualPage: PropTypes.number.isRequired,
-
+  actualPage: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  serviceIdToSearch: PropTypes.array.isRequired,
+  departmentCodeToSearch: PropTypes.array.isRequired,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 // == Export

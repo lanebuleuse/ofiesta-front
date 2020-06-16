@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   services: state.services.listServices,
   actualPage: state.services.actualPage,
   numberOPage: state.services.numberOPage,
+  serviceIdToSearch: state.search.serviceIdToSearch,
 });
 
 const mapDispatchToProps = (dispatch) => ({

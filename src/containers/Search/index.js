@@ -8,7 +8,11 @@ import {
   removeDepartment,
   listOfServiceToSearch,
   handleSearch,
+  cleanDataToSearch,
+  deleteInputValue,
 } from 'src/actions/search';
+import { resetActualPage } from 'src/actions/services';
+
 
 const mapStateToProps = (state) => ({
   serviceListName: state.search.serviceListName,
@@ -38,6 +42,19 @@ const mapDispatchToProps = (dispatch) => ({
   removeDepartment: (depCode, depName) => {
     dispatch(removeDepartment(depCode, depName));
   },
+
+  cleanDataToSearch: () => {
+    dispatch(cleanDataToSearch());
+  },
+
+  resetActualPage: () => {
+    dispatch(resetActualPage());
+  },
+
+  deleteInputValue: () => {
+    dispatch(deleteInputValue());
+  },
+
 });
 
 export default connect(

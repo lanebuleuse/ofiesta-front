@@ -5,6 +5,7 @@ import {
   DISCONNECT_USER,
   SAVE_PRO,
   UPDATE_OK,
+  CLEAR_USER,
 } from 'src/actions/user';
 
 
@@ -101,6 +102,12 @@ const userReducer = (state = initialState, action = {}) => {
         ...state,
         [action.identifier]: action.newValue,
       };
+
+    case CLEAR_USER:
+      return {
+
+      };
+
     default: return state;
   }
 };

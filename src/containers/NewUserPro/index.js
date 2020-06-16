@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import NewUserPro from 'src/components/NewUserPro';
 
-import { changeField, createUserPro, changeFieldCreateUserPro } from 'src/actions/newUserPro';
+import { changeField, createUserPro, changeFieldCreateUserPro, resetNewProMember } from 'src/actions/newUserPro';
 
 const mapStateToProps = (state) => ({
   // Retrieve the state on administration
@@ -30,6 +30,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   onChange: (value, name) => {
     dispatch(changeFieldCreateUserPro(value, name));
+  },
+
+  resetNewProMember: () => {
+    dispatch(resetNewProMember());
   },
 });
 

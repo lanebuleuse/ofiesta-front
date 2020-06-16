@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './presentation.scss';
-
+/* import './presentation.scss';
+ */
 
 // == Composant
 

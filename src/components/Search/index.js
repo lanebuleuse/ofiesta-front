@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 /* import { Form, Modal, Button } from 'react-bootstrap'; */
 
@@ -8,6 +9,7 @@ import {
   Button,
   Icon,
   Dropdown,
+  Input,
 } from 'semantic-ui-react';
 
 import './search.scss';
@@ -21,7 +23,16 @@ const Search = ({
   removeDepartment,
   serviceListName,
   listOfServiceToSearch,
+  cleanDataToSearch,
+  resetActualPage,
+  deleteInputValue,
+  searchButton,
+  noSearch,
 }) => {
+  useEffect(() => {
+    cleanDataToSearch();
+  }, []);
+
   const [modalOpen, setmodalOpen] = useState(false);
   const handleClose = () => setmodalOpen(false);
   const handleOpen = () => setmodalOpen(true);
@@ -37,13 +48,13 @@ const Search = ({
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     handleSearch();
   };
 
   const handleChangeDepartment = (evt) => {
     const targetStatus = evt.target.checked;
     if (targetStatus) {
+      resetActualPage();
       addDepartement(evt.target.value, evt.target.id);
     }
     else {
@@ -55,21 +66,41 @@ const Search = ({
       depCode = departmentCodeToSearch.filter((dep) => (
         dep !== evt.target.value
       ));
+      resetActualPage();
       removeDepartment(depCode, depName);
     }
   };
 
   const handleChangeService = (evt, data) => {
     listOfServiceToSearch(data.value);
+    resetActualPage();
   };
+
+  const handleDelete = () => {
+    const inputDep = document.querySelector('#inputDep');
+    inputDep.value = '';
+    deleteInputValue();
+  };
+
+  if (!noSearch) {
+    return (
+      <div className="search">
+        <div className="search--content">
+          <h4 className="search--subtitle">Organisez votre fête en quelques clics</h4>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="search">
       <div className="search--content">
-        <h4 className="search--subtitle">Pour une fête sans prise de tête</h4>
+        <h4 className="search--subtitle">Organisez votre fête</h4>
+        <h4 className="search--subtitle">en quelques clics</h4>
         <Form className="search--form" onSubmit={handleSubmit}>
           <Form.Group widths="equal">
             <Dropdown
+              className="search--form-field"
               placeholder="Que cherchez vous ?"
               fluid
               multiple
@@ -79,12 +110,22 @@ const Search = ({
             />
           </Form.Group>
           <Modal
-            trigger={<input onClick={handleOpen} placeholder="Où ça ?" value={departmentName} readOnly />}
+            trigger={(
+              <Input
+                id="inputDep"
+                label={<a onClick={handleDelete}><Icon name="close" /></a>}
+                labelPosition="right"
+                className="search--form-field--dep"
+                onClick={handleOpen}
+                placeholder="Où ça ?"
+                value={departmentName}
+                readOnly
+              />
+              )}
             open={modalOpen}
             onClose={handleClose}
             size="small"
             className="search--modal"
-            closeIcon
           >
             <Modal.Header>
               <Icon disabled name="browser" />Choississez vos lieux de recherche
@@ -127,8 +168,8 @@ const Search = ({
               </Button>
             </Modal.Actions>
           </Modal>
-          <Button type="submit" content="Chercher" className="search__form--button" />
         </Form>
+        {searchButton !== false && <Link className="search__form--button" to="/">Lancer une nouvelle recherche</Link>}
       </div>
     </div>
   );
@@ -143,6 +184,14 @@ Search.propTypes = {
   removeDepartment: PropTypes.func.isRequired,
   serviceListName: PropTypes.array.isRequired,
   listOfServiceToSearch: PropTypes.func.isRequired,
+  cleanDataToSearch: PropTypes.func.isRequired,
+  resetActualPage: PropTypes.func.isRequired,
+  deleteInputValue: PropTypes.func.isRequired,
+  noSearch: PropTypes.bool,
+};
+
+Search.defaultProps = {
+  noSearch: true,
 };
 
 export default Search;

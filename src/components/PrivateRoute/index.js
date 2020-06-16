@@ -33,7 +33,7 @@ const PrivateRoute = ({
             <Component {...props} />
           ) : (
             (userRole !== role)
-              ? <Redirect to="/401" />
+              ? <Redirect to="/" />
               : <Redirect to="/se-connecter" />
           ))}
       />

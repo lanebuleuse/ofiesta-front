@@ -18,6 +18,8 @@ export const UPDATE_OK = 'UPDATE_OK';
 export const UPDATE_FAVORITES = 'UPDATE_FAVORITES';
 export const DELETE_FAVORITES = 'DELETE_FAVORITES';
 
+export const CLEAR_USER = 'CLEAR_USER';
+
 export const saveConnectionInfo = (role, userid) => ({
   type: SAVE_CONNECTION_INFO,
   role,

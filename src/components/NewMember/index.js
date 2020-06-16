@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { Form, Label, Message } from 'semantic-ui-react';
 
@@ -80,14 +80,20 @@ const NewMember = ({
     }
   };
 
+  if (accountCreated) {
+    return (
+      <Redirect to="/se-connecter" />
+    );
+  }
+
   return (
     <>
-      {accountCreated && (
-        <>
-          <div>Votre compte à bien été créé</div>
-          <Link to="/se-connecter">Se connecter</Link>
-        </>
-      )}
+{/*       {accountCreated && (
+        <div className="createSuccess">
+          <h2 className="createSuccess--text">Votre compte à bien été créé</h2>
+          <Link className="createSuccess--button" to="/se-connecter">Se connecter</Link>
+        </div>
+      )} */}
       {!accountCreated && (
         <div className="newMembers">
           <h1 className="newMembers-title">Créer votre espace Membre</h1>
@@ -144,7 +150,7 @@ const NewMember = ({
                 onBlur={handleBlurEmail}
               />
               <Label id="errorMail" basic color="red" pointing>
-                8 caractères, minuscule, majuscule, chiffre et lettre ainsi qu'un caractère suivant !@#%&*
+                Votre adresse mail doit être de la forme suivante _____@___.___
               </Label>
             </Form.Field>
             <Form.Field required>
@@ -216,7 +222,7 @@ const NewMember = ({
               />
             </Form.Field>
             <button type="submit" className="adminConnect-submit">M'inscrire</button>
-            <p className="connectMembers-linkAccount"><a href="/se-connecter">Vous avez déjà un compte</a></p>
+            <p className="connectMembers-linkAccount"><Link to="/se-connecter">Vous avez déjà un compte</Link></p>
           </Form>
           <Message negative hidden id="errorMessage">
             <Message.Header>Veuillez remplir les champs requis</Message.Header>

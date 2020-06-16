@@ -9,6 +9,10 @@ export const LIST_SERVICE_TO_SEARCH = 'LIST_SERVICE_TO_SEARCH';
 export const ADD_DEPARTMENT = 'ADD_DEPARTMENT';
 export const REMOVE_DEPARTMENT = 'REMOVE_DEPARTMENT';
 
+export const CLEAN_DATA_TO_SEARCH = 'CLEAN_DATA_TO_SEARCH';
+
+export const DELETE_INPUT_VALUE = 'DELETE_INPUT_VALUE';
+
 export const changeField = (newValue, identifier) => ({
   type: CHANGE_FIELD,
   newValue,
@@ -53,3 +57,11 @@ export const listOfServiceToSearch = (data) => ({
   type: LIST_SERVICE_TO_SEARCH,
   data,
 });
+
+export const cleanDataToSearch = () => ({
+  type: CLEAN_DATA_TO_SEARCH,
+});
+
+export const deleteInputValue = () => ({
+  type: DELETE_INPUT_VALUE,
+})

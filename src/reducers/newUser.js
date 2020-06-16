@@ -1,4 +1,9 @@
-import { CHANGE_NEW_USER_VALUE, VALIDATE_ACCOUNT, RESET_NEW_MEMBER } from 'src/actions/newUser';
+import {
+  CHANGE_NEW_USER_VALUE,
+  VALIDATE_ACCOUNT,
+  RESET_NEW_MEMBER,
+  REMOVE_ACCOUNT_MESSAGE,
+} from 'src/actions/newUser';
 
 
 const initialState = {
@@ -17,7 +22,6 @@ const initialState = {
 
 const newUserReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-
 
     case VALIDATE_ACCOUNT:
       return {
@@ -53,6 +57,12 @@ const newUserReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+
+    case REMOVE_ACCOUNT_MESSAGE:
+      return {
+        ...state,
+        accountCreated: false,
       };
 
     default: return state;

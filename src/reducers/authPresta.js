@@ -1,10 +1,10 @@
-import { CHANGE_INPUT_VALUE, DISCONNECT_PRESTA } from 'src/actions/authPresta';
+import { CHANGE_INPUT_VALUE, DISCONNECT_PRESTA, RESET_AUTH_PRO_FORM } from 'src/actions/authPresta';
 
 
 const initialState = {
   // ici l'état initial
-  email: 'theodore38@wanadoo.fr',
-  password: '147258',
+  email: '',
+  password: '',
 };
 
 const authPrestaReducer = (state = initialState, action = {}) => {
@@ -19,6 +19,13 @@ const authPrestaReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isLogged: false,
+      };
+
+    case RESET_AUTH_PRO_FORM:
+      return {
+        ...state,
+        email: '',
+        password: '',
       };
 
     default: return state;

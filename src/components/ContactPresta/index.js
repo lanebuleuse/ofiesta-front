@@ -13,9 +13,9 @@ const ContactPresta = ({ isLogged }) => {
   const handleShow = () => setShow(true);
   return (
     <div className="contactPresta">
-      <Button variant="primary" onClick={handleShow} className="button-contact">
+      <a onClick={handleShow} className="button-contact">
         Contactez nous
-      </Button>
+      </a>
 
       {(!isLogged) && (
         <Modal className="modal--form" show={show} onHide={handleClose}>

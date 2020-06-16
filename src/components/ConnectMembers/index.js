@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+
+import { Icon } from 'semantic-ui-react';
 
 import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
@@ -14,20 +16,62 @@ const ConnectMembers = ({
   isLogged,
   handleLogin,
   accountCreated,
-
+  resetAuthForm,
+  removeAccountMessage,
+  authError,
+  removeErrorMessage,
 }) => {
+
+  useEffect(() => {
+    resetAuthForm();
+  }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
   };
 
+  const handleCloseMessage = () => {
+    removeAccountMessage();
+  };
+
+  if (removeAccountMessage) {
+    setTimeout(() => {
+      removeAccountMessage();
+    }, 5000);
+  }
+
+  const handleCloseErrorMessage = () => {
+    removeErrorMessage();
+  };
+
+  if (authError) {
+    setTimeout(() => {
+      removeErrorMessage();
+    }, 5000);
+  }
+
   return (
     <>
       {(isLogged) && <Redirect to="/mon-compte" />}
       <div className="connectMembers">
+        {(authError) && (
+          <div className="connectMembers--loginError">
+            <div className="connectMembers--accountCreated--content">
+              <Icon link name="close" onClick={handleCloseErrorMessage} />
+              Nous n'avons pas pu vous identifier
+              <p>
+                Veuillez recommencer
+              </p>
+            </div>
+          </div>
+        )}
         {(accountCreated) && (
-          <div>Votre compte a été créé avec succès!</div>
+          <div className="connectMembers--accountCreated">
+            <div className="connectMembers--accountCreated--content">
+              <Icon link name="close" onClick={handleCloseMessage} />Votre compte à bien été créé
+            </div>
+          </div>
         )}
         <form className="connectMembers-form" onSubmit={handleSubmit}>
           <h1 className="connectMembers-title">Se connecter à votre espace</h1>
@@ -47,7 +91,7 @@ const ConnectMembers = ({
             value={password}
           />
           <button type="submit" className="adminConnect-submit">Se connecter</button>
-          <p className="connectMembers-linkAccount"><a href="/inscription">Vous n'avez pas encore de compte</a></p>
+          <p className="connectMembers-linkAccount"><Link to="/inscription">Vous n'avez pas encore de compte</Link></p>
         </form>
       </div>
     </>
@@ -61,6 +105,10 @@ ConnectMembers.propTypes = {
   changeField: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
   accountCreated: PropTypes.bool.isRequired,
+  resetAuthForm: PropTypes.func.isRequired,
+  removeAccountMessage: PropTypes.func.isRequired,
+  authError: PropTypes.bool.isRequired,
+  removeErrorMessage: PropTypes.func.isRequired,
 };
 
 ConnectMembers.defaultProps = {

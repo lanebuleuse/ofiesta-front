@@ -6,7 +6,15 @@ import GoogleMapReact from 'google-map-react';
 
 import './googlemaps.scss';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ lat, lng }) => (
+  <div
+    lat={lat}
+    lng={lng}
+    className="markerGoogleMap"
+  >
+    <i className="fa fa-dot-circle-o" aria-hidden="true" />
+  </div>
+);
 
 const GoogleMap = ({ center, zoom }) => (
   <div className="googlemaps">
@@ -18,7 +26,6 @@ const GoogleMap = ({ center, zoom }) => (
       <AnyReactComponent
         lat={center.lat}
         lng={center.lng}
-        text="My Marker"
       />
     </GoogleMapReact>
   </div>

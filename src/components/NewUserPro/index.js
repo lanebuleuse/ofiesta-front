@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
@@ -31,10 +31,15 @@ const NewUserPro = ({
   phone,
   password,
   passwordbis,
-  changeField,
   createUserPro,
   onChange,
+  resetNewProMember,
 }) => {
+
+  useEffect(() => {
+    resetNewProMember();
+  }, []);
+
   const handleSubmit = (evt) => {
     const divError = document.querySelector('#errorMessage');
     evt.preventDefault();
@@ -146,7 +151,7 @@ const NewUserPro = ({
             onBlur={handleBlurEmail}
           />
           <Label id="errorMail" basic color="red" pointing>
-            Votre email doit être de la forme suivante : ___@___.__
+            Votre adresse mail doit être de la forme suivante _____@___.___
           </Label>
         </Form.Field>
         <Form.Field>
@@ -252,7 +257,7 @@ NewUserPro.propTypes = {
   phone: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   passwordbis: PropTypes.string.isRequired,
-  changeField: PropTypes.func.isRequired,
+  resetNewProMember: PropTypes.func.isRequired,
   createUserPro: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
 };
