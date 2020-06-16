@@ -58,7 +58,6 @@ const userMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           localStorage.clear();
-          console.warn(error);
         });
 
       next(action);
@@ -98,7 +97,6 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(updateOk());
         })
         .catch((error) => {
-          console.log(error);
         });
       next(action);
       break;
@@ -120,11 +118,9 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response);
           store.dispatch(fetchMemberinformation());
         })
         .catch((error) => {
-          console.log(error);
         });
       next(action);
       break;
@@ -150,7 +146,6 @@ const userMiddleware = (store) => (next) => (action) => {
           store.dispatch(fetchMemberinformation());
         })
         .catch((error) => {
-          console.log(error);
         });
       next(action);
       break;

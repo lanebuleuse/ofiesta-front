@@ -88,12 +88,6 @@ const NewMember = ({
 
   return (
     <>
-{/*       {accountCreated && (
-        <div className="createSuccess">
-          <h2 className="createSuccess--text">Votre compte à bien été créé</h2>
-          <Link className="createSuccess--button" to="/se-connecter">Se connecter</Link>
-        </div>
-      )} */}
       {!accountCreated && (
         <div className="newMembers">
           <h1 className="newMembers-title">Créer votre espace Membre</h1>
@@ -168,9 +162,13 @@ const NewMember = ({
               <Label id="errorPassword" basic color="red" pointing>
                 8 caractères, minuscule, majuscule, chiffre et lettre ainsi qu'un caractère suivant !@#%&*
               </Label>
+              <Label size="mini" className="password--info">
+                8 caract. minuscule, majuscule, chiffre et caractère spéciaux !@#%&*
+              </Label>
             </Form.Field>
             <Form.Field required>
               <label>Resaisir votre mot de passe</label>
+              
               <input
                 type="password"
                 id="passwordbis"
@@ -181,6 +179,9 @@ const NewMember = ({
                 value={passwordbis}
                 onBlur={handleBlurPasswordBis}
               />
+              <Label size="mini" className="password--info">
+                   
+              </Label>
             </Form.Field>
             <Form.Field required>
               <label>Votre adresse</label>
